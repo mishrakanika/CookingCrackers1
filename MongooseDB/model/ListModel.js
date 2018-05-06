@@ -15,8 +15,8 @@ var ListModel = /** @class */ (function () {
             //description: String,
             listId: Number,
             //due: String,
-            state: String,
-            owner: String
+            //state: String,
+            //owner: String
         }, { collection: 'lists' });
     };
     ListModel.prototype.createModel = function () {
