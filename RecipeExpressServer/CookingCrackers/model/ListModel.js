@@ -12,11 +12,11 @@ var ListModel = /** @class */ (function () {
     ListModel.prototype.createSchema = function () {
         this.schema = new Mongoose.Schema({
             name: String,
-            description: String,
+            //description: String,
             listId: Number,
-            due: String,
-            state: String,
-            owner: String
+            //due: String,
+            //state: String,
+            //owner: String
         }, { collection: 'lists' });
     };
     ListModel.prototype.createModel = function () {

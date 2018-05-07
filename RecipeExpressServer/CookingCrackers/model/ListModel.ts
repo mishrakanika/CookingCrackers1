@@ -18,11 +18,11 @@ class ListModel {
         this.schema = new Mongoose.Schema(
             {
                 name: String,
-                description: String,
+                //description: String,
                 listId: Number,
-                due: String,
-                state: String,
-                owner: String
+                //due: String,
+                //state: String,
+                //owner: String
             }, {collection: 'lists'}
         );
     }

@@ -19,10 +19,14 @@ class TaskModel {
             {
                 listId: Number,
                 tasks: [ {
-                description: String,
-                taskId: Number,
-                shared: String,
-                status: String
+                    rname: String,
+                    rdescription: String,
+                    rtaskId: Number,
+                    rcuisinetype: String,
+                    rmealpreference: String,
+                    rmealtype: String,
+                    rduration: Number,
+                    ringredients: String
                 }]
             }, {collection: 'tasks'}
         );
