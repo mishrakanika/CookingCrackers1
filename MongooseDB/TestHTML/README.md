@@ -4,4 +4,5 @@ To execute:
 
 Check browser:
 http://localhost:8080
+http://localhost:8080/home1.html
 
