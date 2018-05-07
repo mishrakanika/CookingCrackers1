@@ -1,0 +1,6 @@
+
+*.wt
+
+RecipeExpressServer/CookingCrackers/testDB/
+
+RecipeExpressServer/CookingCrackers/test.http
