@@ -26,7 +26,8 @@ class TaskModel {
                     rmealpreference: String,
                     rmealtype: String,
                     rduration: Number,
-                    ringredients: String
+                    ringredients: String,
+                    rchefid: String
                 }]
             }, {collection: 'tasks'}
         );

@@ -13,16 +13,15 @@ var TaskModel = /** @class */ (function () {
         this.schema = new Mongoose.Schema({
             listId: Number,
             tasks: [{
-                    rname: String,
-                    rdescription: String,
-                    rtaskId: Number,
-                    rcuisinetype: String,
-                    rmealpreference: String,
-                    rmealtype: String,
-                    rduration: Number,
-                    ringredients: String
-
-
+                rname: String,
+                rdescription: String,
+                rtaskId: Number,
+                rcuisinetype: String,
+                rmealpreference: String,
+                rmealtype: String,
+                rduration: Number,
+                ringredients: String,
+                rchefid: String
                 }]
         }, { collection: 'tasks' });
     };
