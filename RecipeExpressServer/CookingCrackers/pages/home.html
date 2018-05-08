@@ -94,7 +94,7 @@
 }
 </style>
 </head>
-<body class="backImage" onload="initXHR('lists',null)">
+<body class="backImage" onload="initXHR('home',null)">
 <div class="navbar">
   <a href="#home">Home</a>
   <a href="#favoriterecipes">Favourite Recipes</a>
@@ -131,18 +131,12 @@
     <a href="#contactus">Contact Us</a>
 </div>
 <br/><br/>
-<!-- <div id ="mealtypeid" class = "heading1"> -->
-    	<div style="display:none;">
-            </div>
-            <div id="lists" href="javascript:initXHR('lists',null)" style="display:block;">
+            <div id="mealtypelist" href="javascript:initXHR('lists',null)" style="display:block;">
                     <div class="panel panel-default">
                       <!-- Default panel contents -->
                       <div class="panel-heading"> 
-                        <li><a class="navbar-brand" href="javascript:initXHR('home', null)">HOME</a></li>
-                        <div id="home">
-                            <div>
-                                <div>
-                                    <div>
+                        <li><a class="navbar-brand" href="javascript:initXHR('mealtype', null)">Meal types</a></li>
+                        <div id="mealtype">
                                         <ul>
             
                                             <li><a href="javascript:initXHR('lists', 'Breakfast')">Breakfast</a></li>
@@ -156,21 +150,6 @@
                                 </div>
                             </div>
                         </div>
-                      </div>
-                        <!-- Table -->
-                        <!-- <table class="table" style="font-size:10pt;">
-                            <thead>
-                                <tr>
-                                    <th>Items</th>
-                                    <th width="5%">Shared</th>
-                                    <th width="5%">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id='tasks'>
-                            </tbody>
-                        </table> -->
-                    </div>
-                </div>
 <!-- <button class="button" onclick="window.location.href='breakfast.html'">Breakfast</button><br/><br/> -->
 <!-- <button class="button" onclick="window.location.href='dinner.html'">Dinner</button><br/><br/>
 <button class="button" onclick="window.location.href='snacks.html'">Snacks</button><br/><br/> -->

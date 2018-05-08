@@ -1,27 +1,27 @@
 function initXHR(x,value) {
 	console.log(x);
-	if (x == 'home') {
-		document.getElementById("home").style.display = "block";
+	if (x == 'mealtype') {
+		document.getElementById("mealtype").style.display = "block";
 		document.getElementById("lists").style.display = "none";
 		document.getElementById("gList").style.display = "none";
 	}
 	else if (x == 'lists') {
 		//retrieveActiveListsFromServer('/json/lists.json');
 		retrieveActiveListsFromServer('/', 'lists');
-		document.getElementById("home").style.display = "block";
+		document.getElementById("mealtype").style.display = "none";
 		document.getElementById("lists").style.display = "block";
-		document.getElementById("gList").style.display = "block";		
+		document.getElementById("gList").style.display = "none";		
 	}
 	else if (x == 'gList') {
 		retrieveActiveListsFromServer('/app/list/' + value, 'gList');
-		document.getElementById("home").style.display = "block";
-		document.getElementById("lists").style.display = "block";
+		document.getElementById("mealtype").style.display = "none";
+		document.getElementById("lists").style.display = "none";
 		document.getElementById("gList").style.display = "block";
 	}
 	else {
-		document.getElementById("home").style.display = "block";
-		document.getElementById("lists").style.display = "block";
-		document.getElementById("gList").style.display = "block";
+		document.getElementById("mealtype").style.display = "block";
+		document.getElementById("lists").style.display = "none";
+		document.getElementById("gList").style.display = "none";
 	}
 }
 
@@ -110,28 +110,28 @@ function populateListsView(elementId, lists) {
 // 	element.innerHTML = newElement;
 // }
 
-//DOM based function
-function populateListItems(elementId, list) {
-	var listItems = list.tasks;
-	var element = document.getElementById(elementId);
-	var newElement = "";
+// //DOM based function
+// function populateListItems(elementId, list) {
+// 	var listItems = list.tasks;
+// 	var element = document.getElementById(elementId);
+// 	var newElement = "";
 
-	for (var i = 0; i < listItems.length; i++) {
-		newElement += "<tr>";
-		newElement += "<td>" + listItems[i].description + "</td>";
-		newElement += "<td><span class=\"badge\">" + listItems[i].shared + "</span></td>";
-		newElement += "<td>";
-		newElement += "<div class=\"input-group\">";
-		newElement += "<span class=\"input-group-addon\" style=\"border-style:none;\">";
-		newElement += "<input type=\"checkbox\">";
-		newElement += "</span>";
-		newElement += "</div>";
-		newElement += "</td>";
-		newElement += "</tr>";
-	}
+// 	for (var i = 0; i < listItems.length; i++) {
+// 		newElement += "<tr>";
+// 		newElement += "<td>" + listItems[i].description + "</td>";
+// 		newElement += "<td><span class=\"badge\">" + listItems[i].shared + "</span></td>";
+// 		newElement += "<td>";
+// 		newElement += "<div class=\"input-group\">";
+// 		newElement += "<span class=\"input-group-addon\" style=\"border-style:none;\">";
+// 		newElement += "<input type=\"checkbox\">";
+// 		newElement += "</span>";
+// 		newElement += "</div>";
+// 		newElement += "</td>";
+// 		newElement += "</tr>";
+// 	}
 
-	element.innerHTML = newElement;	
-}
+// 	element.innerHTML = newElement;	
+// }
 
 //JQUERY based
 // function populateListItems(elementId, list) {
