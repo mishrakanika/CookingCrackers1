@@ -13,10 +13,7 @@ var ListModel = /** @class */ (function () {
         this.schema = new Mongoose.Schema({
             name: String,
             //description: String,
-            listId: Number,
-            //due: String,
-            //state: String,
-            //owner: String
+            listId: Number
         }, { collection: 'lists' });
     };
     ListModel.prototype.createModel = function () {

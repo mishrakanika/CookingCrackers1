@@ -34,22 +34,22 @@ var App = /** @class */ (function () {
         //     console.log('Query single list with id: ' + id);
         //     this.Tasks.retrieveTasksCount(res, {listId: id});
         // });
-        router.get('/recipes/list/:listId', function (req, res) {
+        router.get('/app/list/:listId', function (req, res) {
             var id = req.params.listId;
             console.log('Query single list with id: ' + id);
             _this.Tasks.retrieveTasksDetails(res, { listId: id });
         });
-        router.post('/recipes/list/:listId', function (req, res) {
+        router.post('/app/list/:listId', function (req, res) {
             console.log(req.body);
             var id = req.params.listId;
             console.log('Query single list with id: ' + id);
             res.send("Received post for id:" + id);
         });
-        router.get('/recipes/list/', function (req, res) {
+        router.get('/app/list/', function (req, res) {
             console.log('Query All list');
             _this.Lists.retrieveAllLists(res);
         });
-        router.post('/recipes/list/', function (req, res) {
+        router.post('/app/list/', function (req, res) {
             console.log(req.body);
             var jsonObj = req.body;
             jsonObj.listId = _this.idGenerator;

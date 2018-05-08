@@ -50,13 +50,13 @@ class App {
 
     
 
-    router.get('/recipes/list/:listId', (req, res) => {
+    router.get('/app/list/:listId', (req, res) => {
         var id = req.params.listId;
         console.log('Query single list with id: ' + id);
         this.Tasks.retrieveTasksDetails(res, {listId: id});
     });
 
-    router.post('/recipes/list/:listId', (req, res) => {
+    router.post('/app/list/:listId', (req, res) => {
         console.log(req.body);
         var id = req.params.listId;
         console.log('Query single list with id: ' + id);
@@ -65,12 +65,12 @@ class App {
 
 
 
-    router.get('/recipes/list/', (req, res) => {
+    router.get('/app/list/', (req, res) => {
         console.log('Query All list');
         this.Lists.retrieveAllLists(res);
     });
 
-    router.post('/recipes/list/', (req, res) => {
+    router.post('/app/list/', (req, res) => {
         console.log(req.body);
         var jsonObj = req.body;
         jsonObj.listId = this.idGenerator;

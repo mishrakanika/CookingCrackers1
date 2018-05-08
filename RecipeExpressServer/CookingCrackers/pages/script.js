@@ -3,26 +3,33 @@ function initXHR(x) {
 	if (x == 'home') {
 		document.getElementById("home").style.display = "block";
 		document.getElementById("lists").style.display = "none";
-		
+		document.getElementById("gList").style.display = "none";
 	}
 	else if (x == 'lists') {
-		retrieveActiveListsFromServer('/json/lists.json');
+		//retrieveActiveListsFromServer('/json/lists.json');
+		retrieveActiveListsFromServer('/app/list/', 'lists');
 		document.getElementById("home").style.display = "none";
 		document.getElementById("lists").style.display = "block";
-				
+		document.getElementById("gList").style.display = "none";		
+	}
+	else if (x == 'gList') {
+		retrieveActiveListsFromServer('/app/list/' + value, 'gList');
+		document.getElementById("home").style.display = "none";
+		document.getElementById("lists").style.display = "none";
+		document.getElementById("gList").style.display = "block";
 	}
 	else {
 		document.getElementById("home").style.display = "block";
 		document.getElementById("lists").style.display = "none";
-		
+		document.getElementById("gList").style.display = "none";
 	}
 }
 
-function initXHR2() {
-	retrieveTransportationListsFromServer('/all/json');	
-}
+// function initXHR2() {
+// 	retrieveTransportationListsFromServer('/all/json');	
+// }
 
-function retrieveActiveListsFromServer(url) {
+function retrieveActiveListsFromServer(url, operation) {
 	var xmlhttp = new XMLHttpRequest();
 	var lists;
 
@@ -30,7 +37,13 @@ function retrieveActiveListsFromServer(url) {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var lists = JSON.parse(xmlhttp.responseText);
 			console.log(lists);
-			populateListsView('lists', lists);
+
+			if (operation == 'lists') {
+				populateListsView('lists', returnValues);
+			}
+			else if (operation == 'gList') {
+				populateListItems('tasks', returnValues);				
+			}
 		}
 	}
 	xmlhttp.open("GET", url, true);
