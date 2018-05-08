@@ -42,6 +42,8 @@ class App {
   // Configure API endpoints.
   private routes(): void {
     let router = express.Router();
+
+
     // router.get('/recipes/list/:listId/count', (req, res) => {
     //     var id = req.params.listId;
     //     console.log('Query single list with id: ' + id);
@@ -116,26 +118,14 @@ class App {
         });
     });
 
-    // router.get('/', (req, res) => {
-        
-    //     fs.readFile('pages/home.html', 'utf8', function (err, data) {
-    //     if (err) {
-    //         return console.log(err);
-    //     }
-    //     res.end(data);
-    //     });
-    // });
-
-
-
-
+   
 
     this.expressApp.use('/', router);
 
-    // this.expressApp.use('/app/json/', express.static(__dirname+'/app/json'));
-    // this.expressApp.use('/images', express.static(__dirname+'/img'));
-    // this.expressApp.use('/', express.static(__dirname+'/pages'));
-     //this.expressApp.use('/', express.static(./pages/home.html));
+    this.expressApp.use('/app/json/', express.static(__dirname+'/app/json'));
+    this.expressApp.use('/images', express.static(__dirname+'/img'));
+    this.expressApp.use('/', express.static(__dirname+'/pages'));
+     
     
   }
 
