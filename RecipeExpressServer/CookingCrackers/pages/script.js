@@ -154,37 +154,37 @@ function populateListsView(elementId, lists) {
 // 	$("#" + elementId).append(newElement);
 // }
 
-function retrieveTransportationListsFromServer(url) {
-	var xmlhttp = new XMLHttpRequest();
-	var lists;
+// function retrieveTransportationListsFromServer(url) {
+// 	var xmlhttp = new XMLHttpRequest();
+// 	var lists;
 
-	xmlhttp.onreadystatechange = function() {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			var lists = JSON.parse(xmlhttp.responseText);
-			console.log(lists);
-			populateTransportView('transport', lists);
-		}
-	}
-	xmlhttp.open("GET", url, true);
-	xmlhttp.send();
-}
+// 	xmlhttp.onreadystatechange = function() {
+// 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+// 			var lists = JSON.parse(xmlhttp.responseText);
+// 			console.log(lists);
+// 			populateTransportView('transport', lists);
+// 		}
+// 	}
+// 	xmlhttp.open("GET", url, true);
+// 	xmlhttp.send();
+// }
 
-function populateTransportView(elementId, lists) {
-	element = document.getElementById(elementId);
-	var newElement = "<h3 class=\"panel-heading\">Transportation Lists</h3>";
+// function populateTransportView(elementId, lists) {
+// 	element = document.getElementById(elementId);
+// 	var newElement = "<h3 class=\"panel-heading\">Transportation Lists</h3>";
 
-	for (var i = 0; i < lists.length; i++) {
-		newElement += "<div class=\"panel panel-default\">";
-		newElement += "<table class=\"table\" style=\"font-size:10pt;\">";
-		newElement += "<tbody>";
-		newElement += "<tr>";
-		newElement += "<td>Vehicle Name: <span>" + lists[i].vehicle + "</span></td>";
-		newElement += "<td align=\"right\">Speed: <span class=\"badge\">" + lists[i].speed + "</span></td>";
-		newElement += "</tr>";
-		newElement += "</tbody>";
-		newElement += "</table>";
-		newElement += "</div>";
-	}
+// 	for (var i = 0; i < lists.length; i++) {
+// 		newElement += "<div class=\"panel panel-default\">";
+// 		newElement += "<table class=\"table\" style=\"font-size:10pt;\">";
+// 		newElement += "<tbody>";
+// 		newElement += "<tr>";
+// 		newElement += "<td>Vehicle Name: <span>" + lists[i].vehicle + "</span></td>";
+// 		newElement += "<td align=\"right\">Speed: <span class=\"badge\">" + lists[i].speed + "</span></td>";
+// 		newElement += "</tr>";
+// 		newElement += "</tbody>";
+// 		newElement += "</table>";
+// 		newElement += "</div>";
+// 	}
 
-	element.innerHTML = newElement;
-}
+// 	element.innerHTML = newElement;
+// }
