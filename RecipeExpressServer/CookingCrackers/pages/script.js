@@ -7,7 +7,7 @@ function initXHR(x,value) {
 	}
 	else if (x == 'lists') {
 		//retrieveActiveListsFromServer('/json/lists.json');
-		retrieveActiveListsFromServer('/', 'lists');
+		retrieveActiveListsFromServer('/' + value, 'lists');
 		document.getElementById("mealtype").style.display = "none";
 		document.getElementById("lists").style.display = "block";
 		document.getElementById("gList").style.display = "none";		
@@ -59,9 +59,9 @@ xmlhttp.onreadystatechange = function() {
 		if (operation == "lists") {
 			populateListsView('lists', returnValues);
 		}
-		// else if (operation == "gList") {
-		// 	populateListItems('tasks', returnValues);				
-		//}
+		else if (operation == "gList") {
+			populateListItems('tasks', returnValues);				
+		}
 	}
 }
 xmlhttp.open("GET", url, true);
@@ -73,7 +73,7 @@ function populateListsView(elementId, lists) {
 	var element = document.getElementById(elementId);
 	var newElement = "";
 	newElement += "<div>";
-    //newElement += "<h1><u>"+lists[0].recipeCategory+"</u></h1>";
+    newElement += "<h1><u>"+lists[0].lists+"</u></h1>";
       
 	for (var i = 0; i < lists.length; i++) {
 		
@@ -110,28 +110,28 @@ function populateListsView(elementId, lists) {
 // 	element.innerHTML = newElement;
 // }
 
-// //DOM based function
-// function populateListItems(elementId, list) {
-// 	var listItems = list.tasks;
-// 	var element = document.getElementById(elementId);
-// 	var newElement = "";
+//DOM based function
+function populateListItems(elementId, list) {
+	var listItems = list.tasks;
+	var element = document.getElementById(elementId);
+	var newElement = "";
 
-// 	for (var i = 0; i < listItems.length; i++) {
-// 		newElement += "<tr>";
-// 		newElement += "<td>" + listItems[i].description + "</td>";
-// 		newElement += "<td><span class=\"badge\">" + listItems[i].shared + "</span></td>";
-// 		newElement += "<td>";
-// 		newElement += "<div class=\"input-group\">";
-// 		newElement += "<span class=\"input-group-addon\" style=\"border-style:none;\">";
-// 		newElement += "<input type=\"checkbox\">";
-// 		newElement += "</span>";
-// 		newElement += "</div>";
-// 		newElement += "</td>";
-// 		newElement += "</tr>";
-// 	}
+	for (var i = 0; i < listItems.length; i++) {
+		newElement += "<tr>";
+		newElement += "<td>" + listItems[i].description + "</td>";
+		newElement += "<td><span class=\"badge\">" + listItems[i].shared + "</span></td>";
+		newElement += "<td>";
+		newElement += "<div class=\"input-group\">";
+		newElement += "<span class=\"input-group-addon\" style=\"border-style:none;\">";
+		newElement += "<input type=\"checkbox\">";
+		newElement += "</span>";
+		newElement += "</div>";
+		newElement += "</td>";
+		newElement += "</tr>";
+	}
 
-// 	element.innerHTML = newElement;	
-// }
+	element.innerHTML = newElement;	
+}
 
 //JQUERY based
 // function populateListItems(elementId, list) {
