@@ -70,6 +70,19 @@ class App {
         this.Lists.retrieveAllLists(res);
     });
 
+
+    router.get('/', (req, res) => {
+        console.log('Query All list');
+        this.Lists.retrieveAllLists(res);
+       //initXHR('lists');
+    });
+
+    router.get('/pages/home.html/', (req, res) => {
+        console.log('Query All list');
+        this.Lists.retrieveAllLists(res);
+       //initXHR('lists');
+    });
+
     router.post('/app/list/', (req, res) => {
         console.log(req.body);
         var jsonObj = req.body;
@@ -99,21 +112,19 @@ class App {
             return console.log(err);
         }
 
-        res.end(data);
+        res.send(data);
         });
     });
 
-
-    router.get('/', (req, res) => {
+    // router.get('/', (req, res) => {
         
-        fs.readFile('pages/home.html', 'utf8', function (err, data) {
-        if (err) {
-            return console.log(err);
-        }
-
-        res.end(data);
-        });
-    });
+    //     fs.readFile('pages/home.html', 'utf8', function (err, data) {
+    //     if (err) {
+    //         return console.log(err);
+    //     }
+    //     res.end(data);
+    //     });
+    // });
 
 
 
