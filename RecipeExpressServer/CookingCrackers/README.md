@@ -9,10 +9,8 @@ or node AppServer.js
 
 
 Check browser:
-http://localhost:8080
-http://localhost:8080/breakfast.html
-http://localhost:8080/dinner.html
-http://localhost:8080/snacks.html
+http://localhost:8080/home.html
+
 
 
 3) To Create and load scripts

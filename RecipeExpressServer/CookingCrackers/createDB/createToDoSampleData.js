@@ -1,4 +1,4 @@
-db = db.getSiblingDB('sampledb2')
+db = db.getSiblingDB('Recipes')
 db.createCollection('lists')
 listsCollection = db.getCollection("lists")
 listsCollection.remove({})
@@ -63,7 +63,7 @@ tasksCollection.insert(
 	tasks : [
 	 {
 		rname: "Triangle Puff",
-		rdescription: "Description…",
+		rdescription: "Allow this mixture to cook for about 2 minutes, stirring constantly. The Upma absorbs water very quickly and tends to dry out too, so turn off the heat when the mixture is slightly runny. Serve immediately…",
 		rtaskId: 1,
 		rcuisinetype: "Indian",
 		rmealpreference: "Vegetarian",
@@ -75,7 +75,7 @@ tasksCollection.insert(
 	 },
 	 {
 		rname: "Strawberry Quinoa Pancakes",
-		rdescription: "Description…",
+		rdescription: "Allow this mixture to cook for about 2 minutes, stirring constantly. The Upma absorbs water very quickly and tends to dry out too, so turn off the heat when the mixture is slightly runny. Serve immediately",
 		rtaskId: 1,
 		rcuisinetype: "American",
 		rmealpreference: "Vegetarian",
@@ -93,7 +93,7 @@ tasksCollection.insert(
 	tasks : [
 	 {
 		rname: "Tortellini in Brodo",
-		rdescription: "Description…",
+		rdescription: "cook for about 2 minutes, stirring constantly. The Upma absorbs water very quickly and tends to dry out too, so turn off the heat when the mixture is slightly runny. Serve immediately",
 		rtaskId: 1,
 		rcuisinetype: "Italian",
 		rmealpreference: "Non-Vegetarian",
@@ -104,7 +104,7 @@ tasksCollection.insert(
 	 },
 	 {
 		rname: "Escarole and Bean Soup",
-		rdescription: "Description…",
+		rdescription: " The Upma absorbs water very quickly and tends to dry out too, so turn off the heat when the mixture is slightly runny. Serve immediately",
 		rtaskId: 1,
 		rcuisinetype: "Italian",
 		rmealpreference: "Non-Vegetarian",

@@ -44,12 +44,6 @@ class App {
     let router = express.Router();
 
 
-    // router.get('/recipes/list/:listId/count', (req, res) => {
-    //     var id = req.params.listId;
-    //     console.log('Query single list with id: ' + id);
-    //     this.Tasks.retrieveTasksCount(res, {listId: id});
-    // });
-
     
 
     router.get('/app/list/:listId', (req, res) => {
@@ -118,12 +112,6 @@ class App {
         });
     });
 
-   
-
-    // router.get('/breakfast.html/', (req, res) => {
-    //     console.log('Query All list');
-    //     this.Lists.retrieveAllLists(res);
-    // });
 
 
     this.expressApp.use('/', router);
