@@ -68,7 +68,10 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-
+.bold
+{
+    font-weight: bold;   
+}
 .dropdown-content a {
     float: none;
     color: black;
@@ -131,37 +134,46 @@
     <a href="#contactus">Contact Us</a>
 </div>
 <br/><br/>
-            <div id="mealtypelist" href="javascript:initXHR('lists',null)" style="display:block;">
+            <div id="meal" >
                     <div class="panel panel-default">
                       <!-- Default panel contents -->
                       <div class="panel-heading"> 
                         <li><a class="navbar-brand" href="javascript:initXHR('lists', null)">Meal types</a></li>
-                        <div id="lists">
+                        <!-- <div id="lists">
                                         <ul>
-                                            <!-- <li><a>Breakfast</a></li>
+                                             <li><a>Breakfast</a></li>
                                             <li><a>Snacks</a></li>
                                             <li><a>Dinner</a></li> -->
 
 <!--             
                                             <li><a href="javascript:initXHR('lists', 'Breakfast')">Breakfast</a></li>
                                             <li><a href="javascript:initXHR('lists', 'Snacks')">Snacks</a></li>
-                                            <li><a href="javascript:initXHR('lists', 'Dinner')">Dinner</a></li> -->
+                                            <li><a href="javascript:initXHR('lists', 'Dinner')">Dinner</a></li> 
                                         
                     
                                         </ul>
-                                    </div>
-                            
+                                    </div> -->
+                                </div>
+                                <div id="home" style="display:none;">
+                                </div>
+                                </div>
+                                <div id="lists" style="display:none;">
+                                </div>
+                            </div>
+                            <div id="gList" style="display:none;">
+                            </div>
+
                                 </div>
                             </div>
                         </div>
 
 
-                    </div>
-                    <div id="lists" style="display:none;">
-                    </div>
-<!-- <button class="button" onclick="window.location.href='breakfast.html'">Breakfast</button><br/><br/> -->
+                   
+                <!-- <p>
+                    <a class="btn btn-lg btn-primary" href="javascript:initXHR('lists', null)" role="button">View</a>
+                  </p> -->
 <!-- <button class="button" onclick="window.location.href='dinner.html'">Dinner</button><br/><br/>
 <button class="button" onclick="window.location.href='snacks.html'">Snacks</button><br/><br/> -->
-<script src="/RecipeExpressServer/CookingCrackers/pages/script.js"></script>
+<script src="/script.js"></script>
 </body>
 </html>

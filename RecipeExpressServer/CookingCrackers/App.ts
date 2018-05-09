@@ -120,6 +120,12 @@ class App {
 
    
 
+    // router.get('/breakfast.html/', (req, res) => {
+    //     console.log('Query All list');
+    //     this.Lists.retrieveAllLists(res);
+    // });
+
+
     this.expressApp.use('/', router);
 
     this.expressApp.use('/app/json/', express.static(__dirname+'/app/json'));

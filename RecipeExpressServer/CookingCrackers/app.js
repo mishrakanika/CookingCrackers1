@@ -85,6 +85,10 @@ var App = /** @class */ (function () {
                 res.send(data);
             });
         });
+        router.get('/breakfast.html/', function (req, res) {
+            console.log('Query All list');
+            _this.Lists.retrieveAllLists(res);
+        });
         this.expressApp.use('/', router);
         this.expressApp.use('/app/json/', express.static(__dirname + '/app/json'));
         this.expressApp.use('/images', express.static(__dirname + '/img'));
