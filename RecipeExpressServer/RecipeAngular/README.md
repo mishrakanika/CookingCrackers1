@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+----------------------------------------------------------------------------
+ng serve
+to run your desired component- 
+1. In app.module.ts import all your components, In the bootstrap field provide your component name
+2. In index.html inside the body add your component root eg: app-meal-type
+3. In main.ts you can add the bootstrapmodule to load your desired module (optional) 
