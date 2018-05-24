@@ -5,18 +5,22 @@ import { AppComponent } from './app.component';
 import { MealTypeComponent } from './meal-type/meal-type.component';
 import { CuisineTypeComponent } from './cuisine-type/cuisine-type.component';
 import { MealPreferenceComponent } from './meal-preference/meal-preference.component';
+import { HomeComponent } from './home/home.component';
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
     AppComponent,
     MealTypeComponent,
     CuisineTypeComponent,
-    MealPreferenceComponent
+    MealPreferenceComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    routing,
   ],
   providers: [],
-  bootstrap: [MealTypeComponent]
+  bootstrap: [HomeComponent]
 })
 export class AppModule { }
