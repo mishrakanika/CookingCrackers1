@@ -7,6 +7,10 @@ import { CuisineTypeComponent } from './cuisine-type/cuisine-type.component';
 import { MealPreferenceComponent } from './meal-preference/meal-preference.component';
 import { HomeComponent } from './home/home.component';
 import { routing } from './app.routing';
+import { ChefprofileComponent } from './chefprofile/chefprofile.component';
+import { AddrecipeComponent } from './chefprofile/addrecipe/addrecipe.component';
+import { UpdaterecipeComponent } from './chefprofile/updaterecipe/updaterecipe.component';
+import { DeleterecipeComponent } from './chefprofile/deleterecipe/deleterecipe.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +18,11 @@ import { routing } from './app.routing';
     MealTypeComponent,
     CuisineTypeComponent,
     MealPreferenceComponent,
-    HomeComponent
+    HomeComponent,
+    ChefprofileComponent,
+    AddrecipeComponent,
+    UpdaterecipeComponent,
+    DeleterecipeComponent
   ],
   imports: [
     BrowserModule,
