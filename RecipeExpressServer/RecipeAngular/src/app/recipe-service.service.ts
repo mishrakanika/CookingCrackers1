@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { HttpModule} from '@angular/http';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import './rxjs-operators';
-
 
 
  @Injectable()
@@ -20,8 +21,9 @@ export class RecipeServiceService {
 
   getItems(index: string) {
     return this.http.get( 'http://localhost:8080/json/lists/' + index + '.json')
-//    return this.http.get( '/app/list/' + index)
     .map(response => response.json());
+//    return this.http.get( '/app/list/' + index)
+    
   }
 
 }
