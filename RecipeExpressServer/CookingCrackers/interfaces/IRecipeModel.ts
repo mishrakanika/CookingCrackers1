@@ -1,9 +1,9 @@
 import Mongoose = require("mongoose");
 
 interface IRecipeModel extends Mongoose.Document {
-    listId: number;
-    recipes: [ {
+    
         rname: String,
+        rrecipeId: String,
         rmethod: String,
         rdescription: String,
         rtaskId: Number,
@@ -12,7 +12,8 @@ interface IRecipeModel extends Mongoose.Document {
         rmealtype: String,
         rduration: Number,
         ringredients: String,
-        rchefid: String
-    }];
+        rchefid: String,
+        rimage: String
+   
 }
 export {IRecipeModel};

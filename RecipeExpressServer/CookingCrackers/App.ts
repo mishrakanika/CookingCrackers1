@@ -10,6 +10,7 @@ import * as bodyParser from 'body-parser';
 import {ListModel} from './model/ListModel';
 import {TaskModel} from './model/TaskModel';
 import {DataAccess} from './DataAccess';
+import {RecipeModel} from './model/RecipeModel';
 
 var fs = require('fs');
 
@@ -21,6 +22,7 @@ class App {
   public Lists:ListModel;
   public Tasks:TaskModel;
   public idGenerator:number;
+  public Recipes:RecipeModel;
 
   //Run configuration methods on the Express instance.
   constructor() {
@@ -30,6 +32,7 @@ class App {
     this.idGenerator = 100;
     this.Lists = new ListModel();
     this.Tasks = new TaskModel();
+    this.Recipes = new RecipeModel();
   }
 
   // Configure Express middleware.
@@ -60,7 +63,7 @@ class App {
     });
 
 
-
+   
     router.get('/app/list/', (req, res) => {
         console.log('Query All list');
         this.Lists.retrieveAllLists(res);
@@ -73,11 +76,7 @@ class App {
        //initXHR('lists');
     });
 
-    router.get('/pages/home.html/', (req, res) => {
-        console.log('Query All list');
-        this.Lists.retrieveAllLists(res);
-       //initXHR('lists');
-    });
+    
 
     router.post('/app/list/', (req, res) => {
         console.log(req.body);
@@ -92,28 +91,27 @@ class App {
         this.idGenerator++;
     });
 
-    router.get('/:filename', (req, res) => {
-        //var filename = url.parse(req.url).pathname.slice(1);
-    
-        var filename = req.params.filename;
 
-        if (filename === '') {
-            filename = 'home.html';
-        }
-        
-        console.log('filename: ' + filename);
-        
-        fs.readFile('pages/'+filename, 'utf8', function (err, data) {
-        if (err) {
-            return console.log(err);
-        }
+    router.get('/app/recipe/', (req, res) => {
+        console.log('Query All Recipes');
+        this.Recipes.retrieveAllRecipes(res);
+    });
 
-        res.send(data);
-        });
+    router.get('/app/recipe/:recipeID', (req, res) => {
+        var id = req.params.recipeID;
+        console.log('Query single recipe with id: ' + id);
+        this.Recipes.retrieveRecipeDetails(res, {recipeID: id});
+    });
+	
+	router.get('/app/recipe/catalogue/:recipeCatalogue', (req, res) => {
+        var catalogue = req.params.recipeCatelogue;
+        console.log('Query single recipe with catelogue: ' + catalogue);
+        this.Recipes.retrieveRecipeDetailsByCatalogue(res, {rmealtype: catalogue});
     });
 
 
 
+    
     this.expressApp.use('/', router);
 
     this.expressApp.use('/app/json/', express.static(__dirname+'/app/json'));

@@ -4,46 +4,82 @@ function initXHR(x,value) {
 		document.getElementById("home").style.display = "block";
 		document.getElementById("lists").style.display = "none";
 		document.getElementById("gList").style.display = "none";
+		document.getElementById("recipes").style.display = "none";
+	}
+	else if (x == 'recipes') {
+		//retrieveActiveListsFromServer('/json/lists.json');
+		retrieveActiveListsFromServer('/', 'recipes');
+		document.getElementById("home").style.display = "none";
+		document.getElementById("recipes").style.display = "block";
+		document.getElementById("lists").style.display = "none";
+		document.getElementById("gList").style.display = "none";		
 	}
 	else if (x == 'lists') {
 		//retrieveActiveListsFromServer('/json/lists.json');
 		retrieveActiveListsFromServer('/', 'lists');
 		document.getElementById("home").style.display = "none";
 		document.getElementById("lists").style.display = "block";
-		document.getElementById("gList").style.display = "none";		
+		document.getElementById("gList").style.display = "none";
+		document.getElementById("recipes").style.display = "none";		
 	}
 	else if (x == 'gList') {
 		retrieveActiveListsFromServer('/app/list/' + value, 'gList');
 		document.getElementById("home").style.display = "none";
 		document.getElementById("lists").style.display = "none";
 		document.getElementById("gList").style.display = "block";
+		document.getElementById("recipes").style.display = "none";
 	}
 	else {
 		document.getElementById("home").style.display = "block";
 		document.getElementById("lists").style.display = "none";
 		document.getElementById("gList").style.display = "none";
+		document.getElementById("recipes").style.display = "none";
 	}
 }
 
+
+
+// function retrieveActiveListsFromServer(url, operation) {
+// 	var xmlhttp = new XMLHttpRequest();
+
+// xmlhttp.onreadystatechange = function() {
+// 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+// 		var returnValues = JSON.parse(xmlhttp.responseText);
+// 		if (operation == "lists") {
+// 			populateListsView('lists', returnValues);
+// 		}
+// 		else if (operation == "gList") {
+// 			populateListItems('gList', returnValues);				
+// 		}
+// 	}
+// }
+// xmlhttp.open("GET", url, true);
+// xmlhttp.send();
+// }
 
 
 function retrieveActiveListsFromServer(url, operation) {
 	var xmlhttp = new XMLHttpRequest();
 
-xmlhttp.onreadystatechange = function() {
-	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-		var returnValues = JSON.parse(xmlhttp.responseText);
-		if (operation == "lists") {
-			populateListsView('lists', returnValues);
-		}
-		else if (operation == "gList") {
-			populateListItems('gList', returnValues);				
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var returnValues = JSON.parse(xmlhttp.responseText);
+			if (operation == "recipes") {
+				populateListsView('recipes', returnValues);
+			}
+			else if (operation == "recipeDetails") {
+				populateRecipeDetails('recipeDetails', returnValues);				
+			}
+			else if (operation == "recipeCategory") {
+				populateListsView('recipeCategory', returnValues);				
+			}
 		}
 	}
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
 }
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
-}
+
+
 
 //DOM based function
 function populateListsView(elementId, lists) {
