@@ -15,6 +15,7 @@ import { AddrecipeComponent } from './chefprofile/addrecipe/addrecipe.component'
 import { UpdaterecipeComponent } from './chefprofile/updaterecipe/updaterecipe.component';
 import { DeleterecipeComponent } from './chefprofile/deleterecipe/deleterecipe.component';
 import { RecipeServiceService} from './recipe-service.service';
+import { GetRecipeComponent } from './get-recipe/get-recipe.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RecipeServiceService} from './recipe-service.service';
     ChefprofileComponent,
     AddrecipeComponent,
     UpdaterecipeComponent,
-    DeleterecipeComponent
+    DeleterecipeComponent,
+    GetRecipeComponent
   ],
   imports: [
     BrowserModule,
