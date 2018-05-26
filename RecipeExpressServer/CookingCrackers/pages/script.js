@@ -82,23 +82,47 @@ function retrieveActiveListsFromServer(url, operation) {
 
 
 //DOM based function
-function populateListsView(elementId, lists) {
+// function populateListsView(elementId, lists) {
+// 	var element = document.getElementById(elementId);
+// 	var newElement = "";
+// 	newElement += "<div>";
+//     //newElement += "<h1><u>"+lists[0].lists+"</u></h1>";
+      
+// 	for (var i = 0; i < lists.length; i++) {
+		
+// 		newElement += "<div>";
+// 		newElement += "<div class=\"bold\">";
+// 		newElement += "<a href=\"javascript:initXHR('gList'," +  lists[i].listId + ")\">" + lists[i].name + "</a>";
+// 		newElement += "</div>";
+// 		newElement += "</div>";
+// 	}
+// 	element.innerHTML = newElement;
+// }
+
+
+function populateListsView(elementId, recipes) {
 	var element = document.getElementById(elementId);
 	var newElement = "";
 	newElement += "<div>";
     //newElement += "<h1><u>"+lists[0].lists+"</u></h1>";
       
-	for (var i = 0; i < lists.length; i++) {
+	for (var i = 0; i < recipes.length; i++) {
 		
+		console.log("i:" + i + " description: " + recipes[i].rdescription);
+		newElement += "<tr>";
+		newElement += "<td class = \"bold\">" + recipes[i].rname + "</td><br/><br/>";
+		newElement += "<td class = \"bold\">" + recipes[i].rdescription + "</td>";
+		//newElement += "<td><span class=\"badge\">" + listItems[i].shared + "</span></td>";
+		newElement += "<td>";
 		newElement += "<div>";
-		newElement += "<div class=\"bold\">";
-		newElement += "<a href=\"javascript:initXHR('gList'," +  lists[i].listId + ")\">" + lists[i].name + "</a>";
+		newElement += "<span style=\"border-style:none;\"><br/><br/>";
+		//newElement += "<input type=\"checkbox\">";
+		newElement += "</span>";
 		newElement += "</div>";
-		newElement += "</div>";
-	}
+		newElement += "</td>";
+		newElement += "</tr>";	}
 	element.innerHTML = newElement;
 }
-
 
 //DOM based function
 function populateListItems(elementId, list) {
