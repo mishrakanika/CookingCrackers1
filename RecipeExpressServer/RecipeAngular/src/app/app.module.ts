@@ -33,6 +33,6 @@ import { RecipeServiceService} from './recipe-service.service';
     routing,
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}, RecipeServiceService ],
-  bootstrap: [ChefprofileComponent]
+  bootstrap: [AddrecipeComponent]
 })
 export class AppModule { }

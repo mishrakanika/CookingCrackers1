@@ -97,10 +97,7 @@ display: block;
 text-align: left;
 }
 .backImage{
-/* background: url('http://kochihermosabeach.com/images/img02.jpg'); */
-height: 800px;
-/* background-image: element("/Users/rutubhatt/Documents/GitHub/CookingCrackers1/RecipeExpressServer/RecipeAngular/src/app/chefprofile/Food.jpg"); */
-background-image: image-set("/Users/rutubhatt/Documents/GitHub/CookingCrackers1/RecipeExpressServer/RecipeAngular/src/app/chefprofile/Food.jpg");
+background: url('http://kochihermosabeach.com/images/img02.jpg');
 }
 .dropdown-content a:hover {
 background-color: #ddd;
