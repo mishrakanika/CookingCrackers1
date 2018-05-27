@@ -12,7 +12,6 @@ var ListModel = /** @class */ (function () {
     ListModel.prototype.createSchema = function () {
         this.schema = new Mongoose.Schema({
             name: String,
-            //description: String,
             listId: Number
         }, { collection: 'lists' });
     };

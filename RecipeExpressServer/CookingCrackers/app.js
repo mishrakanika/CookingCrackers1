@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 //var Q = require('q');
 var ListModel_1 = require("./model/ListModel");
 var TaskModel_1 = require("./model/TaskModel");
+var RecipeModel_1 = require("./model/RecipeModel");
 var fs = require('fs');
 // Creates and configures an ExpressJS web server.
 var App = /** @class */ (function () {
@@ -18,6 +19,7 @@ var App = /** @class */ (function () {
         this.idGenerator = 100;
         this.Lists = new ListModel_1.ListModel();
         this.Tasks = new TaskModel_1.TaskModel();
+        this.Recipes = new RecipeModel_1.RecipeModel();
     }
     // Configure Express middleware.
     App.prototype.middleware = function () {
@@ -29,11 +31,6 @@ var App = /** @class */ (function () {
     App.prototype.routes = function () {
         var _this = this;
         var router = express.Router();
-        // router.get('/recipes/list/:listId/count', (req, res) => {
-        //     var id = req.params.listId;
-        //     console.log('Query single list with id: ' + id);
-        //     this.Tasks.retrieveTasksCount(res, {listId: id});
-        // });
         router.get('/app/list/:listId', function (req, res) {
             var id = req.params.listId;
             console.log('Query single list with id: ' + id);
@@ -54,11 +51,6 @@ var App = /** @class */ (function () {
             _this.Lists.retrieveAllLists(res);
             //initXHR('lists');
         });
-        router.get('/pages/home.html/', function (req, res) {
-            console.log('Query All list');
-            _this.Lists.retrieveAllLists(res);
-            //initXHR('lists');
-        });
         router.post('/app/list/', function (req, res) {
             console.log(req.body);
             var jsonObj = req.body;
@@ -71,24 +63,20 @@ var App = /** @class */ (function () {
             res.send(_this.idGenerator.toString());
             _this.idGenerator++;
         });
-        router.get('/:filename', function (req, res) {
-            //var filename = url.parse(req.url).pathname.slice(1);
-            var filename = req.params.filename;
-            if (filename === '') {
-                filename = 'home.html';
-            }
-            console.log('filename: ' + filename);
-            fs.readFile('pages/' + filename, 'utf8', function (err, data) {
-                if (err) {
-                    return console.log(err);
-                }
-                res.send(data);
-            });
+        router.get('/app/recipe/', function (req, res) {
+            console.log('Query All Recipes');
+            _this.Recipes.retrieveAllRecipes(res);
         });
-        // router.get('/breakfast.html/', (req, res) => {
-        //     console.log('Query All list');
-        //     this.Lists.retrieveAllLists(res);
-        // });
+        router.get('/app/recipe/:recipeID', function (req, res) {
+            var id = req.params.recipeID;
+            console.log('Query single recipe with id: ' + id);
+            _this.Recipes.retrieveRecipeDetails(res, { recipeID: id });
+        });
+        router.get('/app/recipe/catalogue/:recipeCatalogue', function (req, res) {
+            var catalogue = req.params.recipeCatelogue;
+            console.log('Query single recipe with catelogue: ' + catalogue);
+            _this.Recipes.retrieveRecipeDetailsByCatalogue(res, { rmealtype: catalogue });
+        });
         this.expressApp.use('/', router);
         this.expressApp.use('/app/json/', express.static(__dirname + '/app/json'));
         this.expressApp.use('/images', express.static(__dirname + '/img'));

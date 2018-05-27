@@ -1,11 +1,11 @@
 import Mongoose = require("mongoose");
 import {DataAccess} from './../DataAccess';
-import {ITaskModel} from '../interfaces/ITaskModel';
+import {IRecipeModel} from '../interfaces/IRecipeModel';
 
 let mongooseConnection = DataAccess.mongooseConnection;
 let mongooseObj = DataAccess.mongooseInstance;
 
-class TaskModel {
+class RecipeModel {
     public schema:any;
     public model:any;
 
@@ -17,8 +17,8 @@ class TaskModel {
     public createSchema(): void {
         this.schema = new Mongoose.Schema(
             {
-                listId: Number,
-                tasks: [ {
+                    rrecipeId: String,
+                    rmethod: String,
                     rname: String,
                     rdescription: String,
                     rtaskId: Number,
@@ -27,30 +27,37 @@ class TaskModel {
                     rmealtype: String,
                     rduration: Number,
                     ringredients: String,
-                    rchefid: String
-                }]
-            }, {collection: 'tasks'}
+                    rchefid: String,
+                    rimage: String,
+            }, {collection: 'recipes'}
         );
     }
 
     public createModel(): void {
-        this.model = mongooseConnection.model<ITaskModel>("Task", this.schema);
+        this.model = mongooseConnection.model<IRecipeModel>("Recipes", this.schema);
     }
     
-    public retrieveTasksDetails(response:any, filter:Object) {
+    public retrieveAllRecipes(response:any): any {
+        var query = this.model.find({});
+        query.exec( (err, itemArray) => {
+            response.json(itemArray) ;
+        });
+    } 
+
+	public retrieveRecipeDetails(response:any, filter:Object) {
         var query = this.model.findOne(filter);
         query.exec( (err, itemArray) => {
             response.json(itemArray);
         });
     }
-
-    public retrieveTasksCount(response:any, filter:Object) {
-        var query = this.model.find(filter).select('tasks').count();
-        query.exec( (err, numberOfTasks) => {
-            console.log('number of tasks: ' + numberOfTasks);
-            response.json(numberOfTasks);
+	public retrieveRecipeDetailsByCatalogue(response:any, filter:Object) {
+        var query = this.model.find(filter);
+        query.exec( (err, itemArray) => {
+            response.json(itemArray);
         });
     }
 
+
+
 }
-export {TaskModel};
+export {RecipeModel};
