@@ -72,7 +72,7 @@ class App {
 
     router.get('/', (req, res) => {
         console.log('Query All list');
-        this.Lists.retrieveAllLists(res);
+        this.Recipes.retrieveAllRecipes(res);
        //initXHR('lists');
     });
 

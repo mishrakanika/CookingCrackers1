@@ -7,8 +7,9 @@ function initXHR(x,value) {
 		document.getElementById("recipes").style.display = "none";
 	}
 	else if (x == 'recipes') {
+		console.log("going inside recipes ");
 		//retrieveActiveListsFromServer('/json/lists.json');
-		retrieveActiveListsFromServer('/', 'recipes');
+		retrieveActiveListsFromServer('/app/recipe', 'recipes');
 		document.getElementById("home").style.display = "none";
 		document.getElementById("recipes").style.display = "block";
 		document.getElementById("lists").style.display = "none";
@@ -60,11 +61,12 @@ function initXHR(x,value) {
 
 function retrieveActiveListsFromServer(url, operation) {
 	var xmlhttp = new XMLHttpRequest();
-
+	console.log("going inside recipes - retrieveactivelistsfromserver");
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var returnValues = JSON.parse(xmlhttp.responseText);
 			if (operation == "recipes") {
+				console.log("going inside recipes - retrieveactivelistsfromserver");
 				populateListsView('recipes', returnValues);
 			}
 			else if (operation == "recipeDetails") {
@@ -103,11 +105,12 @@ function retrieveActiveListsFromServer(url, operation) {
 function populateListsView(elementId, recipes) {
 	var element = document.getElementById(elementId);
 	var newElement = "";
-	newElement += "<div>";
+	//newElement += "<div>";
     //newElement += "<h1><u>"+lists[0].lists+"</u></h1>";
-      
+	console.log("going inside recipes - populateListsView");
+	console.log("recipes items "+ recipes.length);
 	for (var i = 0; i < recipes.length; i++) {
-		
+		console.log("going inside recipes - for loop of populateListsView");
 		console.log("i:" + i + " description: " + recipes[i].rdescription);
 		newElement += "<tr>";
 		newElement += "<td class = \"bold\">" + recipes[i].rname + "</td><br/><br/>";
