@@ -11,6 +11,8 @@ import {ListModel} from './model/ListModel';
 import {TaskModel} from './model/TaskModel';
 import {DataAccess} from './DataAccess';
 import {RecipeModel} from './model/RecipeModel';
+import {RecipeCatalogModel} from './model/RecipeCatalogModel';
+import {RecipeCatalogDetailsModel} from './model/RecipeCatalogDetailsModel';
 
 var fs = require('fs');
 
@@ -23,6 +25,8 @@ class App {
   public Tasks:TaskModel;
   public idGenerator:number;
   public Recipes:RecipeModel;
+  public RecipesCatalog:RecipeCatalogModel;
+  public RecipeCatalogDetails:RecipeCatalogDetailsModel;
 
   //Run configuration methods on the Express instance.
   constructor() {
@@ -33,6 +37,8 @@ class App {
     this.Lists = new ListModel();
     this.Tasks = new TaskModel();
     this.Recipes = new RecipeModel();
+    this.RecipesCatalog = new RecipeCatalogModel();
+    this.RecipeCatalogDetails = new RecipeCatalogDetailsModel();
   }
 
   // Configure Express middleware.
@@ -72,7 +78,7 @@ class App {
 
     router.get('/', (req, res) => {
         console.log('Query All list');
-        this.Lists.retrieveAllLists(res);
+        this.Recipes.retrieveAllRecipes(res);
        //initXHR('lists');
     });
 
@@ -100,13 +106,19 @@ class App {
     router.get('/app/recipe/:recipeID', (req, res) => {
         var id = req.params.recipeID;
         console.log('Query single recipe with id: ' + id);
-        this.Recipes.retrieveRecipeDetails(res, {recipeID: id});
+        this.Recipes.retrieveRecipeDetails(res, {rrecipeId: id});
     });
-	
-	router.get('/app/recipe/catalogue/:recipeCatalogue', (req, res) => {
-        var catalogue = req.params.recipeCatelogue;
-        console.log('Query single recipe with catelogue: ' + catalogue);
-        this.Recipes.retrieveRecipeDetailsByCatalogue(res, {rmealtype: catalogue});
+    
+    router.get('/app/catalog', (req, res) => {
+        console.log('Query All Recipe catalog');
+        this.RecipesCatalog.retrieveAllCatalog(res);
+    });
+
+
+	router.get('/app/catalog/:recipeCatalogDetails', (req, res) => {
+        var id = req.params.recipeCatalogDetails;
+        console.log('Query single recipe with catalog: ' + id);
+        this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, {rcId: id});
     });
 
 

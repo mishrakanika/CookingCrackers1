@@ -5,20 +5,20 @@ recipecatalogCollection.remove({})   //recipeCatalog was listsCollection
 recipecatalogCollection.insert(   //recipeCatalog was listsCollection
 {
       name: "Meal Type",
-      rcId: 1,
+      rcId: 1
       
 }
 )
 recipecatalogCollection.insert(
 {
       name: "Cuisine Type",
-      rcId: 2,
+      rcId: 2
 }
 )
 recipecatalogCollection.insert(
 {
       name: "Meal Preference",
-      rcId: 3,
+      rcId: 3
 
 })
 
