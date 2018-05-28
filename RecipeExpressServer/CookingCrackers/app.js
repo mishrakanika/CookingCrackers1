@@ -3,10 +3,6 @@ exports.__esModule = true;
 var express = require("express");
 var logger = require("morgan");
 var bodyParser = require("body-parser");
-//var MongoClient = require('mongodb').MongoClient;
-//var Q = require('q');
-var ListModel_1 = require("./model/ListModel");
-var TaskModel_1 = require("./model/TaskModel");
 var RecipeModel_1 = require("./model/RecipeModel");
 var RecipeCatalogModel_1 = require("./model/RecipeCatalogModel");
 var RecipeCatalogDetailsModel_1 = require("./model/RecipeCatalogDetailsModel");
@@ -19,8 +15,6 @@ var App = /** @class */ (function () {
         this.middleware();
         this.routes();
         this.idGenerator = 100;
-        this.Lists = new ListModel_1.ListModel();
-        this.Tasks = new TaskModel_1.TaskModel();
         this.Recipes = new RecipeModel_1.RecipeModel();
         this.RecipesCatalog = new RecipeCatalogModel_1.RecipeCatalogModel();
         this.RecipeCatalogDetails = new RecipeCatalogDetailsModel_1.RecipeCatalogDetailsModel();
@@ -35,31 +29,22 @@ var App = /** @class */ (function () {
     App.prototype.routes = function () {
         var _this = this;
         var router = express.Router();
-        router.get('/app/list/:listId', function (req, res) {
-            var id = req.params.listId;
-            console.log('Query single list with id: ' + id);
-            _this.Tasks.retrieveTasksDetails(res, { listId: id });
-        });
-        router.post('/app/list/:listId', function (req, res) {
+        router.post('/app/recipe/:recipeID', function (req, res) {
             console.log(req.body);
-            var id = req.params.listId;
+            var id = req.params.recipeID;
             console.log('Query single list with id: ' + id);
             res.send("Received post for id:" + id);
-        });
-        router.get('/app/list/', function (req, res) {
-            console.log('Query All list');
-            _this.Lists.retrieveAllLists(res);
         });
         router.get('/', function (req, res) {
             console.log('Query All list');
             _this.Recipes.retrieveAllRecipes(res);
             //initXHR('lists');
         });
-        router.post('/app/list/', function (req, res) {
+        router.post('/app/recipe/', function (req, res) {
             console.log(req.body);
             var jsonObj = req.body;
-            jsonObj.listId = _this.idGenerator;
-            _this.Lists.model.create([jsonObj], function (err) {
+            jsonObj.rrecipeId = _this.idGenerator;
+            _this.Recipes.model.create([jsonObj], function (err) {
                 if (err) {
                     console.log('object creation failed');
                 }

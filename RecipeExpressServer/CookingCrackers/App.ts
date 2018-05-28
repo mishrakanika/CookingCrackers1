@@ -7,8 +7,7 @@ import * as bodyParser from 'body-parser';
 //var MongoClient = require('mongodb').MongoClient;
 //var Q = require('q');
 
-import {ListModel} from './model/ListModel';
-import {TaskModel} from './model/TaskModel';
+
 import {DataAccess} from './DataAccess';
 import {RecipeModel} from './model/RecipeModel';
 import {RecipeCatalogModel} from './model/RecipeCatalogModel';
@@ -21,8 +20,6 @@ class App {
 
   // ref to Express instance
   public expressApp: express.Application;
-  public Lists:ListModel;
-  public Tasks:TaskModel;
   public idGenerator:number;
   public Recipes:RecipeModel;
   public RecipesCatalog:RecipeCatalogModel;
@@ -34,8 +31,6 @@ class App {
     this.middleware();
     this.routes();
     this.idGenerator = 100;
-    this.Lists = new ListModel();
-    this.Tasks = new TaskModel();
     this.Recipes = new RecipeModel();
     this.RecipesCatalog = new RecipeCatalogModel();
     this.RecipeCatalogDetails = new RecipeCatalogDetailsModel();
@@ -53,26 +48,12 @@ class App {
     let router = express.Router();
 
 
-    
 
-    router.get('/app/list/:listId', (req, res) => {
-        var id = req.params.listId;
-        console.log('Query single list with id: ' + id);
-        this.Tasks.retrieveTasksDetails(res, {listId: id});
-    });
-
-    router.post('/app/list/:listId', (req, res) => {
+    router.post('/app/recipe/:recipeID', (req, res) => {
         console.log(req.body);
-        var id = req.params.listId;
+        var id = req.params.recipeID;
         console.log('Query single list with id: ' + id);
         res.send("Received post for id:"+ id);
-    });
-
-
-   
-    router.get('/app/list/', (req, res) => {
-        console.log('Query All list');
-        this.Lists.retrieveAllLists(res);
     });
 
 
@@ -84,11 +65,11 @@ class App {
 
     
 
-    router.post('/app/list/', (req, res) => {
+    router.post('/app/recipe/', (req, res) => {
         console.log(req.body);
         var jsonObj = req.body;
-        jsonObj.listId = this.idGenerator;
-        this.Lists.model.create([jsonObj], (err) => {
+        jsonObj.rrecipeId = this.idGenerator;
+        this.Recipes.model.create([jsonObj], (err) => {
             if (err) {
                 console.log('object creation failed');
             }

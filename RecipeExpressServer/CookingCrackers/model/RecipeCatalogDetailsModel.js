@@ -27,8 +27,6 @@ var RecipeCatalogDetailsModel = /** @class */ (function () {
             console.log("itemArrayvalue" + itemArray);
             response.json(itemArray);
         });
-        // response.json({"query": query.exec((err, itemArray) => {
-        //response.json(itemArray);
     };
     return RecipeCatalogDetailsModel;
 }());
