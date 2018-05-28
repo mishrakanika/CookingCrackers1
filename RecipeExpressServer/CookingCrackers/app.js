@@ -8,6 +8,7 @@ var bodyParser = require("body-parser");
 var ListModel_1 = require("./model/ListModel");
 var TaskModel_1 = require("./model/TaskModel");
 var RecipeModel_1 = require("./model/RecipeModel");
+var RecipeCatalogModel_1 = require("./model/RecipeCatalogModel");
 var fs = require('fs');
 // Creates and configures an ExpressJS web server.
 var App = /** @class */ (function () {
@@ -20,6 +21,7 @@ var App = /** @class */ (function () {
         this.Lists = new ListModel_1.ListModel();
         this.Tasks = new TaskModel_1.TaskModel();
         this.Recipes = new RecipeModel_1.RecipeModel();
+        this.RecipesCatalog = new RecipeCatalogModel_1.RecipeCatalogModel();
     }
     // Configure Express middleware.
     App.prototype.middleware = function () {
@@ -48,7 +50,7 @@ var App = /** @class */ (function () {
         });
         router.get('/', function (req, res) {
             console.log('Query All list');
-            _this.Lists.retrieveAllLists(res);
+            _this.Recipes.retrieveAllRecipes(res);
             //initXHR('lists');
         });
         router.post('/app/list/', function (req, res) {
@@ -70,12 +72,16 @@ var App = /** @class */ (function () {
         router.get('/app/recipe/:recipeID', function (req, res) {
             var id = req.params.recipeID;
             console.log('Query single recipe with id: ' + id);
-            _this.Recipes.retrieveRecipeDetails(res, { recipeID: id });
+            _this.Recipes.retrieveRecipeDetails(res, { rrecipeId: id });
         });
-        router.get('/app/recipe/catalogue/:recipeCatalogue', function (req, res) {
-            var catalogue = req.params.recipeCatelogue;
-            console.log('Query single recipe with catelogue: ' + catalogue);
-            _this.Recipes.retrieveRecipeDetailsByCatalogue(res, { rmealtype: catalogue });
+        router.get('/app/recipe/catalog', function (req, res) {
+            console.log('Query All Recipe catalog');
+            _this.RecipesCatalog.retrieveAllCatalog(res);
+        });
+        router.get('/app/recipe/catalog/:recipeCatalogue', function (req, res) {
+            var id = req.params.recipeCatalog;
+            console.log('Query single recipe with catalog: ' + id);
+            _this.RecipesCatalog.retrieveCatalogDetails(res, { rcId: id });
         });
         this.expressApp.use('/', router);
         this.expressApp.use('/app/json/', express.static(__dirname + '/app/json'));

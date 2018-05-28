@@ -17,7 +17,7 @@ class RecipeModel {
     public createSchema(): void {
         this.schema = new Mongoose.Schema(
             {
-                    rrecipeId: String,
+                    rrecipeId: Number,
                     rmethod: String,
                     rname: String,
                     rdescription: String,

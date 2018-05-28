@@ -3,7 +3,7 @@ import Mongoose = require("mongoose");
 interface IRecipeModel extends Mongoose.Document {
     
         rname: String,
-        rrecipeId: String,
+        rrecipeId: Number,
         rmethod: String,
         rdescription: String,
         rtaskId: Number,

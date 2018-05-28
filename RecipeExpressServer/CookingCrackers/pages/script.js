@@ -5,6 +5,7 @@ function initXHR(x,value) {
 		document.getElementById("lists").style.display = "none";
 		document.getElementById("gList").style.display = "none";
 		document.getElementById("recipes").style.display = "none";
+		document.getElementById("recipeDetails").style.display = "none";
 	}
 	else if (x == 'recipes') {
 		console.log("going inside recipes ");
@@ -13,7 +14,8 @@ function initXHR(x,value) {
 		document.getElementById("home").style.display = "none";
 		document.getElementById("recipes").style.display = "block";
 		document.getElementById("lists").style.display = "none";
-		document.getElementById("gList").style.display = "none";		
+		document.getElementById("gList").style.display = "none";
+		document.getElementById("recipeDetails").style.display = "none";		
 	}
 	else if (x == 'lists') {
 		//retrieveActiveListsFromServer('/json/lists.json');
@@ -21,12 +23,22 @@ function initXHR(x,value) {
 		document.getElementById("home").style.display = "none";
 		document.getElementById("lists").style.display = "block";
 		document.getElementById("gList").style.display = "none";
-		document.getElementById("recipes").style.display = "none";		
+		document.getElementById("recipes").style.display = "none";
+		document.getElementById("recipeDetails").style.display = "none";		
 	}
 	else if (x == 'gList') {
 		retrieveActiveListsFromServer('/app/list/' + value, 'gList');
 		document.getElementById("home").style.display = "none";
 		document.getElementById("lists").style.display = "none";
+		document.getElementById("gList").style.display = "block";
+		document.getElementById("recipes").style.display = "none";
+		document.getElementById("recipeDetails").style.display = "none";
+	}
+	else if (x == 'recipeDetails') {
+		retrieveActiveListsFromServer('/app/recipe/' + value, 'recipeDetails');
+		document.getElementById("home").style.display = "none";
+		document.getElementById("lists").style.display = "none";
+		document.getElementById("recipeDetails").style.display = "block";
 		document.getElementById("gList").style.display = "block";
 		document.getElementById("recipes").style.display = "none";
 	}
@@ -35,6 +47,7 @@ function initXHR(x,value) {
 		document.getElementById("lists").style.display = "none";
 		document.getElementById("gList").style.display = "none";
 		document.getElementById("recipes").style.display = "none";
+		document.getElementById("recipeDetails").style.display = "none";
 	}
 }
 
@@ -70,6 +83,7 @@ function retrieveActiveListsFromServer(url, operation) {
 				populateListsView('recipes', returnValues);
 			}
 			else if (operation == "recipeDetails") {
+				console.log("going inside recipe Details");
 				populateRecipeDetails('recipeDetails', returnValues);				
 			}
 			else if (operation == "recipeCategory") {
@@ -110,22 +124,50 @@ function populateListsView(elementId, recipes) {
 	console.log("going inside recipes - populateListsView");
 	console.log("recipes items "+ recipes.length);
 	for (var i = 0; i < recipes.length; i++) {
-		console.log("going inside recipes - for loop of populateListsView");
-		console.log("i:" + i + " description: " + recipes[i].rdescription);
-		newElement += "<tr>";
-		newElement += "<td class = \"bold\">" + recipes[i].rname + "</td><br/><br/>";
-		newElement += "<td class = \"bold\">" + recipes[i].rdescription + "</td>";
-		//newElement += "<td><span class=\"badge\">" + listItems[i].shared + "</span></td>";
-		newElement += "<td>";
+		
 		newElement += "<div>";
-		newElement += "<span style=\"border-style:none;\"><br/><br/>";
-		//newElement += "<input type=\"checkbox\">";
-		newElement += "</span>";
+		newElement += "<div class=\"bold\">";
+		newElement += "<td>";
+		newElement += "<a href=\"javascript:initXHR('recipeDetails'," +  recipes[i].rrecipeId+ ")\">" + recipes[i].rname + "</a>";
+		newElement += "</td><br/><br/>";
+		newElement += "<td class = \"bold\">" + recipes[i].rdescription + "</td><br/><br/>";
 		newElement += "</div>";
-		newElement += "</td>";
-		newElement += "</tr>";	}
+		newElement += "</div>";
+
+
+
+		}
 	element.innerHTML = newElement;
 }
+
+
+
+function populateRecipeDetails(elementId, recipeDetails) {
+	console.log(recipeDetails.rname);
+	var element = document.getElementById(elementId);
+	var newElement = "<div>";
+	newElement += "<div class=\"bold\">";
+	newElement += "<h3>Recipe Details</h3>";
+	//newElement += "<p>Image: " + recipeDetails.rimage  + "</p>";
+	newElement += "<h4>" + recipeDetails.rname + "</h4>";
+	newElement += "<p>Recipe Description: " + recipeDetails.rdescription  + "</p>";
+	newElement += "<p>Ingredients: " + recipeDetails.ringredients  + "</p>";
+	newElement += "<p>Method: " + recipeDetails.rmethod  + "</p>";
+	newElement += "<p>Cuisine Type: " + recipeDetails.rcuisinetype  + "</p>";
+	newElement += "<p>Meal Type: " + recipeDetails.rmealtype  + "</p>";
+	newElement += "<p>Preference Type: " + recipeDetails.rpreferencetype  + "</p>";
+	newElement += "<p>Duration: " + recipeDetails.rduration  + "</p>";
+	newElement += "<p>Chef: " + recipeDetails.rchefid  + "</p>";
+    newElement += "</div>";
+	newElement += "</div>";
+
+	element.innerHTML = newElement;
+}
+
+
+
+
+
 
 //DOM based function
 function populateListItems(elementId, list) {

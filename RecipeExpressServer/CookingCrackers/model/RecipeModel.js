@@ -11,7 +11,7 @@ var RecipeModel = /** @class */ (function () {
     }
     RecipeModel.prototype.createSchema = function () {
         this.schema = new Mongoose.Schema({
-            rrecipeId: String,
+            rrecipeId: Number,
             rmethod: String,
             rname: String,
             rdescription: String,
