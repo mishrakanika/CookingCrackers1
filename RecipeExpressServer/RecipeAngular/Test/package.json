@@ -1,5 +1,5 @@
 {
-  "name": "MochaTest",
+  "name": "MochaTest1",
   "version": "0.2.0",
   "author": "Rutu Bhatt",
   "description": "A simple mocha test",
@@ -8,6 +8,9 @@
       "name": "Rutu Bhatt"
     }
   ],
+  "scripts": {
+    "test": "mocha"
+  },
   "main": "./server.js",
   "keywords": [
     "azure",
