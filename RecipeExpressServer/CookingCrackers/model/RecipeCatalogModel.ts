@@ -25,7 +25,7 @@ class RecipeCatalogModel {
     }
 
     public createModel(): void {
-        this.model = mongooseConnection.model<IRecipeCatalogModel>("RecipeCatalog", this.schema);
+        this.model = mongooseConnection.model<IRecipeCatalogModel>("RecipeCatalogD", this.schema);
     }
 
     public retrieveAllCatalog(response:any): any {
@@ -41,6 +41,7 @@ class RecipeCatalogModel {
         var query = this.model.findOne(filter);
         query.exec( (err, itemArray) => {
             response.json(itemArray);
+            
         });
 
     }

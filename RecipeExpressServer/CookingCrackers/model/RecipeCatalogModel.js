@@ -16,7 +16,7 @@ var RecipeCatalogModel = /** @class */ (function () {
         }, { collection: 'recipecatalog' });
     };
     RecipeCatalogModel.prototype.createModel = function () {
-        this.model = mongooseConnection.model("RecipeCatalog", this.schema);
+        this.model = mongooseConnection.model("RecipeCatalogD", this.schema);
     };
     RecipeCatalogModel.prototype.retrieveAllCatalog = function (response) {
         var query = this.model.find({});

@@ -12,6 +12,7 @@ import {TaskModel} from './model/TaskModel';
 import {DataAccess} from './DataAccess';
 import {RecipeModel} from './model/RecipeModel';
 import {RecipeCatalogModel} from './model/RecipeCatalogModel';
+import {RecipeCatalogDetailsModel} from './model/RecipeCatalogDetailsModel';
 
 var fs = require('fs');
 
@@ -25,6 +26,7 @@ class App {
   public idGenerator:number;
   public Recipes:RecipeModel;
   public RecipesCatalog:RecipeCatalogModel;
+  public RecipeCatalogDetails:RecipeCatalogDetailsModel;
 
   //Run configuration methods on the Express instance.
   constructor() {
@@ -36,6 +38,7 @@ class App {
     this.Tasks = new TaskModel();
     this.Recipes = new RecipeModel();
     this.RecipesCatalog = new RecipeCatalogModel();
+    this.RecipeCatalogDetails = new RecipeCatalogDetailsModel();
   }
 
   // Configure Express middleware.
@@ -106,16 +109,16 @@ class App {
         this.Recipes.retrieveRecipeDetails(res, {rrecipeId: id});
     });
     
-    router.get('/app/recipe/catalog', (req, res) => {
+    router.get('/app/catalog', (req, res) => {
         console.log('Query All Recipe catalog');
         this.RecipesCatalog.retrieveAllCatalog(res);
     });
 
 
-	router.get('/app/recipe/catalog/:recipeCatalogue', (req, res) => {
-        var id = req.params.recipeCatalog;
+	router.get('/app/catalog/:recipeCatalogDetails', (req, res) => {
+        var id = req.params.recipeCatalogDetails;
         console.log('Query single recipe with catalog: ' + id);
-        this.RecipesCatalog.retrieveCatalogDetails(res, {rcId: id});
+        this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, {rcId: id});
     });
 
 

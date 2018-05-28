@@ -9,6 +9,7 @@ var ListModel_1 = require("./model/ListModel");
 var TaskModel_1 = require("./model/TaskModel");
 var RecipeModel_1 = require("./model/RecipeModel");
 var RecipeCatalogModel_1 = require("./model/RecipeCatalogModel");
+var RecipeCatalogDetailsModel_1 = require("./model/RecipeCatalogDetailsModel");
 var fs = require('fs');
 // Creates and configures an ExpressJS web server.
 var App = /** @class */ (function () {
@@ -22,6 +23,7 @@ var App = /** @class */ (function () {
         this.Tasks = new TaskModel_1.TaskModel();
         this.Recipes = new RecipeModel_1.RecipeModel();
         this.RecipesCatalog = new RecipeCatalogModel_1.RecipeCatalogModel();
+        this.RecipeCatalogDetails = new RecipeCatalogDetailsModel_1.RecipeCatalogDetailsModel();
     }
     // Configure Express middleware.
     App.prototype.middleware = function () {
@@ -74,14 +76,14 @@ var App = /** @class */ (function () {
             console.log('Query single recipe with id: ' + id);
             _this.Recipes.retrieveRecipeDetails(res, { rrecipeId: id });
         });
-        router.get('/app/recipe/catalog', function (req, res) {
+        router.get('/app/catalog', function (req, res) {
             console.log('Query All Recipe catalog');
             _this.RecipesCatalog.retrieveAllCatalog(res);
         });
-        router.get('/app/recipe/catalog/:recipeCatalogue', function (req, res) {
-            var id = req.params.recipeCatalog;
+        router.get('/app/catalog/:recipeCatalogDetails', function (req, res) {
+            var id = req.params.recipeCatalogDetails;
             console.log('Query single recipe with catalog: ' + id);
-            _this.RecipesCatalog.retrieveCatalogDetails(res, { rcId: id });
+            _this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, { rcId: id });
         });
         this.expressApp.use('/', router);
         this.expressApp.use('/app/json/', express.static(__dirname + '/app/json'));
