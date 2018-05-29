@@ -23,7 +23,7 @@
   .row.content {height: auto;} 
 } */
 
-.navbar {
+/* .navbar {
     overflow: hidden;
     background-color: #333;
     font-family: Arial, Helvetica, sans-serif;
@@ -110,4 +110,81 @@
     }
     .dropdown:hover .dropdown-content {
     display: block;
-    }
+    } */
+
+
+    .bg { 
+      background-image: url("http://kochihermosabeach.com/images/img02.jpg");
+      height: fit-content; 
+      opacity: 0.8;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      } 
+      .navbar {
+          overflow:visible;
+          background-color: #333;
+          font-family: Arial, Helvetica, sans-serif;
+      } 
+      .navbar a {
+          float: left;
+          font-size: 16px;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+      } 
+     
+      .button {
+          font-weight: bold;
+          font-size: 24px;
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: #333;
+          Color:white;
+          border-radius: 12px;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+      }
+
+      .heading1{
+          font-weight: bold;
+          font-size: 40px;
+          text-align: center;
+      } 
+
+.dropdown .dropbtn {
+font-size: 16px;    
+border: none;
+outline: none;
+color: white;
+padding: 14px 16px;
+background-color: inherit;
+font-family: inherit;
+margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn, .button:hover {
+background-color:#ff6600;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+} 
+.bold
+{
+font-weight: bold;   
+}
+.dropdown-content a {
+float: none;
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+text-align: left;
+} 
