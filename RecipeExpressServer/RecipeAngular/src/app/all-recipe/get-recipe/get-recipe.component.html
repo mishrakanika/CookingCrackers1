@@ -1,15 +1,94 @@
+<html>
 
-<div>
-  <p>Recipe ID: {{rrecipeId}} </p>
-  <p>Recipe Name: {{rname}} </p>
-  <p>Recipe Description: {{rdescription}} </p>
-  <p>Recipe Method: {{rmethod}} </p>
-  <p>Recipe Cuisine Type: {{rcuisinetype}} </p>
-  <p>Recipe Preference: {{rmealpreference}} </p>
-  <p>Recipe Ingredients: {{ringredients}} </p>
-  <p>Recipe Duration: {{rduration}} </p>
-	<p>Recipe Rating: {{rating}} </p>
-</div>
+  <head>
+
+    </head>
+     
+    <body class="bg" >
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Cooking Crackers</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a  [routerLink]="['/']">Home</a></li>
+                <li><a href="#">Favorite Recipe</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cuisine Type<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Indian</a></li>
+                    <li><a href="#">Thai</a></li>
+                    <li><a href="#">Italian</a></li>
+                    <li><a href="#">American</a></li>
+                    <li><a href="#">Chinese</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Meal Preference<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Diabetic</a></li>
+                    <li><a href="#">Vegetarian</a></li>
+                    <li><a href="#">Gluten Free</a></li>
+                    <li><a href="#">Non Vegetarian</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">About Us</a></li>
+                <li><a class="nav-link" routerLink="allrecipes">All Recipes</a></li>
+                <li><a class="nav-link" routerLink="chef">Chef</a></li>
+
+              </ul>
+            </div>
+          </nav>
+          <router-outlet></router-outlet>
+      <br/><br/>
+      <br/><br/>
+
+
+      <div class="container" >
+          
+      <br/>
+      
+      <br/>
+      <div class="panel panel-default"> 
+
+          <div class="row">
+            <h2 align="center">{{rname}} </h2>
+          </div>
+          <div class="panel-body ml-1">
+              <!-- <p>Recipe ID: {{rrecipeId}} </p>
+              <p>Recipe Name: {{rname}} </p> -->
+              <p><i>Recipe Description: </i> {{rdescription}} </p>
+              <img src={{rimage}} height="250" width="300" >
+              <p><i>Recipe Method: </i> {{rmethod}} </p>
+              <p><i>Recipe Cuisine Type: </i> {{rcuisinetype}} </p>
+              <p><i>Recipe Preference: </i> {{rmealpreference}} </p>
+              <p><i>Recipe Ingredients: </i>{{ringredients}} </p>
+              <p><i>Recipe Duration: </i> {{rduration}} </p>
+              <!-- <p>Recipe Rating: {{rating}} </p> -->
+            </div>
+            </div>
+
+
+      
+      </div>
+      <br/>
+      <br/>
+    <script src="/script.js"></script>
+      </body>
+  </html>
+
+
+
+
+<!-- <p>
+  all-recipe works!
+</p>
+<p>Hello</p>
+<div *ngFor="let result of recipelist; let i = index">
+  <li> <a [routerLink]="['/getRecipe/', result.rrecipeId]">{{i+1}} - {{result.rname}}</a> </li>
+  <p> {{result.rdescription}}</p>
+</div> -->
+
+
 
 
 

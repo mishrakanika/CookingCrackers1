@@ -10,25 +10,28 @@
 
   <body>
     <div class="backImage">
-      <div class="navbar">
-        <a href="#home">Home</a>
-        
-      
-        <div class="dropdown">
-          <button class="dropbtn">Manage Recipes 
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="/Users/rutubhatt/Documents/GitHub/CookingCrackers1/RecipeExpressServer/RecipeAngular/src/app/chefprofile/addrecipe/addrecipe.component.html">Add recipe</a>
-            <a href="/Users/rutubhatt/Documents/GitHub/CookingCrackers1/RecipeExpressServer/RecipeAngular/src/app/chefprofile/updaterecipe/updaterecipe.component.html">Update Recipe</a>
-            <a href="/Users/rutubhatt/Documents/GitHub/CookingCrackers1/RecipeExpressServer/RecipeAngular/src/app/chefprofile/deleterecipe/deleterecipe.component.html">Delete Recipe</a>
-          </div>
-        </div> 
-      
-        <a href="#profile">Profile</a>
-      <a href="#about">About</a>
-          <a href="#contactus">Contact Us</a>
-      </div>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Cooking Crackers</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a  [routerLink]="['/']">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Recipe<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a [routerLink]="['/addrecipe/']">Add Recipe</a></li>
+                    <li><a href="/Users/rutubhatt/Documents/GitHub/CookingCrackers1/RecipeExpressServer/RecipeAngular/src/app/chefprofile/updaterecipe/updaterecipe.component.html">Update Recipe</a></li>
+                    <li><a href="/Users/rutubhatt/Documents/GitHub/CookingCrackers1/RecipeExpressServer/RecipeAngular/src/app/chefprofile/deleterecipe/deleterecipe.component.html">Delete Recipe</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">About Us</a></li>
+                <li><a class="nav-link" routerLink="allrecipes">All Recipes</a></li>
+                <li><a class="nav-link" routerLink="chef">Chef</a></li>
+              </ul>
+            </div>
+          </nav>
+          <router-outlet></router-outlet>
       <br/><br/>
       <div class = "heading1">
         <div style="display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size:12px; background-color:white; border-radius: 10px;">

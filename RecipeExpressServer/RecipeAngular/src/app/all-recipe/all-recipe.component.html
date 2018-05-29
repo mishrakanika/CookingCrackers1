@@ -12,7 +12,7 @@
                 <a class="navbar-brand" href="#">Cooking Crackers</a>
               </div>
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a  [routerLink]="['/']">Home</a></li>
                 <li><a href="#">Favorite Recipe</a></li>
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cuisine Type<span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -32,18 +32,13 @@
                   </ul>
                 </li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Chief</a></li>
-                <li align="right">
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                  </label>
-                  </li>
+                <li><a class="nav-link" routerLink="allrecipes">All Recipes</a></li>
+                <li><a class="nav-link" routerLink="chef">Chef</a></li>
+
               </ul>
             </div>
           </nav>
-
+          <router-outlet></router-outlet>
       <br/><br/>
       <br/><br/>
 
