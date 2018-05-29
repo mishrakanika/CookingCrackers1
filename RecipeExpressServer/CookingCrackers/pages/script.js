@@ -121,9 +121,9 @@ function populateRecipeDetails(elementId, recipeDetails) {
 	//newElement += "<p>Image: " + recipeDetails.rimage  + "</p>";
 	newElement += "<h2><i>" + recipeDetails.rname + "</i></h2>";
 	newElement += "<h4>Recipe Description: </h4><p>" + recipeDetails.rdescription  + "</p>";
-	newElement += "<img src=" + recipeDetails.rimage  + "height="+ 400 + " width="+ 350 +" >";
+	newElement += "<img src=" + recipeDetails.rimage  + " height="+ 400 + " width="+ 350 +" >";
 	newElement += "<p><h4>Ingredients:</h4> " + recipeDetails.ringredients  + "</p>";
-	newElement += "<p<h4>Method:</h4> " + recipeDetails.rmethod  + "</p>";
+	newElement += "<p><h4>Method:</h4> " + recipeDetails.rmethod  + "</p>";
 	newElement += "<p><h4>Cuisine Type:</h4> " + recipeDetails.rcuisinetype  + "</p>";
 	newElement += "<p><h4>Meal Type:</h4> " + recipeDetails.rmealtype  + "</p>";
 	newElement += "<p><h4>Preference Type:</h4> " + recipeDetails.rmealpreference  + "</p>";
