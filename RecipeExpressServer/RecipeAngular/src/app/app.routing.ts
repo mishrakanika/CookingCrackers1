@@ -6,9 +6,12 @@ import { HomeComponent } from './home/home.component';
 import { ChefprofileComponent } from './chefprofile/chefprofile.component';
 import { GetRecipeComponent } from './all-recipe/get-recipe/get-recipe.component';
 import { AllRecipeComponent } from './all-recipe/all-recipe.component';
+import {AddrecipeComponent} from './chefprofile/addrecipe/addrecipe.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
+    { path: 'addrecipe', component: AddrecipeComponent },
+    { path: 'allrecipes', component: AllRecipeComponent },
     { path: 'getRecipe/:Id',component: GetRecipeComponent},
     { path: 'recipe',component: AllRecipeComponent},
     { path: 'mealtype', component: MealTypeComponent },
