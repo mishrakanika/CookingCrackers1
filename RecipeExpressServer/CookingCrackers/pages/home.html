@@ -4,12 +4,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- <link rel="stylehseet" href="/Users/rutubhatt/Documents/GitHub/CookingCrackers1/RecipeExpressServer/CookingCrackers/public/stylesheets/style.css"> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
 <style>
-.navbar {
+  .navbar {
     overflow: hidden;
     background-color: #333;
     font-family: Arial, Helvetica, sans-serif;
-}
+} 
 
 .navbar a {
     float: left;
@@ -18,13 +21,16 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-}
+} 
 
-.dropdown {
+/* .dropdown {
+    float: left;
+    overflow: hidden;
+} */
+.dropdown-menu{
     float: left;
     overflow: hidden;
 }
-
 .button {
     font-weight: bold;
     font-size: 24px;
@@ -45,7 +51,7 @@
     
 }
 
-.dropdown .dropbtn {
+/* .dropdown .dropbtn {
     font-size: 16px;    
     border: none;
     outline: none;
@@ -54,12 +60,12 @@
     background-color: inherit;
     font-family: inherit;
     margin: 0;
-}
+}*/
 
 .navbar a:hover, .dropdown:hover .dropbtn, .button:hover {
-    background-color: red;
+    background-color:#ff6600;
 }
-
+/*
 .dropdown-content {
     display: none;
     position: absolute;
@@ -67,23 +73,37 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-}
+} */
 .bold
 {
     font-weight: bold;   
 }
-.dropdown-content a {
+/* .dropdown-content a {
     float: none;
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
-}
-.backImage{
+} */
+/* .backImage{
     background: url('http://kochihermosabeach.com/images/img02.jpg');
-}
-.dropdown-content a:hover {
+    
+} */
+.bg { 
+    /* The image used */
+    background-image: url("http://kochihermosabeach.com/images/img02.jpg");
+
+    /* Full height */
+    height: fit-content; 
+    opacity: 0.8;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} 
+/* .dropdown-content a:hover {
     background-color: #ddd;
 }
 .boxed {
@@ -94,16 +114,16 @@
 }
 .dropdown:hover .dropdown-content {
     display: block;
-}
+} */
+
 </style>
 </head>
-<body class="backImage" onload="initXHR('home',null)">
-<div class="navbar">
-  <a href="#home">Home</a>
+<body class="bg" onload="initXHR('home',null)">
+<nav class="navbar fixed-top navbar-expand-lg scrolling-navbar container-fluid">
+  <!-- <a href="#home">Home</a>
   <a href="#favoriterecipes">Favourite Recipes</a>
 
-
-  <div class="dropdown">
+<div class="dropdown">
     <button class="dropbtn">Cuisine Types 
       <i class="fa fa-caret-down"></i>
     </button>
@@ -131,9 +151,67 @@
     </div>
   </div> 
 <a href="#about">About</a>
-    <a href="#contactus">Contact Us</a>
-</div>
-<br/><br/>
+    <a href="#contactus">Contact Us</a> -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Favourite Recipes</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cuisine Type<span class="caret"></span></a>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Indian</a>
+            <a class="dropdown-item" href="#">Mexican</a>
+            <!-- <div class="dropdown-divider"></div> -->
+            <a class="dropdown-item" href="#">Thai</a>
+            <a class="dropdown-item" href="#">Chinese</a>
+            <a class="dropdown-item" href="#">Mediterranean</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Meal Preference<span class="caret"></span></a>
+
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Diabetic</a>
+                  <a class="dropdown-item" href="#">Vegetarian</a>
+                  <!-- <div class="dropdown-divider"></div> -->
+                  <a class="dropdown-item" href="#">Gluten-free</a>
+                  <a class="dropdown-item" href="#">Non-Vegetarian</a>
+                  <a class="dropdown-item" href="#">Low Calorie</a>
+                </div>
+              </li>
+              <br/><br/>
+        <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <br/><br/>
+              <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                  </li>
+      </ul>
+      <br/><br/>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+</nav> 
+<br/><br/> <br/><br/>
+<div class="container" >
+    
+        <div class="p-3 mb-2 bg-light text-dark" class="rounded">
             <div id="meal" >
                     <div class="panel panel-default">
                       <!-- Default panel contents -->
@@ -160,7 +238,8 @@
     
                             </div>
                         </div>
-
+                    
+                    </div>                    </div>
 <script src="/script.js"></script>
 </body>
 </html>
