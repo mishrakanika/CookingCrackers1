@@ -1,8 +1,72 @@
-<p>
+<html>
+
+  <head>
+
+    </head>
+     
+    <body class="bg" >
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Cooking Crackers</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Favorite Recipe</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cuisine Type<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Indian</a></li>
+                    <li><a href="#">Thai</a></li>
+                    <li><a href="#">Italian</a></li>
+                    <li><a href="#">American</a></li>
+                    <li><a href="#">Chinese</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Meal Preference<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Diabetic</a></li>
+                    <li><a href="#">Vegetarian</a></li>
+                    <li><a href="#">Gluten Free</a></li>
+                    <li><a href="#">Non Vegetarian</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </nav>
+
+      <br/><br/>
+      <br/><br/>
+
+
+      <div class="container" >
+          
+      <br/>
+      <h3 align="center">All Recipes</h3>
+      
+      <br/>
+          <div *ngFor="let result of recipelist; let i = index">
+              <li> <a [routerLink]="['/getRecipe/', result.rrecipeId]">{{i+1}} - {{result.rname}}</a> </li>
+              <p> {{result.rdescription}}</p>
+            </div>
+      
+      </div>
+      <br/>
+      <br/>
+    <script src="/script.js"></script>
+      </body>
+  </html>
+
+
+
+
+<!-- <p>
   all-recipe works!
 </p>
 <p>Hello</p>
 <div *ngFor="let result of recipelist; let i = index">
   <li> <a [routerLink]="['/getRecipe/', result.rrecipeId]">{{i+1}} - {{result.rname}}</a> </li>
   <p> {{result.rdescription}}</p>
-</div>
+</div> -->
