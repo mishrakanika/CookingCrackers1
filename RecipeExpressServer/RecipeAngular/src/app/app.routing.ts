@@ -4,7 +4,7 @@ import { MealPreferenceComponent } from './meal-preference/meal-preference.compo
 import { CuisineTypeComponent } from './cuisine-type/cuisine-type.component';
 import { HomeComponent } from './home/home.component';
 import { ChefprofileComponent } from './chefprofile/chefprofile.component';
-import { GetRecipeComponent } from './get-recipe/get-recipe.component';
+import { GetRecipeComponent } from './all-recipe/get-recipe/get-recipe.component';
 import { AllRecipeComponent } from './all-recipe/all-recipe.component';
 
 const routes: Routes = [

@@ -1,7 +1,7 @@
 import { Input,Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import IRecipeModel from '../share/IRecipeModel';
-import {RecipeServiceService} from '../recipe-service.service';
+import IRecipeModel from '../../share/IRecipeModel';
+import {RecipeServiceService} from '../../recipe-service.service';
 import { Location } from '@angular/common';
 
 @Component({
