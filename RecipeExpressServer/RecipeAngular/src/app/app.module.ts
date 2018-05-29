@@ -16,6 +16,8 @@ import { UpdaterecipeComponent } from './chefprofile/updaterecipe/updaterecipe.c
 import { DeleterecipeComponent } from './chefprofile/deleterecipe/deleterecipe.component';
 import { RecipeServiceService} from './recipe-service.service';
 import { GetRecipeComponent } from './get-recipe/get-recipe.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AllRecipeComponent } from './all-recipe/all-recipe.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +30,16 @@ import { GetRecipeComponent } from './get-recipe/get-recipe.component';
     AddrecipeComponent,
     UpdaterecipeComponent,
     DeleterecipeComponent,
-    GetRecipeComponent
+    GetRecipeComponent,
+    AllRecipeComponent
   ],
   imports: [
     BrowserModule,
     routing,
-    HttpModule
+    HttpModule,
+    FormsModule,
   ],
   providers: [ RecipeServiceService ],
-  bootstrap: [GetRecipeComponent]
+  bootstrap: [AllRecipeComponent]
 })
 export class AppModule { }

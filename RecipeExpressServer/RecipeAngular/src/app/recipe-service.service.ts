@@ -27,11 +27,21 @@ export class RecipeServiceService {
     return result;
   }
   
-  retrieveRecipeDetailsByName(rName: string) {
-    var result=  this.http.get( this.host + '/app/recipe/1')
+  retrieveRecipeDetailsByName(rrecipeId: string) {
+    console.log(rrecipeId);
+    var result=  this.http.get( this.host + '/app/recipe/'+ 5)
     .map(response => response.json());
     return result;
   }
+
+
+  retrieveAllRecipe() {
+    //console.log(rrecipeId);
+    var result=  this.http.get( this.host + '/app/recipe/')
+    .map(response => response.json());
+    return result;
+  }
+
 
   getRecipeForPost(recipe: IRecipeModel) {
     console.log("inside gerrecipepost");

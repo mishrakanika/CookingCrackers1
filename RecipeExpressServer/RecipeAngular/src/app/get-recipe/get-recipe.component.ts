@@ -22,15 +22,18 @@ export class GetRecipeComponent implements OnInit {
         ringredients: String;
         rchefid: String;
         rimage: String;
-        router$: ActivatedRoute;
+       router$: ActivatedRoute;
 
 
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
 		private location: Location,
     private recipeService$: RecipeServiceService)
      { 	
-       this.rrecipeId = route.snapshot.params['recipeID'];
+       console.log("route Details:" + route.snapshot.params.Id);
+       this.rrecipeId = route.snapshot.params['Id'];
+       console.log("Recipe ID :"+ this.rrecipeId);
        recipeService$.retrieveRecipeDetailsByName(this.rrecipeId)
        .subscribe(
          result => { this.rname = result.rname;
@@ -54,6 +57,9 @@ export class GetRecipeComponent implements OnInit {
     }
 
   ngOnInit() {
+
+    
+
   }
 
 }
