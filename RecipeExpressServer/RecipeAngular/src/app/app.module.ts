@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { Http } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MealTypeComponent } from './meal-type/meal-type.component';
 import { CuisineTypeComponent } from './cuisine-type/cuisine-type.component';
@@ -33,8 +33,9 @@ import { GetRecipeComponent } from './get-recipe/get-recipe.component';
   imports: [
     BrowserModule,
     routing,
+    HttpModule
   ],
-  providers: [{provide: APP_BASE_HREF, useValue: '/'}, RecipeServiceService ],
-  bootstrap: [AddrecipeComponent]
+  providers: [ RecipeServiceService ],
+  bootstrap: [GetRecipeComponent]
 })
 export class AppModule { }

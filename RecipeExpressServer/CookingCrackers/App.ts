@@ -47,12 +47,30 @@ class App {
   private routes(): void {
     let router = express.Router();
 
+    router.all('/',(req, res, next) => {
+        // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+   // res.setHeader('Access-Control-Allow-Credent;
+    next();
+      });
 
     router.post('/app/recipe/:recipeID', (req, res) => {
-        console.log(req.body);
+                // Website you wish to allow to connect
+    
+        
         var id = req.params.recipeID;
-        console.log('Query single list with id: ' + id);
+        console.log('Query changed single list with id: ' + id);
+
+        console.log(res.header);
         res.send("Received post for id:"+ id);
     });
 
@@ -85,6 +103,13 @@ class App {
     });
 
     router.get('/app/recipe/:recipeID', (req, res) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
         var id = req.params.recipeID;
         console.log('Query single recipe with id: ' + id);
         this.Recipes.retrieveRecipeDetails(res, {rrecipeId: id});

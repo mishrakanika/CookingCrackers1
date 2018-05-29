@@ -21,7 +21,6 @@ class RecipeModel {
                     rmethod: String,
                     rname: String,
                     rdescription: String,
-                    rtaskId: Number,
                     rcuisinetype: String,
                     rmealpreference: String,
                     rmealtype: String,

@@ -5,27 +5,41 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
+import IRecipeModel from './share/IRecipeModel';
+import IRecipeCatalogModel from './share/IRecipeCatalogModel';
+import IRecipeCatalogDetailsModel from './share/IRecipeCatalogDetailsModel';
+
+
 
  @Injectable()
 //  {} providedIn: 'root'
 // }
 export class RecipeServiceService {
+  host:string = 'http://localhost:8080';
 
   constructor(private http: Http) { }
 
-  getListsIndex() {
-    return this.http.get( 'http://localhost:8080/json/lists.json')
-//    return this.http.get( '/app/list/')
+  
+  retrieveRecipeDetailsByCategory(rId: string) {
+    var result = this.http.get( this.host + '/app/recipe/category/' + rId)
+    .map(response => response.json());
+
+    return result;
+  }
+  
+  retrieveRecipeDetailsByName(rName: string) {
+    var result=  this.http.get( this.host + '/app/recipe/1')
+    .map(response => response.json());
+    return result;
+  }
+
+  getRecipeForPost(recipe: IRecipeModel) {
+    console.log("inside gerrecipepost");
+    return this.http.post( this.host + '/app/recipe/', recipe)
     .map(response => response.json());
   }
 
-  getItems(index: string) {
-    return this.http.get( 'http://localhost:8080/json/lists/' + index + '.json')
-    .map(response => response.json());
-//    return this.http.get( '/app/list/' + index)
-    
-  }
-
+  
 }
 
 

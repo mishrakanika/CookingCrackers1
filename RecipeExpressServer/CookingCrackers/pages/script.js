@@ -118,14 +118,14 @@ function populateRecipeDetails(elementId, recipeDetails) {
 	var newElement = "<div>";
 	newElement += "<div class=\"bold\">";
 	newElement += "<h3>Recipe Details</h3>";
-	//newElement += "<p>Image: " + recipeDetails.rimage  + "</p>";
+	newElement += "<p>Image: " + recipeDetails.rimage  + "</p>";
 	newElement += "<h4>" + recipeDetails.rname + "</h4>";
 	newElement += "<p>Recipe Description: " + recipeDetails.rdescription  + "</p>";
 	newElement += "<p>Ingredients: " + recipeDetails.ringredients  + "</p>";
 	newElement += "<p>Method: " + recipeDetails.rmethod  + "</p>";
 	newElement += "<p>Cuisine Type: " + recipeDetails.rcuisinetype  + "</p>";
 	newElement += "<p>Meal Type: " + recipeDetails.rmealtype  + "</p>";
-	newElement += "<p>Preference Type: " + recipeDetails.rpreferencetype  + "</p>";
+	newElement += "<p>Preference Type: " + recipeDetails.rmealpreference  + "</p>";
 	newElement += "<p>Duration: " + recipeDetails.rduration  + "</p>";
 	newElement += "<p>Chef: " + recipeDetails.rchefid  + "</p>";
     newElement += "</div>";

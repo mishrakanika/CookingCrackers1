@@ -1,9 +1,7 @@
-import Mongoose = require("mongoose");
-
-interface IRecipeModel extends Mongoose.Document {
+interface IRecipeModel  {
     
         rname: String,
-        rrecipeId: Number,
+        rrecipeId: string,
         rmethod: String,
         rdescription: String,
         rcuisinetype: String,
@@ -15,4 +13,4 @@ interface IRecipeModel extends Mongoose.Document {
         rimage: String
    
 }
-export {IRecipeModel};
+export default IRecipeModel;
