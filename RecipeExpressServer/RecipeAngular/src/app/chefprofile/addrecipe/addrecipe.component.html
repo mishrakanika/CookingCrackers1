@@ -1,26 +1,15 @@
 <html>
-  <!-- <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <! <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head> --> 
+
   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     </head>
-  <body>
-    <div class="backImage">
-      <div class="navbar">
+     
+    <body class="bg">
+
+
+<!--       <div class="navbar">
         <a href="#home">Home</a>
-        
-      
-        <div class="dropdown">
+         <div class="dropdown">
           <button class="dropbtn">Manage Recipes 
             <i class="fa fa-caret-down"></i>
           </button>
@@ -34,36 +23,41 @@
         <a href="#profile">Profile</a>
       <a href="#about">About</a>
           <a href="#contactus">Contact Us</a>
-      </div>
+      </div> -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Cooking Crackers</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Profile</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Recipe<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Users/rutubhatt/Documents/GitHub/CookingCrackers1/RecipeExpressServer/RecipeAngular/src/app/chefprofile/addrecipe/addrecipe.component.html">Add Recipe</a></li>
+                  <li><a href="/Users/rutubhatt/Documents/GitHub/CookingCrackers1/RecipeExpressServer/RecipeAngular/src/app/chefprofile/updaterecipe/updaterecipe.component.html">Update Recipe</a></li>
+                  <li><a href="/Users/rutubhatt/Documents/GitHub/CookingCrackers1/RecipeExpressServer/RecipeAngular/src/app/chefprofile/deleterecipe/deleterecipe.component.html">Delete Recipe</a></li>
+                </ul>
+              </li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+        </nav>
+
       <br/><br/>
-      <!-- <div class = "heading1"> -->
-        <!-- <div style="display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size:12px; background-color:white; border-radius: 5px;">
-          <label id='lname' style ="font-weight: bold;">Recipe Name</label>&nbsp;&nbsp;
-          <textarea id='name' title="Enter name here.."></textarea><br/>
-        </div>
-        <br/>
-        <br/>
-        <br/>
-        &nbsp;
-          <div style="display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size:12px; background-color:white; border-radius: 5px;">
-            <label id='lduration' style ="font-weight: bold;">Duration</label>&nbsp;&nbsp;
-            <textarea id='duration' title="Enter duration here.."></textarea><br/>
-          </div>
-          <br/>
-          <br/>
-          <br/>
-          &nbsp;
-          <div style="display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size:12px;  background-color:white; border-radius: 5px;">
-           <label id='lingredients' style ="font-weight: bold;" >Ingredients</label>&nbsp;&nbsp;
-           <textarea id='ingredients' title="Enter ingredients here.." style="width: 200px; height: 200px;"></textarea><br/>
-          </div>
-          &nbsp; -->
-      <!-- </div> -->
+      <br/><br/>
+
+
+      <div class="container" >
+          
+              <!-- <div class="panel panel-default">  -->
       <form (ngSubmit)="onSubmit()">
+          
       <div>
           
-          <div style="display: inline-block; background-color:white;">
-            <h3>Add Recipe</h3>     
+          <div>   
+            <h3 align="center">Add Recipe</h3>     
           <ul>
             <li>
                 <label style ="font-weight: bold;">Recipe Name:</label>
@@ -144,11 +138,13 @@
         </div> 
         </div>
         <br/>
-        <br/>
-        <br/>
-        <input type="submit" class="btn btn-primary" Value="Post Recipe"/>
+        
+        <input type="submit" class="btn btn-warning center-block" Value="Upload Recipe"/>
       </form>
-    </div>
+      <br/>
+      </div>
+      <br/>
+      <br/>
     <script src="/script.js"></script>
       </body>
   </html>
