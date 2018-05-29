@@ -4,8 +4,7 @@ import * as logger from 'morgan';
 import * as mongodb from 'mongodb';
 import * as url from 'url';
 import * as bodyParser from 'body-parser';
-//var MongoClient = require('mongodb').MongoClient;
-//var Q = require('q');
+
 
 
 import {DataAccess} from './DataAccess';
@@ -14,7 +13,7 @@ import {RecipeCatalogModel} from './model/RecipeCatalogModel';
 import {RecipeCatalogDetailsModel} from './model/RecipeCatalogDetailsModel';
 
 var fs = require('fs');
-
+var cors = require('cors');
 // Creates and configures an ExpressJS web server.
 class App {
 
@@ -47,32 +46,14 @@ class App {
   private routes(): void {
     let router = express.Router();
 
-    router.all('/',(req, res, next) => {
-        // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    router.use(cors());
 
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    router.options('*',cors());
 
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-   // res.setHeader('Access-Control-Allow-Credent;
-    next();
-      });
 
     router.post('/app/recipe/:recipeID', (req, res) => {
-                // Website you wish to allow to connect
-                res.setHeader('Access-Control-Allow-Origin', '*');
-
-                // Request methods you wish to allow
-                res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-            
-                // Request headers you wish to allow
-                res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-        
+                
         var id = req.params.recipeID;
         console.log('Query changed single list with id: ' + id);
 
@@ -84,53 +65,35 @@ class App {
     router.get('/', (req, res) => {
         console.log('Query All list');
         this.Recipes.retrieveAllRecipes(res);
-       //initXHR('lists');
+       
     });
 
     
-
+    
     router.post('/app/recipe/', (req, res) => {
-        
-        console.log(req.body);
+        console.log("Inside Post"); 
+        res.send(this.idGenerator.toString());
+      
         var jsonObj = req.body;
         jsonObj.rrecipeId = this.idGenerator;
         this.Recipes.model.create([jsonObj], (err) => {
             if (err) {
                 console.log('object creation failed');
             }
-        });
-        res.setHeader('Access-Control-Allow-Origin', '*');
-
-        // Request methods you wish to allow
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    
-        // Request headers you wish to allow
-        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+        }); 
         res.send(this.idGenerator.toString());
         this.idGenerator++;
     });
 
 
     router.get('/app/recipe/', (req, res) => {
-        res.setHeader('Access-Control-Allow-Origin', '*');
-
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  
         console.log('Query All Recipes');
         this.Recipes.retrieveAllRecipes(res);
     });
 
     router.get('/app/recipe/:recipeID', (req, res) => {
-        res.setHeader('Access-Control-Allow-Origin', '*');
-
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+   
         var id = req.params.recipeID;
         console.log('Query single recipe with id: ' + id);
         this.Recipes.retrieveRecipeDetails(res, {rrecipeId: id});
