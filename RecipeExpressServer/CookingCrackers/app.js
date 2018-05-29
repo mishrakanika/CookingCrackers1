@@ -7,6 +7,7 @@ var RecipeModel_1 = require("./model/RecipeModel");
 var RecipeCatalogModel_1 = require("./model/RecipeCatalogModel");
 var RecipeCatalogDetailsModel_1 = require("./model/RecipeCatalogDetailsModel");
 var fs = require('fs');
+var cors = require('cors');
 // Creates and configures an ExpressJS web server.
 var App = /** @class */ (function () {
     //Run configuration methods on the Express instance.
@@ -29,25 +30,9 @@ var App = /** @class */ (function () {
     App.prototype.routes = function () {
         var _this = this;
         var router = express.Router();
-        router.all('/', function (req, res, next) {
-            // Website you wish to allow to connect
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            // Request methods you wish to allow
-            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-            // Request headers you wish to allow
-            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-            // Set to true if you need the website to include cookies in the requests sent
-            // to the API (e.g. in case you use sessions)
-            // res.setHeader('Access-Control-Allow-Credent;
-            next();
-        });
+        router.use(cors());
+        router.options('*', cors());
         router.post('/app/recipe/:recipeID', function (req, res) {
-            // Website you wish to allow to connect
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            // Request methods you wish to allow
-            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-            // Request headers you wish to allow
-            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
             var id = req.params.recipeID;
             console.log('Query changed single list with id: ' + id);
             console.log(res.header);
@@ -56,10 +41,10 @@ var App = /** @class */ (function () {
         router.get('/', function (req, res) {
             console.log('Query All list');
             _this.Recipes.retrieveAllRecipes(res);
-            //initXHR('lists');
         });
         router.post('/app/recipe/', function (req, res) {
-            console.log(req.body);
+            console.log("Inside Post");
+            res.send(_this.idGenerator.toString());
             var jsonObj = req.body;
             jsonObj.rrecipeId = _this.idGenerator;
             _this.Recipes.model.create([jsonObj], function (err) {
@@ -67,29 +52,14 @@ var App = /** @class */ (function () {
                     console.log('object creation failed');
                 }
             });
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            // Request methods you wish to allow
-            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-            // Request headers you wish to allow
-            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
             res.send(_this.idGenerator.toString());
             _this.idGenerator++;
         });
         router.get('/app/recipe/', function (req, res) {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            // Request methods you wish to allow
-            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-            // Request headers you wish to allow
-            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
             console.log('Query All Recipes');
             _this.Recipes.retrieveAllRecipes(res);
         });
         router.get('/app/recipe/:recipeID', function (req, res) {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            // Request methods you wish to allow
-            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-            // Request headers you wish to allow
-            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
             var id = req.params.recipeID;
             console.log('Query single recipe with id: ' + id);
             _this.Recipes.retrieveRecipeDetails(res, { rrecipeId: id });
