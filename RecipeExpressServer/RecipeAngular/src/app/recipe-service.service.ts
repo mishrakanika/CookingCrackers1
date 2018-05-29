@@ -29,7 +29,7 @@ export class RecipeServiceService {
   
   retrieveRecipeDetailsByName(rrecipeId: string) {
     console.log(rrecipeId);
-    var result=  this.http.get( this.host + '/app/recipe/'+ 5)
+    var result=  this.http.get( this.host + '/app/recipe/'+ rrecipeId)
     .map(response => response.json());
     return result;
   }

@@ -65,7 +65,13 @@ class App {
 
     router.post('/app/recipe/:recipeID', (req, res) => {
                 // Website you wish to allow to connect
-    
+                res.setHeader('Access-Control-Allow-Origin', '*');
+
+                // Request methods you wish to allow
+                res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+            
+                // Request headers you wish to allow
+                res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
         
         var id = req.params.recipeID;
         console.log('Query changed single list with id: ' + id);
@@ -84,6 +90,7 @@ class App {
     
 
     router.post('/app/recipe/', (req, res) => {
+        
         console.log(req.body);
         var jsonObj = req.body;
         jsonObj.rrecipeId = this.idGenerator;
@@ -92,6 +99,13 @@ class App {
                 console.log('object creation failed');
             }
         });
+        res.setHeader('Access-Control-Allow-Origin', '*');
+
+        // Request methods you wish to allow
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    
+        // Request headers you wish to allow
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
         res.send(this.idGenerator.toString());
         this.idGenerator++;
     });

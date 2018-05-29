@@ -40,6 +40,6 @@ import { AllRecipeComponent } from './all-recipe/all-recipe.component';
     FormsModule,
   ],
   providers: [ RecipeServiceService ],
-  bootstrap: [AllRecipeComponent]
+  bootstrap: [AddrecipeComponent]
 })
 export class AppModule { }

@@ -53,7 +53,7 @@
           </div>
           &nbsp; -->
       <!-- </div> -->
-      <form>
+      <form (ngSubmit)="onSubmit()">
       <div>
           
           <div style="display: inline-block; background-color:white;">
@@ -61,26 +61,86 @@
           <ul>
             <li>
                 <label style ="font-weight: bold;">Recipe Name:</label>
-                <input type="text" class="form-control" id="name">    
+                <input type="text" class="form-control" placeholder="recipe name" [(ngModel)]="rname" name ="rname">    
             </li>
             <br/>
             <li>
                 <label style ="font-weight: bold;">Duration:</label>
-                <input type="text" class="form-control" id="duration">
+                <input type="text" class="form-control" placeholder="Duration" [(ngModel)]="rduration" name ="rduration">
                   
             </li>
             <br/>
             <li>
                 <label style ="font-weight: bold;">Ingredients:</label>
-                <textarea class="form-control" rows="5" id="ingredients"></textarea>
+                <input type="text" class="form-control" placeholder="ingredients" [(ngModel)]="ringredients" name ="ringredients">
                    
             </li>
+            <br/>
+            <li>
+                <label style ="font-weight: bold;">Method:</label>
+                <input type="text" class="form-control" placeholder="method" [(ngModel)]="rmethod" name ="rmethod">
+                   
+            </li>
+            <br/>
+            <li>
+                <label style ="font-weight: bold;">Description:</label>
+                <input type="text" class="form-control" placeholder="description" [(ngModel)]="rdescription" name ="rdescription">
+                   
+            </li>
+            <br/>
+            <li>
+                <label style ="font-weight: bold;">Chef ID:</label>
+                <input type="text" class="form-control" placeholder="chefid" [(ngModel)]="rchefid" name ="rchefid">
+                   
+            </li>
+            <br/>
+            <li>
+                <label style ="font-weight: bold;">Image:</label>
+                <input type="text" class="form-control" placeholder="Image" [(ngModel)]="rimage" name ="rimage">
+                   
+            </li>
+            <br/>
+            
+            <li>
+                <label style ="font-weight: bold;">Meal Type:</label>
+                <select class="form-control " placeholder="mealtype" [(ngModel)]="rmealtype" name ="rmealtype">
+                  <option value="Breakfast">Breakfast</option>
+                  <option value="Lunch">Lunch</option>
+                  <option value="Dinner">Dinner</option>
+                  <option value="Midnight Snacks">Midnight Snacks</option>
+                  <option value="Desserts">Desserts</option>
+                </select>
+            </li>
+            <br/>
+            <li>
+                <label style ="font-weight: bold;">Cuisine Type:</label>
+                <select class="form-control " placeholder="cuisinetype" [(ngModel)]="rcuisinetype" name ="rcuisinetype">
+                  <option value="Indian">Indian</option>
+                  <option value="Mexican">Mexican</option>
+                  <option value="Italian">Italian</option>
+                  <option value="Chinese">Chinese</option>
+                  <option value="Mediterrian">Mediterrian</option>
+                </select>
+            </li>
+            <br/>
+            <li>
+              <label style ="font-weight: bold;">Meal Preference:</label>
+              <select class="form-control " placeholder="mealpreference" [(ngModel)]="rmealpreference" name ="rmealpreference">
+                <option value="Diabetic">Diabetic</option>
+                <option value="Vegeterian">Vegeterian</option>
+                <option value="Non Vegeterian">Non Vegeterian</option>
+                <option value="Gluten Free">Gluten Free</option>
+                <option value="Low Calorie">Low Calorie</option>
+              </select>
+            </li>
+           
           </ul>
         </div> 
         </div>
         <br/>
         <br/>
         <br/>
+        <input type="submit" class="btn btn-primary" Value="Post Recipe"/>
       </form>
     </div>
       </body>
