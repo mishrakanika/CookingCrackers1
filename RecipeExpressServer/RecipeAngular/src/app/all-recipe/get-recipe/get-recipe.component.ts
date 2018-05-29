@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 export class GetRecipeComponent implements OnInit {
         getRecipe: IRecipeModel;
         rname: String;
-       @Input() rrecipeId: string;
+       rrecipeId: string;
         rmethod: String;
         rdescription: String;
         rcuisinetype: String;
@@ -31,7 +31,7 @@ export class GetRecipeComponent implements OnInit {
 		private location: Location,
     private recipeService$: RecipeServiceService)
      { 	
-       console.log("route Details:" + route.snapshot.params.Id);
+       
        this.rrecipeId = route.snapshot.params['Id'];
        console.log("Recipe ID :"+ this.rrecipeId);
        recipeService$.retrieveRecipeDetailsByName(this.rrecipeId)
