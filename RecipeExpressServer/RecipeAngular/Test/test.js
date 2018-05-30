@@ -58,7 +58,8 @@ chai.use(chaiHttp);
 			  expect(response.body).to.satisfy(
 				  function (body) {
 					  for (var i = 0; i < body.length; i++) {
-						  expect(body[i]).to.have.property('rrecipeId').that.is.a('Number');
+					//	expect(body[i]).to.have.property('_id').that.is.a('Number');
+						  expect(body[i]).to.have.property('rrecipeId').that.is.a('String');
 						  expect(body[i]).to.have.property('rmethod').that.is.a('String');
 						  expect(body[i]).to.have.property('rname').that.is.a('String');
 						  expect(body[i]).to.have.property('rdescription').that.is.a('String');
