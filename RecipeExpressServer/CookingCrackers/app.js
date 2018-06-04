@@ -8,6 +8,8 @@ var RecipeCatalogModel_1 = require("./model/RecipeCatalogModel");
 var RecipeCatalogDetailsModel_1 = require("./model/RecipeCatalogDetailsModel");
 var fs = require('fs');
 var cors = require('cors');
+var max = 500;
+var min = 8;
 // Creates and configures an ExpressJS web server.
 var App = /** @class */ (function () {
     //Run configuration methods on the Express instance.
@@ -15,7 +17,7 @@ var App = /** @class */ (function () {
         this.expressApp = express();
         this.middleware();
         this.routes();
-        this.idGenerator = 100;
+        this.idGenerator = Math.floor(Math.random() * (max - min) + min);
         this.Recipes = new RecipeModel_1.RecipeModel();
         this.RecipesCatalog = new RecipeCatalogModel_1.RecipeCatalogModel();
         this.RecipeCatalogDetails = new RecipeCatalogDetailsModel_1.RecipeCatalogDetailsModel();
@@ -44,15 +46,15 @@ var App = /** @class */ (function () {
         });
         router.post('/app/recipe/', function (req, res) {
             console.log("Inside Post");
-            res.send(_this.idGenerator.toString());
             var jsonObj = req.body;
             jsonObj.rrecipeId = _this.idGenerator;
+            console.log("id..." + jsonObj.rrecipeId);
             _this.Recipes.model.create([jsonObj], function (err) {
                 if (err) {
                     console.log('object creation failed');
                 }
             });
-            res.send(_this.idGenerator.toString());
+            res.send({ message: 'Recipe created!' });
             _this.idGenerator++;
         });
         router.get('/app/recipe/', function (req, res) {
