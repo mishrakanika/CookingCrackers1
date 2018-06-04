@@ -14,6 +14,8 @@ import {RecipeCatalogDetailsModel} from './model/RecipeCatalogDetailsModel';
 
 var fs = require('fs');
 var cors = require('cors');
+var max = 500;
+var min =8;
 // Creates and configures an ExpressJS web server.
 class App {
 
@@ -29,7 +31,7 @@ class App {
     this.expressApp = express();
     this.middleware();
     this.routes();
-    this.idGenerator = 100;
+    this.idGenerator = Math.floor(Math.random() * (max - min) + min);
     this.Recipes = new RecipeModel();
     this.RecipesCatalog = new RecipeCatalogModel();
     this.RecipeCatalogDetails = new RecipeCatalogDetailsModel();
@@ -71,17 +73,17 @@ class App {
     
     
     router.post('/app/recipe/', (req, res) => {
-        console.log("Inside Post"); 
-        res.send(this.idGenerator.toString());
+        console.log("Inside Post");
       
         var jsonObj = req.body;
         jsonObj.rrecipeId = this.idGenerator;
+        console.log("id..."+jsonObj.rrecipeId);
         this.Recipes.model.create([jsonObj], (err) => {
             if (err) {
                 console.log('object creation failed');
             }
         }); 
-        res.send(this.idGenerator.toString());
+        res.send({ message: 'Recipe created!' });
         this.idGenerator++;
     });
 
