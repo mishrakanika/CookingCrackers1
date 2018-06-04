@@ -16,7 +16,7 @@ chai.use(chaiHttp);
 			   
 	  before(function (done) {
 	  chai.request("http://localhost:8080")
-				  .get("/")
+				  .get("/app/recipe/")
 				  .end(function (err, res) {
 					  requestResult = res.body;
 					  response = res;
