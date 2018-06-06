@@ -43,6 +43,14 @@ class RecipeModel {
         });
     } 
 
+
+    public DeleteRecipe(response:any, filter:Object) {
+        var query = this.model.deleteOne(filter);
+        query.exec( (err, itemArray) => {
+            response.json(itemArray);
+        });
+    } 
+
 	public retrieveRecipeDetails(response:any, filter:Object) {
         var query = this.model.findOne(filter);
         query.exec( (err, itemArray) => {

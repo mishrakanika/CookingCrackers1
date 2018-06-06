@@ -97,6 +97,12 @@ class App {
         res.send("Received post for id:"+ id);
     });
 
+    router.delete('/app/recipe/:recipeID', (req, res) => {
+   
+        var id = req.params.recipeID;
+        console.log('Query single recipe with id: ' + id);
+        this.Recipes.DeleteRecipe(res, {rrecipeId: id});
+    });
 
     router.get('/', (req, res) => {
         console.log('Query All list');

@@ -44,7 +44,7 @@ export class RecipeServiceService {
 
 
   getRecipeForPost(recipe: IRecipeModel) {
-    console.log("inside gerrecipepost");
+    console.log("inside getrecipepost");
     return this.http.post( this.host + '/app/recipe/', recipe)
     .map(response => response.json());
   }
