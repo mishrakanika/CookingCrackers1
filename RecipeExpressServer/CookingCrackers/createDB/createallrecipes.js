@@ -1,4 +1,4 @@
-db = db.getSiblingDB('Recipesdb')
+db = db.getSiblingDB('recipesdb')
 db.createCollection('recipes')  
 recipesCollection = db.getCollection("recipes") //earlier it was lists
 recipesCollection.remove({})  //earlier it was listsCollection
