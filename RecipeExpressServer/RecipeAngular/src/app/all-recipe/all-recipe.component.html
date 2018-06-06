@@ -1,12 +1,26 @@
 <html>
 
   <head>
-
+    
+     
     </head>
      
     <body class="bg" >
 
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div id="nav-placeholder">
+
+      </div>
+      <script src="//code.jquery.com/jquery.min.js"></script>
+      <script>
+      $.get("nav1.html", function(data){
+          $("#nav-placeholder").replaceWith(data);
+      });
+      </script>
+      
+      
+
+
+        <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
               <div class="navbar-header">
                 <a class="navbar-brand" href="#">Cooking Crackers</a>
@@ -37,7 +51,7 @@
 
               </ul>
             </div>
-          </nav>
+          </nav> -->
           <!-- <router-outlet></router-outlet> -->
       <br/><br/>
       <br/><br/>
