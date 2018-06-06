@@ -19,7 +19,7 @@ class GooglePassport {
         passport.use(new GoogleStrategy({
                 clientID: this.clientId,
                 clientSecret: this.secretId,
-                callbackURL: "", //write down azure URL of our app
+                callbackURL: "http://cookingcrackers.azurewebsites.net/auth/google/callback", //write down azure URL of our app
                 profileFields: ['id', 'displayName', 'emails']
             },
             (accessToken, refreshToken, profile, done) => {

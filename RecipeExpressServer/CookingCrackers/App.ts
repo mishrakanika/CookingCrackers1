@@ -12,6 +12,9 @@ import {RecipeModel} from './model/RecipeModel';
 import {RecipeCatalogModel} from './model/RecipeCatalogModel';
 import {RecipeCatalogDetailsModel} from './model/RecipeCatalogDetailsModel';
 
+//import GooglePassportObj from './GooglePassport';
+
+let passport = require('passport');
 var fs = require('fs');
 var cors = require('cors');
 var max = 500;
@@ -25,6 +28,8 @@ class App {
   public Recipes:RecipeModel;
   public RecipesCatalog:RecipeCatalogModel;
   public RecipeCatalogDetails:RecipeCatalogDetailsModel;
+
+  //public googlePassportObj:GooglePassportObj;
 
   //Run configuration methods on the Express instance.
   constructor() {
@@ -42,7 +47,16 @@ class App {
     this.expressApp.use(logger('dev'));
     this.expressApp.use(bodyParser.json());
     this.expressApp.use(bodyParser.urlencoded({ extended: false }));
+
+    // this.express.use(session({ secret: 'keyboard cat' }));
+    // this.express.use(passport.initialize());
+    // this.express.use(passport.session());
   }
+
+//   private validateAuth(req, res, next):void {
+//     if (req.isAuthenticated()) { return next(); }
+//         res.redirect('/');
+//   }
 
   // Configure API endpoints.
   private routes(): void {
@@ -53,6 +67,26 @@ class App {
     router.options('*',cors());
 
 
+
+    //oauth
+
+// 	router.get('/auth/facebook', 
+//     passport.authenticate('facebook', 
+//         {scope: ['public_profile', 'email'] }
+//     )
+// );
+
+// router.get('/auth/facebook/callback', 
+//     passport.authenticate('facebook', 
+//         { failureRedirect: '/', successRedirect: '/myprofile' }
+//     )
+// );
+
+// router.get('/auth/userdata', this.validateAuth, (req, res) => {
+//     console.log('user object:' + JSON.stringify(req.user));
+//     this.username = JSON.stringify(req.user);
+//     res.json(req.user);
+// });
 
     router.post('/app/recipe/:recipeID', (req, res) => {
                 
