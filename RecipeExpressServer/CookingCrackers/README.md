@@ -42,3 +42,11 @@ createallrecipes.js and createallrecipescatalog.js (make sure db name in all the
 
 5) Run express server - 
 npm start
+
+6) Run angular - 
+ng serve
+
+//Node server deployment on azure
+1) Create web app and app service plan
+2) select github in deployment options
+3) 
