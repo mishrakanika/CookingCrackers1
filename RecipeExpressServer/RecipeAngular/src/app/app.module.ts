@@ -19,6 +19,7 @@ import { GetRecipeComponent } from './all-recipe/get-recipe/get-recipe.component
 import { RouterModule, Routes } from '@angular/router';
 import { AllRecipeComponent } from './all-recipe/all-recipe.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ChefprofilebioComponent } from './chefprofile/chefprofilebio/chefprofilebio.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     DeleterecipeComponent,
     GetRecipeComponent,
     AllRecipeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ChefprofilebioComponent
   ],
   imports: [
     BrowserModule,

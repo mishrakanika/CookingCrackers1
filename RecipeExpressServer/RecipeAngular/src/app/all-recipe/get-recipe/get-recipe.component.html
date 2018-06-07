@@ -6,38 +6,74 @@
      
     <body class="bg" >
 
-
-         
+       
       <br/><br/>
       <br/><br/>
 
 
-      <div class="container" >
-          
-      <br/>
-      
-      <br/>
-      <div class="panel panel-default"> 
+      <div class="container" > 
+        <br/>  <br/>
+        <div class="well well-lg">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src={{rimage}} class="img-rounded"  height="250" width="300" >
+                </div>
+                <div class="col-sm-6">
+                    <table class="table">
+                        <tr>
+                            <td><h2 align="center">{{rname}} </h2></td>
+                        </tr>   
+                        <tr>
+                            <td><p><b>Ratings:</b></p></td>
+                            <!-- <td><span style="font-size:300%;color:yellow;">&starf;</span></td> --> 
+                            <td><p>&#9733;&#9733;&#9733; &#9733;  &#9734; </p></td>
+                            <!-- <td><p> {{rating}} </p></td>  -->                      
+                        </tr>   
+                        <tr>
+                            <td><p><b>Chef: </b></p></td>
+                            <td><p> {{rchefid}} </p></td>
+                        </tr> 
+                        <tr>    
+                            <td><p><b>Recipe Description: </b></p></td>
+                            <td><p> {{rdescription}} </p></td>
+                          </tr> 
+                      </table>
 
-          <div class="row">
-            <h2 align="center">{{rname}} </h2>
-          </div>
-          <div class="panel-body ml-1">
-              <!-- <p>Recipe ID: {{rrecipeId}} </p>
-              <p>Recipe Name: {{rname}} </p> -->
-              <p><i>Recipe Description: </i> {{rdescription}} </p>
-              <img src={{rimage}} height="250" width="300" >
-              <p><i>Recipe Method: </i> {{rmethod}} </p>
-              <p><i>Recipe Cuisine Type: </i> {{rcuisinetype}} </p>
-              <p><i>Recipe Preference: </i> {{rmealpreference}} </p>
-              <p><i>Recipe Ingredients: </i>{{ringredients}} </p>
-              <p><i>Recipe Duration: </i> {{rduration}} </p>
-              <!-- <p>Recipe Rating: {{rating}} </p> -->
+                </div>
             </div>
-            </div>
+
+            <div class="row">
+                <table class="table">
+                      
+                    <tr>
+                        <td><p><b>Recipe Method: </b></p></td>
+                        <td><p> {{rmethod}} </p></td>
+                    </tr>   
+                    <tr>    
+                        <td><p><b>Recipe Ingredients: </b></p></td>
+                          <td><p>{{ringredients}} </p></td>
+                    </tr>
+                    <tr>
+                        <td><p><b>Recipe Cuisine Type: </b> </p></td>
+                          <td><p>{{rcuisinetype}} </p></td>
+                    </tr> 
+                    <tr>    
+                        <td><p><b>Recipe Preference: </b></p></td>
+                          <td><p> {{rmealpreference}} </p></td>
+                    </tr> 
+                    
+                    <tr>    
+                        <td><p><b>Recipe Duration: </b> </p></td>
+                        <td><p> {{rduration}} </p></td>
+                    </tr>
+
+                  </table>
+            </div>              
+              </div>    
+            
 
 
-      
+
       </div>
       <br/>
       <br/>

@@ -8,6 +8,7 @@ import { GetRecipeComponent } from './all-recipe/get-recipe/get-recipe.component
 import { AllRecipeComponent } from './all-recipe/all-recipe.component';
 import {AddrecipeComponent} from './chefprofile/addrecipe/addrecipe.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import { ChefprofilebioComponent } from './chefprofile/chefprofilebio/chefprofilebio.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
     { path: 'cuisinetype', component: CuisineTypeComponent },
     { path: 'chef', component: ChefprofileComponent },
     { path: 'navbar', component: NavbarComponent },
+    { path: 'chefprofilebio', component: ChefprofilebioComponent },
 ];
 
 export const routing = RouterModule.forRoot(routes);

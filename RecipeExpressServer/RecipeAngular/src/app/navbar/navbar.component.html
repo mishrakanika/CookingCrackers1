@@ -23,6 +23,15 @@
           <li><a href="#">Non Vegetarian</a></li>
         </ul>
       </li>
+      <li><a  class="nav-link" routerLink="chef">CHome</a></li>
+                <li><a class="nav-link" routerLink="chefprofilebio">Profile</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Recipe<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a [routerLink]="['/addrecipe/']">Add Recipe</a></li>
+                    <li><a [routerLink]="['/updaterecipe/']">Update Recipe</a></li>
+                    <li><a [routerLink]="['/deleterecipe/']">Delete Recipe</a></li>
+                  </ul>
+                </li>
       <li><a href="#">About Us</a></li>
       <li><a class="nav-link" routerLink="allrecipes">All Recipes</a></li>
       <li><a class="nav-link" routerLink="chef">Chef</a></li>
