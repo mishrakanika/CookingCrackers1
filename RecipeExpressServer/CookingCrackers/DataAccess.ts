@@ -4,6 +4,7 @@ class DataAccess {
     static mongooseInstance: any;
     static mongooseConnection: Mongoose.Connection;
     static DB_CONNECTION_STRING:string = 'mongodb://groupGCC:Cooking123@ds016718.mlab.com:16718/recipesdb';
+    //static DB_CONNECTION_STRING:string = 'mongodb://localhost:3000/Recipesdb?authSource=admin';
     
     constructor () {
         DataAccess.connect();

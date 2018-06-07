@@ -18,6 +18,7 @@ import { RecipeServiceService} from './recipe-service.service';
 import { GetRecipeComponent } from './all-recipe/get-recipe/get-recipe.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AllRecipeComponent } from './all-recipe/all-recipe.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AllRecipeComponent } from './all-recipe/all-recipe.component';
     UpdaterecipeComponent,
     DeleterecipeComponent,
     GetRecipeComponent,
-    AllRecipeComponent
+    AllRecipeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
