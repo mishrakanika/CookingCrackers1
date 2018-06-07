@@ -33,6 +33,12 @@ var RecipeModel = /** @class */ (function () {
             response.json(itemArray);
         });
     };
+    RecipeModel.prototype.DeleteRecipe = function (response, filter) {
+        var query = this.model.deleteOne(filter);
+        query.exec(function (err, itemArray) {
+            response.json(itemArray);
+        });
+    };
     RecipeModel.prototype.retrieveRecipeDetails = function (response, filter) {
         var query = this.model.findOne(filter);
         query.exec(function (err, itemArray) {
