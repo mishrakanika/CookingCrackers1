@@ -31,11 +31,10 @@ bye
 
 //Mlab deployment steps
 1) Edit connection string in DataAccess.ts :
-static DB_CONNECTION_STRING:string = 'mongodb://groupGCC:Cooking123@ds016718.mlab.com:16718/recipesdb';
 
 2) Compile DataAccess.ts
 3) Connect to mlab using mongo shell - 
-mongo ds016718.mlab.com:16718/recipesdb -u groupGCC -p Cooking123
+mongo ds016718.mlab.com:16718/recipesdb -u username -p password
 
 4) load scripts - 
 createallrecipes.js and createallrecipescatalog.js (make sure db name in all these files is 'recipesdb')
