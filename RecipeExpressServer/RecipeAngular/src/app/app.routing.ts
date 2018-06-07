@@ -24,4 +24,4 @@ const routes: Routes = [
     { path: 'chefprofilebio', component: ChefprofilebioComponent },
 ];
 
-export const routing = RouterModule.forRoot(routes);
+export const routing = RouterModule.forRoot(routes, {useHash:true});
