@@ -15,11 +15,13 @@ import { AddrecipeComponent } from './chefprofile/addrecipe/addrecipe.component'
 import { UpdaterecipeComponent } from './chefprofile/updaterecipe/updaterecipe.component';
 import { DeleterecipeComponent } from './chefprofile/deleterecipe/deleterecipe.component';
 import { RecipeServiceService} from './recipe-service.service';
+import { UserService} from './user.service';
 import { GetRecipeComponent } from './all-recipe/get-recipe/get-recipe.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AllRecipeComponent } from './all-recipe/all-recipe.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ChefprofilebioComponent } from './chefprofile/chefprofilebio/chefprofilebio.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ChefprofilebioComponent } from './chefprofile/chefprofilebio/chefprofil
     GetRecipeComponent,
     AllRecipeComponent,
     NavbarComponent,
-    ChefprofilebioComponent
+    ChefprofilebioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import { ChefprofilebioComponent } from './chefprofile/chefprofilebio/chefprofil
     HttpModule,
     FormsModule,
   ],
-  providers: [ RecipeServiceService ],
+  providers: [ RecipeServiceService ,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

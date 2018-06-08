@@ -15,13 +15,13 @@ import IRecipeCatalogDetailsModel from './share/IRecipeCatalogDetailsModel';
 //  {} providedIn: 'root'
 // }
 export class RecipeServiceService {
-  host:string = 'http://localhost:8080';
+  //host:string = 'http://localhost:8080';
 
   constructor(private http: Http) { }
 
   
   retrieveRecipeDetailsByCategory(rId: string) {
-    var result = this.http.get( this.host + '/app/recipe/category/' + rId)
+    var result = this.http.get( '/app/recipe/category/' + rId)
     .map(response => response.json());
 
     return result;
@@ -29,7 +29,7 @@ export class RecipeServiceService {
   
   retrieveRecipeDetailsByName(rrecipeId: string) {
     console.log(rrecipeId);
-    var result=  this.http.get( this.host + '/app/recipe/'+ rrecipeId)
+    var result=  this.http.get( '/app/recipe/'+ rrecipeId)
     .map(response => response.json());
     return result;
   }
@@ -37,7 +37,7 @@ export class RecipeServiceService {
 
   retrieveAllRecipe() {
     //console.log(rrecipeId);
-    var result=  this.http.get( this.host + '/app/recipe/')
+    var result=  this.http.get( '/app/recipe/')
     .map(response => response.json());
     return result;
   }
@@ -45,13 +45,13 @@ export class RecipeServiceService {
 
   updateRecipe(rrecipeId: string){
     console.log("inside Update recipe post");
-    return this.http.post( this.host + '/app/recipe/', rrecipeId)
+    return this.http.post( '/app/recipe/', rrecipeId)
     .map(response => response.json()); 
   }
 
  deleteRecipe(rrecipeId: string){
   console.log(rrecipeId);
-  var result=  this.http.delete( this.host + '/app/recipe/'+ rrecipeId)
+  var result=  this.http.delete(  '/app/recipe/'+ rrecipeId)
   .map(response => response.json());
   return result;
 }
@@ -59,7 +59,7 @@ export class RecipeServiceService {
 
   getRecipeForPost(recipe: IRecipeModel) {
     console.log("inside getrecipepost");
-    return this.http.post( this.host + '/app/recipe/', recipe)
+    return this.http.post('/app/recipe/', recipe)
     .map(response => response.json());
   }
 

@@ -3,6 +3,7 @@ import { MealTypeComponent } from './meal-type/meal-type.component';
 import { MealPreferenceComponent } from './meal-preference/meal-preference.component';
 import { CuisineTypeComponent } from './cuisine-type/cuisine-type.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { ChefprofileComponent } from './chefprofile/chefprofile.component';
 import { GetRecipeComponent } from './all-recipe/get-recipe/get-recipe.component';
 import { AllRecipeComponent } from './all-recipe/all-recipe.component';
@@ -13,7 +14,9 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {ChefprofilebioComponent} from './chefprofile/chefprofilebio/chefprofilebio.component';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent },
+    
+    { path: '', component: LoginComponent },
+    { path: 'Home', component: HomeComponent },
     { path: 'addrecipe', component: AddrecipeComponent },
     { path: 'updaterecipe/:Id', component: UpdaterecipeComponent },
     { path: 'deleterecipe/:Id', component: DeleterecipeComponent },
