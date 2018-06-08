@@ -102,5 +102,33 @@ recipesCollection.insert(
         rchefid: "Div01",
         rimage:"https://s3.amazonaws.com/bulkbitesstatic/uploads/uploads/images/3/6/6/0/663_l.jpg"
 })
+recipesCollection.insert(    
+	{
+			rname: "Maggie Noodles",
+			rdescription:"one of the quickest, tastiest (not healthiest for sure) snack anyone can have.",
+			rmethod: "Heat a tbsp of Oil in a pan on a low flame. Add 0.5 tbsp of Mustard seeds (Rai) to the oil. Let the mustard seeds crackle. Add chopped green chilies to the oil. Stir fry for half a minute. If you want to limit the hotness of the recipe, skip this step. Add chopped onions. Let the onions fry on a medium flame until they turn translucent. Add a half cup of frozen green peas. Stir-fry until half-cooked. If you want to add more veggies to your Noodles, you can add them now. Make sure the veggies are semi-boiled before adding. Add the chopped tomatoes. Cook until it turns soft. Add a pinch of salt and red chili powder to the veggies. Add all 4 Maggi Magic Tastemaker packets to the veggie. Mix well. Add 2 tbsp of ketchup. Mix well. Cook for half a minute. Break the Maggi Noodle cakes into sizes of your liking and add it to the pan. Roast the Maggi for a half minute. Add water to this mixture. I am using 6 cups of water since I like to keep the Maggi dry. You can add more water if you like the noodles a little watery.Let the noodles cook well. You don't want the noodles to be too mushy or crunchy (uncooked). Add a tbsp of Butter on top. Serve hot. Optionally you can also sprinkle some grated cheese on top.",
+			rrecipeId: 8,
+			rcuisinetype: "Chinese",
+			rmealpreference: "Vegetarian",
+			rmealtype: "MidnightSnacks",
+			rduration: 15,
+			ringredients: "4 Maggi, 1 tbsp Oil, 0.5 tbsp Mustard seeds (Rai), 1 Green Chili chopped (optional), 1 medium Onion chopped, 1 medium Tomato chopped, 0.5 cup Green Peas Frozen / Fresh, 0.5 tbsp Red Chili powder, 0.5 tbsp Salt, 2 tbsp Tomato Ketchup, 6 cup Water, 1 tbsp Salted Butter, 0.5 cup Semi-boiled Veggies - corn, bell peppers, broccoli etc Optional",
+			rchefid: "Div01",
+			rimage:"https://i0.wp.com/yourfoodfantasy.com/wp-content/uploads/2017/06/Maggi-Noodles-Recipe-Indian-Style-Your-Food-Fantasy-by-Meenu-Gupta.jpg?fit=740%2C497&ssl=1"
+	})
+	recipesCollection.insert(    
+		{
+				rname: "Italian Pinwheel Rolls",
+				rdescription:"An enticing combination of Parmesan cheese, oregano and garlic makes these buttery rolls impossible to resist.",
+				rmethod: "Heat a tbsp of Oil in a pan on a low flame. Add 0.5 tbsp of Mustard seeds (Rai) to the oil. Let the mustard seeds crackle. Add chopped green chilies to the oil. Stir fry for half a minute. If you want to limit the hotness of the recipe, skip this step. Add chopped onions. Let the onions fry on a medium flame until they turn translucent. Add a half cup of frozen green peas. Stir-fry until half-cooked. If you want to add more veggies to your Noodles, you can add them now. Make sure the veggies are semi-boiled before adding. Add the chopped tomatoes. Cook until it turns soft. Add a pinch of salt and red chili powder to the veggies. Add all 4 Maggi Magic Tastemaker packets to the veggie. Mix well. Add 2 tbsp of ketchup. Mix well. Cook for half a minute. Break the Maggi Noodle cakes into sizes of your liking and add it to the pan. Roast the Maggi for a half minute. Add water to this mixture. I am using 6 cups of water since I like to keep the Maggi dry. You can add more water if you like the noodles a little watery.Let the noodles cook well. You don't want the noodles to be too mushy or crunchy (uncooked). Add a tbsp of Butter on top. Serve hot. Optionally you can also sprinkle some grated cheese on top.",
+				rrecipeId: 9,
+				rcuisinetype: "Chinese",
+				rmealpreference: "Diabetic",
+				rmealtype: "MidnightSnacks",
+				rduration: 15,
+				ringredients: "4 Maggi, 1 tbsp Oil, 0.5 tbsp Mustard seeds (Rai), 1 Green Chili chopped (optional), 1 medium Onion chopped, 1 medium Tomato chopped, 0.5 cup Green Peas Frozen / Fresh, 0.5 tbsp Red Chili powder, 0.5 tbsp Salt, 2 tbsp Tomato Ketchup, 6 cup Water, 1 tbsp Salted Butter, 0.5 cup Semi-boiled Veggies - corn, bell peppers, broccoli etc Optional",
+				rchefid: "Div01",
+				rimage:"https://i0.wp.com/yourfoodfantasy.com/wp-content/uploads/2017/06/Maggi-Noodles-Recipe-Indian-Style-Your-Food-Fantasy-by-Meenu-Gupta.jpg?fit=740%2C497&ssl=1"
+		})
 
 
