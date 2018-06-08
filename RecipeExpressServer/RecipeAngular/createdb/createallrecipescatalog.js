@@ -44,7 +44,7 @@ recipecatalogtypeCollection.insert(  // was taskssCollection
                         rctypeId: 3
                   },
                   {
-                        name: "Midnight Snacks",
+                        name: "MidnightSnacks",
                         rctypeId: 4
                   },
                   {
@@ -101,15 +101,15 @@ recipecatalogtypeCollection.insert(  // was tasksCollection
                               rctypeId: 2
                         },
                         {
-                              name: "Non Vegeratian",
+                              name: "NonVegetarian",
                               rctypeId: 3
                         },
                         {
-                              name: "Gluten Free",
+                              name: "GlutenFree",
                               rctypeId: 4
                         },
                         {
-                              name: "Low Calorie",
+                              name: "LowCalorie",
                               rctypeId: 5
                         }
             

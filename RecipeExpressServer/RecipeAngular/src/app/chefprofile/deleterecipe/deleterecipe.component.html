@@ -1,3 +1,86 @@
-<p>
-  deleterecipe works!
+<html>
+
+  <head>
+
+    </head>
+     
+    <body class="bg" >
+
+       
+      <br/><br/>
+      <br/><br/>
+
+
+      <div class="container" > 
+        <br/>  <br/>
+        <div class="well well-lg">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src={{rimage}} class="img-rounded"  height="250" width="300" >
+                </div>
+                <div class="col-sm-6">
+                    <table class="table">
+                        <tr>
+                            <td><h2 align="center">{{rname}} </h2></td>
+                        </tr>   
+                        <tr>
+                            <td><p><b>Ratings:</b></p></td>
+                            <!-- <td><span style="font-size:300%;color:yellow;">&starf;</span></td> --> 
+                            <td><p>&#9733;&#9733;&#9733; &#9733;  &#9734; </p></td>
+                            <!-- <td><p> {{rating}} </p></td>  -->                      
+                        </tr>   
+                        <tr>
+                            <td><p><b>Chef: </b></p></td>
+                            <td><p> {{rchefid}} </p></td>
+                        </tr> 
+                        <tr>    
+                            <td><p><b>Recipe Description: </b></p></td>
+                            <td><p> {{rdescription}} </p></td>
+                          </tr> 
+                      </table>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <table class="table">
+
+                    <tr>    
+                        <td align="center"><h3>Are You Sure You Want To Delete This Recipe?</h3></td>   
+                    </tr>
+                    <tr>    
+                        <td><h4>Button For YEs</h4></td>  
+                        <td><h4>Button For No</h4></td>  
+                    </tr>
+                    
+                    
+                  </table>
+            </div>              
+              </div>    
+            
+
+
+
+      </div>
+      <br/>
+      <br/>
+    <script src="/script.js"></script>
+      </body>
+  </html>
+
+
+
+
+<!-- <p>
+  all-recipe works!
 </p>
+<p>Hello</p>
+<div *ngFor="let result of recipelist; let i = index">
+  <li> <a [routerLink]="['/getRecipe/', result.rrecipeId]">{{i+1}} - {{result.rname}}</a> </li>
+  <p> {{result.rdescription}}</p>
+</div> -->
+
+
+
+
+

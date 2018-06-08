@@ -19,8 +19,8 @@
         <ul class="dropdown-menu">
           <li><a href="#">Diabetic</a></li>
           <li><a href="#">Vegetarian</a></li>
-          <li><a href="#">Gluten Free</a></li>
-          <li><a href="#">Non Vegetarian</a></li>
+          <li><a href="#">GlutenFree</a></li>
+          <li><a href="#">NonVegetarian</a></li>
         </ul>
       </li>
       <li><a  class="nav-link" routerLink="chef">CHome</a></li>
@@ -28,11 +28,11 @@
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Recipe<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a [routerLink]="['/addrecipe/']">Add Recipe</a></li>
-                    <li><a [routerLink]="['/updaterecipe/']">Update Recipe</a></li>
-                    <li><a [routerLink]="['/deleterecipe/']">Delete Recipe</a></li>
+                    <li><a [routerLink]="['/chef/']">Select Recipe to Update</a></li>
+                    <li><a [routerLink]="['/chef/']">Select Recipe to Delete</a></li>
                   </ul>
                 </li>
-      <li><a href="#">About Us</a></li>
+      <li><a class="nav-link" routerLink="aboutus">About Us</a></li>
       <li><a class="nav-link" routerLink="allrecipes">All Recipes</a></li>
       <li><a class="nav-link" routerLink="chef">Chef</a></li>
 

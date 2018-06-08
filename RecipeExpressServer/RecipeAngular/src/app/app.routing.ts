@@ -16,7 +16,7 @@ const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'addrecipe', component: AddrecipeComponent },
     { path: 'updaterecipe/:Id', component: UpdaterecipeComponent },
-    { path: 'deleterecipe', component: DeleterecipeComponent },
+    { path: 'deleterecipe/:Id', component: DeleterecipeComponent },
     { path: 'allrecipes', component: AllRecipeComponent },
     { path: 'getRecipe/:Id',component: GetRecipeComponent},
     { path: 'recipe',component: AllRecipeComponent},
