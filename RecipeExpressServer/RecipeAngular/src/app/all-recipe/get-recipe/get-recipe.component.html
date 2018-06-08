@@ -54,6 +54,10 @@
                           <td><p>{{ringredients}} </p></td>
                     </tr>
                     <tr>
+                        <td><p><b>Recipe Meal Type: </b> </p></td>
+                          <td><p>{{rmealtype}} </p></td>
+                    </tr> 
+                    <tr>
                         <td><p><b>Recipe Cuisine Type: </b> </p></td>
                           <td><p>{{rcuisinetype}} </p></td>
                     </tr> 
@@ -67,8 +71,8 @@
                         <td><p> {{rduration}} </p></td>
                     </tr>
                     <tr>    
-                        <td><input type="submit" class="btn btn-warning center-block" class="nav-link" routerLink="updaterecipe"  Value="Update Recipe"/></td>
-                        <td><input type="submit" class="btn btn-warning center-block" class="nav-link" routerLink="updaterecipe"  Value="Delete Recipe"/></td>
+                        <td><a [routerLink]="['/updaterecipe/', rrecipeId]">Update Recipe</a></td>
+                        <td><a [routerLink]="['/deleterecipe/', rrecipeId]">Delete Recipe</a></td>
                     </tr>
                     
                     

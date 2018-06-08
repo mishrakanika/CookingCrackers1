@@ -7,12 +7,16 @@ import { ChefprofileComponent } from './chefprofile/chefprofile.component';
 import { GetRecipeComponent } from './all-recipe/get-recipe/get-recipe.component';
 import { AllRecipeComponent } from './all-recipe/all-recipe.component';
 import {AddrecipeComponent} from './chefprofile/addrecipe/addrecipe.component';
+import {UpdaterecipeComponent} from './chefprofile/updaterecipe/updaterecipe.component';
+import {DeleterecipeComponent} from './chefprofile/deleterecipe/deleterecipe.component';
 import {NavbarComponent} from './navbar/navbar.component';
-import { ChefprofilebioComponent } from './chefprofile/chefprofilebio/chefprofilebio.component';
+import {ChefprofilebioComponent} from './chefprofile/chefprofilebio/chefprofilebio.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'addrecipe', component: AddrecipeComponent },
+    { path: 'updaterecipe/:Id', component: UpdaterecipeComponent },
+    { path: 'deleterecipe', component: DeleterecipeComponent },
     { path: 'allrecipes', component: AllRecipeComponent },
     { path: 'getRecipe/:Id',component: GetRecipeComponent},
     { path: 'recipe',component: AllRecipeComponent},
