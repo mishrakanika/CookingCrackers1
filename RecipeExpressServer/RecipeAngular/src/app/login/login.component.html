@@ -1,13 +1,59 @@
-<div >
-  <span class="input-group-addon" id="sizing-addon1">Username:</span>
-    <input type="text" class="form-control" placeholder="email" [(ngModel)]="username">
-</div>
-<br>     
-<div >
-  <span class="input-group-addon" id="sizing-addon2">Password: </span>
-    <input type="text" class="form-control" placeholder="password" [(ngModel)]="password">
-</div>
-<br>
-<div id="hreflink">
-<a href="/auth/google" class="btn btn-primary">Login with Google</a>
-</div>
+<html>
+    
+  <head>
+
+    </head>
+     <body>
+    <div class="bg" >
+      <br/><br/>
+      <br/><br/>
+        <div class="container" >
+              <br/>
+              <!-- if({{logintype}}==1) {
+              <h3 align="center">Sign In</h3>          
+              <br/>
+              }
+              elseif({{logintype}}==2){
+                <h3 align="center">Sign Up</h3>          
+              <br/>
+              }
+              else({{logintype}}==3){
+                <h3 align="center">Login with Google</h3>          
+              <br/>
+              }
+              <div align= "center">
+                <a [routerLink]="['/']" class="btn btn-info" role="button">Go Back</a>
+              </div> -->
+
+
+              <div >
+                <span class="input-group-addon" id="sizing-addon1">Username:</span>
+                  <input type="text" class="form-control" placeholder="email" [(ngModel)]="username">
+              </div>
+              <br>     
+              <div >
+                <span class="input-group-addon" id="sizing-addon2">Password: </span>
+                  <input type="text" class="form-control" placeholder="password" [(ngModel)]="password">
+              </div>
+              <br>
+              <div id="hreflink">
+              <a href="/auth/google" class="btn btn-primary">Login with Google</a>
+              </div>
+              <div>
+                <h2>{{logintype}}</h2>
+                </div>
+        
+       </div>
+
+      <br/>
+      <br/>
+    <script src="/script.js"></script>
+    </div>
+      </body>
+  </html>
+    
+
+
+
+
+

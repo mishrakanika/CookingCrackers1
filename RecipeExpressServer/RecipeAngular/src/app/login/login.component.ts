@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 })
 export class LoginComponent implements OnInit {
 
+  logintype:string;
   username:string;
   password:string;
   userservice$: UserService;
@@ -18,8 +19,10 @@ export class LoginComponent implements OnInit {
 
   constructor(
     _userservice: UserService,
+    private route: ActivatedRoute,
       _route: Router,
     ) { 
+      this.logintype = route.snapshot.params['Id'];
       this.userservice$ = _userservice;
       this.route$ = _route;
     this.userservice$.getUserInfo()

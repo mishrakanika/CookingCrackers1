@@ -5,25 +5,41 @@
     </head>
      <body>
     <div class="bg" >
-
-
-          <router-outlet></router-outlet> 
       <br/><br/>
       <br/><br/>
-
-     
-      <div class="container" >
-          
-          <br/>
-          <h3 align="center">Top Recipes</h3>
-          
-          <br/>
-              <!-- <div *ngFor="let result of recipelist; let i = index">
-                  <li> <a [routerLink]="['/getRecipe/', result.rrecipeId]">{{i+1}} - {{result.rname}}</a> </li>
-                  <p> {{result.rdescription}}</p>
-                </div> -->
-          
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="container" >
+            <br/>
+            <h3 align="center">Top Recipes</h3>          
+            <br/>
+            
+            
           </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="container" >
+            <br/>
+            <h3 align="center">Login</h3>          
+            <br/>
+            <div align="center">
+                <div>
+                  <a [routerLink]="['/login/', 1]" class="btn btn-info" role="button">Sign In</a>
+                </div><br/>
+                <br/><br/>
+                <div>
+                  <a [routerLink]="['/login/', 2]" class="btn btn-info" role="button">Sign Up</a>
+                </div><br/>
+                <br/><br/>
+                <div>
+                  <a [routerLink]="['/login/', 3]" class="btn btn-info" role="button">Login with Google</a>
+                </div>
+                <br/><br/>
+          </div>
+            
+          </div>
+        </div>
+      </div>
       <br/>
       <br/>
     <script src="/script.js"></script>

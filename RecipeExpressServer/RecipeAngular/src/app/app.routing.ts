@@ -29,6 +29,8 @@ const routes: Routes = [
     { path: 'chef', component: ChefprofileComponent },
     { path: 'navbar', component: NavbarComponent },
     { path: 'chefprofilebio', component: ChefprofilebioComponent },
+    { path: 'login/:Id', component: LoginComponent },
+
 ];
 
 export const routing = RouterModule.forRoot(routes, {useHash:true});
