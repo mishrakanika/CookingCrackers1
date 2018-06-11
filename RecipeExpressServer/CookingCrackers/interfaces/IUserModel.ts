@@ -5,6 +5,7 @@ interface IUserModel extends Mongoose.Document {
                 lastName: string;
                 userId: number;
                 password: string;
+                username: string;
                 isChef: boolean;
 }
 export default IUserModel;

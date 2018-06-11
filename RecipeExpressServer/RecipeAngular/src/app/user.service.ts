@@ -43,4 +43,10 @@ export class UserService {
   }
 
 
+  loginWithGoogle(){
+    return this.http.get('/auth/google')
+    .map(response => response.json());
+  }
+
+
 }

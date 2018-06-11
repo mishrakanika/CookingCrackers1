@@ -54,6 +54,20 @@ export class LoginComponent implements OnInit {
      console.log("password:" + this.password);
   }
 
+  onGoogleLogin(){
+    this.userservice$.loginWithGoogle().
+    subscribe(
+      result => {
+        this.username = result.emails[0].value;
+        this.password = "";
+      },
+      () => { this.username = "not logged in"},
+      () => console.log('REST call' + this.username)
+    
+    );
+  }
+
+
   ngOnInit() {
   }
 
