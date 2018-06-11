@@ -15,8 +15,8 @@ import {ChefprofilebioComponent} from './chefprofile/chefprofilebio/chefprofileb
 
 const routes: Routes = [
     
-    { path: '', component: LoginComponent },
-    { path: 'Home', component: HomeComponent },
+  //  { path: '', component: LoginComponent },
+    { path: '', component: HomeComponent },
     { path: 'addrecipe', component: AddrecipeComponent },
     { path: 'updaterecipe/:Id', component: UpdaterecipeComponent },
     { path: 'deleterecipe/:Id', component: DeleterecipeComponent },
