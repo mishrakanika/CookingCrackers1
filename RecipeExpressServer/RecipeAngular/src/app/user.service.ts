@@ -26,19 +26,19 @@ export class UserService {
   }
 
   validateLUsernameInfo(username:string) {
-    return this.http.get( this.host + '/api/user/username/' + username)
+    return this.http.get( '/api/user/username/' + username)
     .map(response => response.json());
   }
 
 
   retrieveRecipeDetailsByUser(rId: string) {
-    var result = this.http.get( this.host + '/app/recipe/user/' + rId)
+    var result = this.http.get( '/app/recipe/user/' + rId)
     .map(response => response.json());
     return result;
   }
 
   getUserInfo() {
-    return this.http.get( this.host + '/auth/userdata')
+    return this.http.get('/auth/userdata')
     .map(response => response.json());
   }
 

@@ -1,5 +1,5 @@
 import Mongoose = require('mongoose');
-import DataAccess from './../DataAccess';
+import DataAccess from '../DataAccess';
 import IUserModel from '../interfaces/IUserModel';
 
 var mongoose = DataAccess.mongooseInstance;

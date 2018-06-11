@@ -2,6 +2,7 @@
 exports.__esModule = true;
 var Mongoose = require("mongoose");
 var DataAccess = /** @class */ (function () {
+    //static DB_CONNECTION_STRING:string = 'mongodb://localhost:3000/Recipesdb?authSource=admin';
     function DataAccess() {
         DataAccess.connect();
     }
@@ -19,4 +20,5 @@ var DataAccess = /** @class */ (function () {
     return DataAccess;
 }());
 exports.DataAccess = DataAccess;
+exports["default"] = DataAccess;
 DataAccess.connect();

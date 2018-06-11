@@ -4,15 +4,16 @@ import * as logger from 'morgan';
 import * as mongodb from 'mongodb';
 import * as url from 'url';
 import * as bodyParser from 'body-parser';
+import * as session from 'express-session';
 
 
-
-import {DataAccess} from './DataAccess';
+//import {DataAccess} from './DataAccess';
 import {RecipeModel} from './model/RecipeModel';
 import {RecipeCatalogModel} from './model/RecipeCatalogModel';
 import {RecipeCatalogDetailsModel} from './model/RecipeCatalogDetailsModel';
 
-//import GooglePassportObj from './GooglePassport';
+
+import GooglePassportObj from './GooglePassport';
 
 let passport = require('passport');
 var fs = require('fs');
@@ -26,13 +27,16 @@ class App {
   public expressApp: express.Application;
   public idGenerator:number;
   public Recipes:RecipeModel;
+  public username:string;
   public RecipesCatalog:RecipeCatalogModel;
   public RecipeCatalogDetails:RecipeCatalogDetailsModel;
 
-  //public googlePassportObj:GooglePassportObj;
+  public googlePassportObj:GooglePassportObj;
 
   //Run configuration methods on the Express instance.
   constructor() {
+    this.googlePassportObj = new GooglePassportObj();
+
     this.expressApp = express();
     this.middleware();
     this.routes();
@@ -48,15 +52,16 @@ class App {
     this.expressApp.use(bodyParser.json());
     this.expressApp.use(bodyParser.urlencoded({ extended: false }));
 
-    // this.express.use(session({ secret: 'keyboard cat' }));
-    // this.express.use(passport.initialize());
-    // this.express.use(passport.session());
+     this.expressApp.use(passport.session({ secret: 'keyboard cat' }));
+     this.expressApp.use(passport.initialize());
+     this.expressApp.use(passport.session());
   }
 
-//   private validateAuth(req, res, next):void {
-//     if (req.isAuthenticated()) { return next(); }
-//         res.redirect('/');
-//   }
+private validateAuth(req, res, next):void {
+    if (req.isAuthenticated()) { console.log("user is authenticated"); return next(); }
+    console.log("user is not authenticated");
+    res.redirect('/');
+  }
 
   // Configure API endpoints.
   private routes(): void {
@@ -70,17 +75,17 @@ class App {
 
     //oauth
 
-// 	router.get('/auth/facebook', 
-//     passport.authenticate('facebook', 
-//         {scope: ['public_profile', 'email'] }
-//     )
-// );
+	router.get('/auth/google', 
+    passport.authenticate('google', 
+        {scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }
+    )
+);
 
-// router.get('/auth/facebook/callback', 
-//     passport.authenticate('facebook', 
-//         { failureRedirect: '/', successRedirect: '/myprofile' }
-//     )
-// );
+router.get('/auth/google/callback', 
+    passport.authenticate('google', 
+        { failureRedirect: '/', successRedirect: '/#/allrecipes' }
+    )
+);
 
 // router.get('/auth/userdata', this.validateAuth, (req, res) => {
 //     console.log('user object:' + JSON.stringify(req.user));
@@ -104,11 +109,11 @@ class App {
         this.Recipes.DeleteRecipe(res, {rrecipeId: id});
     });
 
-    router.get('/', (req, res) => {
-        console.log('Query All list');
-        this.Recipes.retrieveAllRecipes(res);
+    // router.get('/', (req, res) => {
+    //     console.log('Query All list');
+    //     this.Recipes.retrieveAllRecipes(res);
        
-    });
+    // });
 
     
     
@@ -157,10 +162,9 @@ class App {
 
     
     this.expressApp.use('/', router);
-
-    this.expressApp.use('/app/json/', express.static(__dirname+'/app/json'));
     this.expressApp.use('/images', express.static(__dirname+'/img'));
-    this.expressApp.use('/', express.static(__dirname+'/pages'));
+    this.expressApp.use('/', express.static(__dirname+'/recipeAngularDist'));    
+   // this.expressApp.use('/', express.static(__dirname+'/pages'));
      
     
   }
