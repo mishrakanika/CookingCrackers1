@@ -1,7 +1,6 @@
 <html>
     
   <head>
-
     </head>
      <body>
     <div class="bg" >
@@ -9,45 +8,83 @@
       <br/><br/>
         <div class="container" >
               <br/>
-              <!-- if({{logintype}}==1) {
-              <h3 align="center">Sign In</h3>          
-              <br/>
-              }
-              elseif({{logintype}}==2){
-                <h3 align="center">Sign Up</h3>          
-              <br/>
-              }
-              else({{logintype}}==3){
-                <h3 align="center">Login with Google</h3>          
-              <br/>
-              }
-              <div align= "center">
-                <a [routerLink]="['/']" class="btn btn-info" role="button">Go Back</a>
-              </div> -->
-
-
-              <div >
-                <span class="input-group-addon" id="sizing-addon1">Username:</span>
-                  <input type="text" class="form-control" placeholder="email" [(ngModel)]="username">
-              </div>
-              <br>     
-              <div >
-                <span class="input-group-addon" id="sizing-addon2">Password: </span>
-                  <input type="text" class="form-control" placeholder="password" [(ngModel)]="password">
-              </div>
-              <br>
-              <div id="hreflink">
-              <a href="/auth/google" class="btn btn-primary">Login with Google</a>
-              </div>
-              <div>
-                <h2>{{logintype}}</h2>
+              <div *ngIf="logintype == 1">
+                  <h3 align="center" >Sign In</h3>
+                  <br/>
+                  <form (ngSubmit)="onSubmitsignin()">
+                      <div>
+                          <div>
+                                <label style ="font-weight: bold;">Username:</label>
+                                <input type="email" class="form-control" placeholder="email" [(ngModel)]="username" name ="username">    
+                          </div>
+                            <br/>
+                            <div>
+                                <label style ="font-weight: bold;">Password:</label>
+                                <input type="password" class="form-control" placeholder="password" [(ngModel)]="password" name ="password">
+                                  
+                            </div>
+                            <br/>
+                          
+                        </div>
+                        <br/>
+                        <input type="submit" class="btn btn-warning center-block" Value="Sign In"/>
+                      </form>
                 </div>
+
+                <div *ngIf="logintype == 2">
+                    <h3 align="center" >Sign Up</h3>          
+                    <br/>
+                    <form (ngSubmit)="onSubmitsigniup()">
+                        <div>
+                            <div>
+                                <label style ="font-weight: bold;">First Name:</label>
+                                <input type="text" class="form-control" placeholder="firstname" [(ngModel)]="firstName" name ="firstName">    
+                          </div>
+                            <br/>
+                            <div>
+                                <label style ="font-weight: bold;">Last Name</label>
+                                <input type="text" class="form-control" placeholder="lastname" [(ngModel)]="lastName" name ="lastName">
+                                  
+                            </div>
+                            <div>
+                                  <label style ="font-weight: bold;">Username:</label>
+                                  <input type="email" class="form-control" placeholder="email" [(ngModel)]="username" name ="username">    
+                            </div>
+                              <br/>
+                              <div>
+                                  <label style ="font-weight: bold;">Password:</label>
+                                  <input type="password" class="form-control" placeholder="password" [(ngModel)]="password" name ="password">
+                                    
+                              </div>
+                              <br/>
+                            
+                          </div>
+                          <br/>
+                          <input type="submit" class="btn btn-warning center-block" Value="Sign Up"/>
+                        </form>
+
+
+                </div>
+                <div *ngIf="logintype == 3">
+                  <h3 align="center">Login</h3>          
+                  <br/>
+                  <div id="hreflink">
+                      <a href="/auth/facebook" class="btn btn-warning center-block">Login with Google</a>
+                      </div>  
+                </div>
+                <br/><br/>
+                <div id="test2" align= "center">
+                   <a [routerLink]="['/']" class="btn btn-info" role="button">Go Back</a>
+                </div> 
+                <!-- <div> 
+                <h2>{{logintype}}</h2>
+                </div> -->
         
        </div>
 
       <br/>
       <br/>
-    <script src="/script.js"></script>
+    <!-- <script src="/script.js"></script> -->
     </div>
       </body>
   </html>
