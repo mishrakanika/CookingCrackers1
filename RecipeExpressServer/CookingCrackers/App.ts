@@ -11,7 +11,7 @@ import * as session from 'express-session';
 import {RecipeModel} from './model/RecipeModel';
 import {RecipeCatalogModel} from './model/RecipeCatalogModel';
 import {RecipeCatalogDetailsModel} from './model/RecipeCatalogDetailsModel';
-
+import {UserModel} from './model/UserModel';
 
 import GooglePassportObj from './GooglePassport';
 
@@ -30,6 +30,7 @@ class App {
   public username:string;
   public RecipesCatalog:RecipeCatalogModel;
   public RecipeCatalogDetails:RecipeCatalogDetailsModel;
+  public User:UserModel;
 
   public googlePassportObj:GooglePassportObj;
 
@@ -44,16 +45,18 @@ class App {
     this.Recipes = new RecipeModel();
     this.RecipesCatalog = new RecipeCatalogModel();
     this.RecipeCatalogDetails = new RecipeCatalogDetailsModel();
+    this.User = new UserModel();
   }
 
   // Configure Express middleware.
   private middleware(): void {
     this.expressApp.use(logger('dev'));
     this.expressApp.use(bodyParser.json());
+    this.expressApp.use(passport.initialize());
     this.expressApp.use(bodyParser.urlencoded({ extended: false }));
 
      this.expressApp.use(passport.session({ secret: 'keyboard cat' }));
-     this.expressApp.use(passport.initialize());
+     
      this.expressApp.use(passport.session());
   }
 
@@ -109,12 +112,6 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
         this.Recipes.DeleteRecipe(res, {rrecipeId: id});
     });
 
-    // router.get('/', (req, res) => {
-    //     console.log('Query All list');
-    //     this.Recipes.retrieveAllRecipes(res);
-       
-    // });
-
     
     
     router.post('/app/recipe/', (req, res) => {
@@ -158,6 +155,32 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
         this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, {rcId: id});
     });
 
+
+    router.get( '/app/catalog/1/:rmealtype', (req, res) => {
+        var id = req.params.rmealtype;
+        console.log('Query single user with mealtype: ' + id);
+        this.Recipes.retrieveRecipeDetailsByCatalogue(res, {rmealtype: id});
+    });
+
+    router.get( '/app/catalog/2/:rcuisinetype', (req, res) => {
+        var id = req.params.rcuisinetype;
+        console.log('Query single user with cuisinetype: ' + id);
+        this.Recipes.retrieveRecipeDetailsByCatalogue(res, {rcuisinetype: id});
+    });
+
+    router.get( '/app/catalog/3/:rmealpreference', (req, res) => {
+        var id = req.params.rmealpreference;
+        console.log('Query single user with mealpreference: ' + id);
+        this.Recipes.retrieveRecipeDetailsByCatalogue(res, {rmealpreference: id});
+    });
+   
+
+
+    router.get( '/app/user/username/:usernames', (req, res) => {
+        var id = req.params.usernames;
+        console.log('Query single user with username: ' + id);
+        this.User.retrieveUserDetails(res, {username: id});
+    });
 
 
     

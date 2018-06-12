@@ -20,12 +20,24 @@ export class RecipeServiceService {
   constructor(private http: Http) { }
 
   
-  retrieveRecipeDetailsByCategory(rId: string) {
-    var result = this.http.get( '/app/recipe/category/' + rId)
+  retrieveRecipeDetailsByMealTypes(rId: string) {
+    var result = this.http.get( '/app/catalog/1/' + rId)
     .map(response => response.json());
-
     return result;
   }
+
+  retrieveRecipeDetailsByCuisineTypes(rId: string) {
+    var result = this.http.get( '/app/catalog/2/' + rId)
+    .map(response => response.json());
+    return result;
+  }
+
+  retrieveRecipeDetailsByPreferenceTypes(rId: string) {
+    var result = this.http.get( '/app/catalog/3/' + rId)
+    .map(response => response.json());
+    return result;
+  }
+
   
   retrieveRecipeDetailsByName(rrecipeId: string) {
     console.log(rrecipeId);
