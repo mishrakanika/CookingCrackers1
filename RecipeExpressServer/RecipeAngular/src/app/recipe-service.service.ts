@@ -21,19 +21,19 @@ export class RecipeServiceService {
 
   
   retrieveRecipeDetailsByMealTypes(rId: string) {
-    var result = this.http.get( '/app/catalog/1/' + rId)
+    var result = this.http.get( 'http://localhost:8080/app/catalog/1/' + rId)
     .map(response => response.json());
     return result;
   }
 
   retrieveRecipeDetailsByCuisineTypes(rId: string) {
-    var result = this.http.get( '/app/catalog/2/' + rId)
+    var result = this.http.get( 'http://localhost:8080/app/catalog/2/' + rId)
     .map(response => response.json());
     return result;
   }
 
   retrieveRecipeDetailsByPreferenceTypes(rId: string) {
-    var result = this.http.get( '/app/catalog/3/' + rId)
+    var result = this.http.get( 'http://localhost:8080/app/catalog/3/' + rId)
     .map(response => response.json());
     return result;
   }
@@ -41,7 +41,7 @@ export class RecipeServiceService {
   
   retrieveRecipeDetailsByName(rrecipeId: string) {
     console.log(rrecipeId);
-    var result=  this.http.get( '/app/recipe/'+ rrecipeId)
+    var result=  this.http.get( 'http://localhost:8080/app/recipe/'+ rrecipeId)
     .map(response => response.json());
     return result;
   }
@@ -49,7 +49,7 @@ export class RecipeServiceService {
 
   retrieveAllRecipe() {
     //console.log(rrecipeId);
-    var result=  this.http.get( '/app/recipe/')
+    var result=  this.http.get( 'http://localhost:8080/app/recipe/')
     .map(response => response.json());
     return result;
   }
