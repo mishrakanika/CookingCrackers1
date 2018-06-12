@@ -26,16 +26,22 @@ export class DeleterecipeComponent implements OnInit {
   ringredients: String;
   rchefid: String;
   rimage: String;
- router$: ActivatedRoute;
+  RecipeService$: RecipeServiceService;
+ //router$: ActivatedRoute;
+ router$: Router;
+ name:string;
 
   constructor( private route: ActivatedRoute,
-		private location: Location,
-    private recipeService$: RecipeServiceService) {
+    router$: Router,
+    RecipeService$: RecipeServiceService,
+  ) 
+    {
       this.deleterecipe = {rrecipeId:'', rname: '', rmethod: '', rdescription:'', rcuisinetype:'',rmealpreference:'', rmealtype:'', rduration:0,ringredients:'',rchefid:'',rimage:'',};
-
+      this.RecipeService$ = RecipeService$;
+     this.router$ = router$;
       this.rrecipeId = route.snapshot.params['Id'];
       console.log("Recipe ID :"+ this.rrecipeId);
-      recipeService$.retrieveRecipeDetailsByName(this.rrecipeId)
+      RecipeService$.retrieveRecipeDetailsByName(this.rrecipeId)
       .subscribe(
         result => { this.rname = result.rname;
          this.rrecipeId = result.rrecipeId;
@@ -50,20 +56,20 @@ export class DeleterecipeComponent implements OnInit {
          this.rimage = result.rimage;
 
         }, 
-      );
+      )};
 
-      onSubmitdelete() {
-        console.log(this.deleterecipe);
-        this.deleterecipe.rname = this.rname;
-        this.deleterecipe.rmethod = this.rmethod;
-        this.deleterecipe.rdescription = this.rdescription;
-        this.deleterecipe.rcuisinetype = this.rcuisinetype;
-        this.deleterecipe.rmealpreference = this.rmealpreference;
-        this.deleterecipe.rmealtype = this.rmealtype;
-        this.deleterecipe.rduration = this.rduration;
-        this.deleterecipe.ringredients = this.ringredients;
-        this.deleterecipe.rchefid = this.rchefid;
-        this.deleterecipe.rimage = this.rimage;
+      onSubmitdelete(){
+        // console.log(this.deleterecipe);
+        // this.deleterecipe.rname = this.rname;
+        // this.deleterecipe.rmethod = this.rmethod;
+        // this.deleterecipe.rdescription = this.rdescription;
+        // this.deleterecipe.rcuisinetype = this.rcuisinetype;
+        // this.deleterecipe.rmealpreference = this.rmealpreference;
+        // this.deleterecipe.rmealtype = this.rmealtype;
+        // this.deleterecipe.rduration = this.rduration;
+        // this.deleterecipe.ringredients = this.ringredients;
+        // this.deleterecipe.rchefid = this.rchefid;
+        // this.deleterecipe.rimage = this.rimage;
         
         console.log(this.rname);
         console.log(this.deleterecipe.rname);
@@ -84,9 +90,10 @@ export class DeleterecipeComponent implements OnInit {
 
 
 
-     }
+     
 
   ngOnInit() {
   }
 
-}
+    }
+
