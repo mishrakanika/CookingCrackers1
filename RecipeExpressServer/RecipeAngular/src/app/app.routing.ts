@@ -23,7 +23,7 @@ const routes: Routes = [
     { path: 'allrecipes', component: AllRecipeComponent },
     { path: 'getRecipe/:Id',component: GetRecipeComponent},
     { path: 'recipe',component: AllRecipeComponent},
-    { path: 'mealtype', component: MealTypeComponent },
+    { path: 'mealtype/:Id', component: MealTypeComponent },
     { path: 'mealpreference/:Id', component: MealPreferenceComponent },
     { path: 'cuisinetype/:Id', component: CuisineTypeComponent },
     { path: 'chef', component: ChefprofileComponent },

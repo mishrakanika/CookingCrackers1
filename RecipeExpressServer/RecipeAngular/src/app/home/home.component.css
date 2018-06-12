@@ -10,5 +10,14 @@
     
 .container {
     background-color: rgba(253, 246, 246, 0.838);
-    width: 46%;
+    width: 50%;
+  }
+  .well a{
+    font-weight: bold;
+    color: #ff6600;
+    font-size: larger;
+    align-content: center;
+  }
+  .well p{
+    color: black;
   }

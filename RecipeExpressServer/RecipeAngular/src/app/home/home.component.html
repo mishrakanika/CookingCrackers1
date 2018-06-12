@@ -11,8 +11,30 @@
         <div class="col-sm-6">
           <div class="container" >
             <br/>
-            <h3 align="center">Top Recipes</h3>          
+            <h3 align="center">Hungry!!</h3>          
             <br/>
+            
+            
+                <div class="well well-lg">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div *ngFor="let result of recipelist; let i = index">
+                              <div *ngIf="i<4">
+                                <img src={{result.rimage}} class="img-circle" alt="Image" width="140" height="110">
+                                <a align= "centre" [routerLink]="['/getRecipe/', result.rrecipeId]"> {{result.rname}}</a>
+                              </div>
+                            </div>
+                            <br/><br/><br/>
+                        </div>
+                        <!-- <div class="col-sm-6">   
+                                <div *ngIf="i>1" && "i<4" >
+                                  <img src={{result.rimage}} class="img-circle" alt="Image" width="140" height="110">
+                                  <a align= "centre" [routerLink]="['/getRecipe/', result.rrecipeId]"> {{result.rname}}</a>
+                                  </div>
+                        </div> -->
+                    </div>                 
+               </div>
+              
             
             
           </div>
