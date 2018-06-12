@@ -20,6 +20,7 @@ var fs = require('fs');
 var cors = require('cors');
 var max = 500;
 var min =8;
+
 // Creates and configures an ExpressJS web server.
 class App {
 
@@ -118,7 +119,7 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
         console.log("Inside Post");
       
         var jsonObj = req.body;
-        jsonObj.rrecipeId = this.idGenerator;
+        jsonObj.rrecipeId = this.idGenerator++;
         console.log("id..."+jsonObj.rrecipeId);
         this.Recipes.model.create([jsonObj], (err) => {
             if (err) {
@@ -182,6 +183,31 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
         this.User.retrieveUserDetails(res, {username: id});
     });
 
+
+    router.post('/app/user/', (req, res) => {
+        console.log("Inside node server User Post");
+        var jsonObj = req.body;
+       this.idGenerator = Math.floor(Math.random() * (max - min) + min);
+        jsonObj.userId = this.idGenerator++;
+        console.log("id..."+jsonObj.userId);
+        
+       // jsonObj.username = id;
+        //console.log("username..."+jsonObj.userId);
+        this.User.model.create([jsonObj], (err) => {
+            if (err) {
+                console.log('object creation failed');
+            }
+        }); 
+        res.send({ message: 'New User created!' });
+        this.idGenerator++;
+    });
+
+    router.get('/app/all/users/', (req, res) => {
+  
+        console.log('Query All Users');
+        this.User.retrieveAllUsers(res);
+    });
+      
 
     
     this.expressApp.use('/', router);

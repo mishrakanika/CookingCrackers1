@@ -73,7 +73,7 @@ var App = /** @class */ (function () {
         router.post('/app/recipe/', function (req, res) {
             console.log("Inside Post");
             var jsonObj = req.body;
-            jsonObj.rrecipeId = _this.idGenerator;
+            jsonObj.rrecipeId = _this.idGenerator++;
             console.log("id..." + jsonObj.rrecipeId);
             _this.Recipes.model.create([jsonObj], function (err) {
                 if (err) {
@@ -120,6 +120,26 @@ var App = /** @class */ (function () {
             var id = req.params.usernames;
             console.log('Query single user with username: ' + id);
             _this.User.retrieveUserDetails(res, { username: id });
+        });
+        router.post('/app/user/', function (req, res) {
+            console.log("Inside node server User Post");
+            var jsonObj = req.body;
+            _this.idGenerator = Math.floor(Math.random() * (max - min) + min);
+            jsonObj.userId = _this.idGenerator++;
+            console.log("id..." + jsonObj.userId);
+            // jsonObj.username = id;
+            //console.log("username..."+jsonObj.userId);
+            _this.User.model.create([jsonObj], function (err) {
+                if (err) {
+                    console.log('object creation failed');
+                }
+            });
+            res.send({ message: 'New User created!' });
+            _this.idGenerator++;
+        });
+        router.get('/app/all/users/', function (req, res) {
+            console.log('Query All Users');
+            _this.User.retrieveAllUsers(res);
         });
         this.expressApp.use('/', router);
         this.expressApp.use('/images', express.static(__dirname + '/img'));
