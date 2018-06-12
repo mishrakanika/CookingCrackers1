@@ -97,17 +97,18 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
     res.json(req.user);
 });
 
-    router.post('/app/recipe/:recipeID', (req, res) => {
-                
-        var id = req.params.recipeID;
-        console.log('Query changed single list with id: ' + id);
-        this.Recipes.model.update([id], (err) => {
-            if (err) {
-                console.log('Recipe updation failed');
-            }
-        }); 
-        res.send({ message: 'Recipe updated!' });
-    });
+    // router.post('/app/recipe/:recipeID', (req, res) => {
+    //     var jsonObj = req.body;      
+    //     var id = req.params.recipeID;
+    //     console.log('Query changed single recipe with id: ' + id);
+    //     this.Recipes.UpdateRecipe(res,jsonObj);
+    //     // this.Recipes.model.update([jsonObj], (err) => {
+    //     //     if (err) {
+    //     //         console.log('object updation failed');
+    //     //     }
+    //     // }); 
+    //     res.send({ message: 'Recipe updated!' });
+    // });
 
     router.delete('/app/recipe/:recipeID', (req, res) => {
    

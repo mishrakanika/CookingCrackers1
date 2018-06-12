@@ -64,6 +64,13 @@ class RecipeModel {
         });
     }
 
+    public UpdateRecipe(response:any, filter1:Object) {
+        console.log("updating recipe with id :"+filter1.toString );
+        var query = this.model.findOneAndUpdate(filter1);
+        query.exec( (err, itemArray) => {
+            response.json(itemArray);
+        });
+    } 
 
 
 }

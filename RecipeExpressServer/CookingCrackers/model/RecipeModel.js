@@ -51,6 +51,12 @@ var RecipeModel = /** @class */ (function () {
             response.json(itemArray);
         });
     };
+    RecipeModel.prototype.UpdateRecipe = function (response, filter1) {
+        var query = this.model.updateOne(filter1);
+        query.exec(function (err, itemArray) {
+            response.json(itemArray);
+        });
+    };
     return RecipeModel;
 }());
 exports.RecipeModel = RecipeModel;

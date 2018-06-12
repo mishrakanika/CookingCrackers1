@@ -60,11 +60,12 @@ var App = /** @class */ (function () {
             res.json(req.user);
         });
         router.post('/app/recipe/:recipeID', function (req, res) {
+            var jsonObj = req.body;
             var id = req.params.recipeID;
-            console.log('Query changed single list with id: ' + id);
-            _this.Recipes.model.update([id], function (err) {
+            console.log('Query changed single recipe with id: ' + id);
+            _this.Recipes.model.update([jsonObj], function (err) {
                 if (err) {
-                    console.log('Recipe updation failed');
+                    console.log('object updation failed');
                 }
             });
             res.send({ message: 'Recipe updated!' });
