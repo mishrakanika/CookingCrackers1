@@ -41,21 +41,19 @@
 
                 </div>
             </div>
-
+            <form (ngSubmit)="onSubmitdelete()">
             <div class="row">
                 <table class="table">
-
                     <tr>    
-                        <td align="center"><h3>Are You Sure You Want To Delete This Recipe?</h3></td>   
+                        <td align="center"><a>Are You Sure You Want To Delete This Recipe?</a></td>   
                     </tr>
                     <tr>    
-                        <td><h4>Button For YEs</h4></td>  
-                        <td><h4>Button For No</h4></td>  
-                    </tr>
-                    
-                    
-                  </table>
-            </div>              
+                        <td><input type="submit" class="btn btn-warning center-block" Value="Yes"/></td>  
+                        <td><p [routerLink]="['/']" class="btn btn-warning center-block" role="button">No, Go Back</p></td>  
+                    </tr>   
+                </table>
+            </div>  
+        </form>            
               </div>    
             
 

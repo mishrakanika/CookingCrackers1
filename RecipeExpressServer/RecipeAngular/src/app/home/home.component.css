@@ -10,7 +10,7 @@
     
 .container {
     background-color: rgba(253, 246, 246, 0.838);
-    width: 50%;
+    width: 60%;
   }
   .well a{
     font-weight: bold;
@@ -21,3 +21,9 @@
   .well p{
     color: black;
   }
+  .container p {
+    color: #ff6600;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 50px;
+    }

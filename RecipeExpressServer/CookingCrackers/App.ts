@@ -231,6 +231,11 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
     });
       
 
+    router.get('/app/chef/recipe/:rchefid', (req, res) => { 
+        var id = req.params.rchefid;
+        console.log('Query All recipe with chefid'+id);
+        this.Recipes.retrieveRecipeDetailsByCatalogue(res, {rchefid: id});
+    });
     
     this.expressApp.use('/', router);
     this.expressApp.use('/images', express.static(__dirname+'/img'));

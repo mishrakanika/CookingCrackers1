@@ -75,7 +75,14 @@ export class RecipeServiceService {
     .map(response => response.json());
   }
 
-  
+
+  retrieveRecipebyChef(rchefid: string) {
+    console.log(rchefid);
+    var result=  this.http.get( 'http://localhost:8080/app/chef/recipe/'+ rchefid)
+    .map(response => response.json());
+    return result;
+  }
+
 }
 
 
