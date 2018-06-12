@@ -81,15 +81,33 @@ private validateAuth(req, res, next):void {
 
 	router.get('/auth/google',cors(),
     passport.authenticate('google', 
-        {scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }
+        {scope: ['https://www.googleapis.com/auth/plus.me', 'email'] }
     )
 );
 
 router.get('/auth/google/callback', 
     passport.authenticate('google', 
-        { failureRedirect: '/', successRedirect: '/allrecipes' }
+        { failureRedirect: '/', successRedirect: 'http://localhost:4200/#/allrecipes' }
     )
 );
+
+// router.get('/auth/google',
+//             passport.authenticate('google',
+//                 { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }
+//             ), (res, req) => {
+//             console.log(req);
+//             }
+//         );
+
+//         router.get('/auth/google/callback',
+//             passport.authenticate('google',
+//                 { successRedirect: '/#/allrecipes', failureRedirect: '/'
+//                 }
+//             ), function(res, req) {
+//                 console.log("2RES:" + res);
+//                 console.log("2REQ:" + req);
+//             }
+//         );
 
 router.get('/auth/userdata', this.validateAuth, (req, res) => {
     console.log('user object:' + JSON.stringify(req.user));

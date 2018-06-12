@@ -56,4 +56,11 @@ export class UserService {
   }
 
 
+  validatecallback(){
+    console.log("inside user service for google callback");
+    return this.http.get('http://localhost:8080/auth/google/callback')
+    .map(response => response.json());
+
+  }
+
 }

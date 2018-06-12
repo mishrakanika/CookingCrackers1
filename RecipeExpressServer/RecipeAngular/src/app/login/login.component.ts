@@ -83,12 +83,17 @@ export class LoginComponent implements OnInit {
     subscribe(
       result => {
         this.username = result.emails[0].value;
+        this.userservice$.validateLUsernameInfo(this.username);
+        
+        
         this.password = "";
+
       },
       () => { this.username = "not logged in"},
       () => console.log('REST call' + this.username)
     
     );
+    this.userservice$.validatecallback();
   }
 
 

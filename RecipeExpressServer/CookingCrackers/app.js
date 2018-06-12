@@ -52,8 +52,24 @@ var App = /** @class */ (function () {
         router.use(cors());
         router.options('*', cors());
         //oauth
-        router.get('/auth/google', cors(), passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }, console.log('reached route in app ts')));
-        router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/', successRedirect: '/allrecipes' }));
+        router.get('/auth/google', cors(), passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.me', 'email'] }));
+        router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/', successRedirect: 'http://localhost:4200/#/allrecipes' }));
+        // router.get('/auth/google',
+        //             passport.authenticate('google',
+        //                 { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }
+        //             ), (res, req) => {
+        //             console.log(req);
+        //             }
+        //         );
+        //         router.get('/auth/google/callback',
+        //             passport.authenticate('google',
+        //                 { successRedirect: '/#/allrecipes', failureRedirect: '/'
+        //                 }
+        //             ), function(res, req) {
+        //                 console.log("2RES:" + res);
+        //                 console.log("2REQ:" + req);
+        //             }
+        //         );
         router.get('/auth/userdata', this.validateAuth, function (req, res) {
             console.log('user object:' + JSON.stringify(req.user));
             _this.username = JSON.stringify(req.user);
