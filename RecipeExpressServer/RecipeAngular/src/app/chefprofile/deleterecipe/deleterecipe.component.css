@@ -18,4 +18,10 @@
   .well p{
     color: black;
   }
+  .table a{
+
+    color: crimson;
+    font-size: large;
+    font-weight: bold;
+  }
 

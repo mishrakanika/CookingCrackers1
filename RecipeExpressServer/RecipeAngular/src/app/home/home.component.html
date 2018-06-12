@@ -8,30 +8,33 @@
       <br/><br/>
       <br/><br/>
       <div class="row">
+        <div class="container">
+          <p align="center">Cooking Crackers</p>
+        </div>
+      </div>
+      <br/><br/><br/><br/><br/>
+      <div class="row">
         <div class="col-sm-6">
           <div class="container" >
             <br/>
             <h3 align="center">Hungry!!</h3>          
             <br/>
-            
-            
                 <div class="well well-lg">
                     <div class="row">
+                        <div *ngFor="let result of recipelist; let i = index">
+                            <div *ngIf="i<4">
                         <div class="col-sm-6">
-                            <div *ngFor="let result of recipelist; let i = index">
-                              <div *ngIf="i<4">
-                                <img src={{result.rimage}} class="img-circle" alt="Image" width="140" height="110">
-                                <a align= "centre" [routerLink]="['/getRecipe/', result.rrecipeId]"> {{result.rname}}</a>
-                              </div>
-                            </div>
+                          <img src={{result.rimage}} class="img-circle" alt="Image" width="140" height="110">
+                            
+                        </div>
+                        <div class="col-sm-6">   
+                            <a align= "centre" [routerLink]="['/getRecipe/', result.rrecipeId]"> {{result.rname}}</a><br>
+                            <h5> {{result.rdescription}}</h5>
                             <br/><br/><br/>
                         </div>
-                        <!-- <div class="col-sm-6">   
-                                <div *ngIf="i>1" && "i<4" >
-                                  <img src={{result.rimage}} class="img-circle" alt="Image" width="140" height="110">
-                                  <a align= "centre" [routerLink]="['/getRecipe/', result.rrecipeId]"> {{result.rname}}</a>
-                                  </div>
-                        </div> -->
+                        <br/><br/><br/>
+                      </div>
+                      </div>
                     </div>                 
                </div>
               
