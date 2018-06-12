@@ -78,7 +78,7 @@ private validateAuth(req, res, next):void {
 
     //oauth
 
-	router.get('/auth/google', 
+	router.get('/auth/google',cors(),
     passport.authenticate('google', 
         {scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }
     )

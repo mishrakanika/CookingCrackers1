@@ -3,6 +3,7 @@ import { ActivatedRoute, Params,Router } from '@angular/router';
 import IRecipeModel from '../share/IRecipeModel';
 import {UserService} from '../user.service';
 import { Location } from '@angular/common';
+import {Md5} from 'ts-md5/dist/md5';
 
 @Component({
   selector: 'app-login',
@@ -83,6 +84,24 @@ export class LoginComponent implements OnInit {
     );
   }
 
+
+  onSubmitsignin(){
+    console.log("username:" + this.username);
+     console.log("password:" + this.password);
+     this.userservice$.validateLUsernameInfo(this.username).
+     subscribe(
+       result =>{
+         if(this.username == result.username && Md5.hashStr(this.password) == result.password) 
+         {
+           console.log("Username matched!!");
+           this.route$.navigate(['/allrecipes']);
+         }
+       },
+       () => { this.username = "not logged in"},
+       () => console.log('REST call' + this.username)
+     );
+     
+  }
 
   ngOnInit() {
   }
