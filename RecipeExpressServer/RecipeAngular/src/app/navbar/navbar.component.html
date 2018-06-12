@@ -16,10 +16,10 @@
       </li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Meal Preference<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Diabetic</a></li>
-          <li><a href="#">Vegetarian</a></li>
-          <li><a href="#">GlutenFree</a></li>
-          <li><a href="#">NonVegetarian</a></li>
+          <li><a [routerLink]="['/mealpreference/', 'Diabetic']">Diabetic</a></li>
+          <li><a [routerLink]="['/mealpreference/', 'Vegetarian']">Vegetarian</a></li>
+          <li><a [routerLink]="['/mealpreference/', 'GlutenFree']">GlutenFree</a></li>
+          <li><a [routerLink]="['/mealpreference/', 'NonVegetarian']">NonVegetarian</a></li>
         </ul>
       </li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Meal Type<span class="caret"></span></a>

@@ -1,3 +1,38 @@
-<p>
-  meal-preference works!
-</p>
+<html>
+
+  <head>
+    
+     
+    </head>
+     
+    <body class="bg" >    
+      <br/><br/>
+      <br/><br/>
+      <div class="container" >    
+      <br/>
+      <h3 align="center">Recipes based on Meal Preferences</h3>
+      <h2>{{rId}}</h2>
+      <br/>
+          <div *ngFor="let result of recipelist; let i = index">
+                
+                <div class="well well-lg">
+                    <div class="row">
+                        <div class="col-sm-4">
+                          <img src={{result.rimage}} class="img-circle" alt="Image" width="140" height="110">
+                        </div>
+                        <div class="col-sm-8">
+                          <a [routerLink]="['/getRecipe/', result.rrecipeId]"> {{result.rname}}</a>
+                          <p> {{result.rdescription}}</p>
+                        </div>
+                    </div>                 
+               </div>
+            </div>
+      
+      </div>
+      <br/>
+      <br/>
+    <script src="/script.js"></script>
+      </body>
+  </html>
+
+
