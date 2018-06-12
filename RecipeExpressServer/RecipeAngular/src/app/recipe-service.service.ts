@@ -55,11 +55,11 @@ export class RecipeServiceService {
   }
 
 
-  updateRecipe(rrecipeId: string,recipe: IRecipeModel){
+ /*  updateRecipe(rrecipeId: string,recipe: IRecipeModel){
     console.log("inside Update recipe post");
     return this.http.post( '/app/recipe/'+ rrecipeId,recipe)
     .map(response => response.json()); 
-  }
+  } */
 
  deleteRecipe(rrecipeId: string){
   console.log(rrecipeId);
