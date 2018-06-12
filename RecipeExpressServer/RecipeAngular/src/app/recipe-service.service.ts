@@ -55,15 +55,15 @@ export class RecipeServiceService {
   }
 
 
-  updateRecipe(rrecipeId: string){
+  updateRecipe(rrecipeId: string,recipe: IRecipeModel){
     console.log("inside Update recipe post");
-    return this.http.post( '/app/recipe/', rrecipeId)
+    return this.http.post( 'http://localhost:8080/app/recipe/'+ rrecipeId,recipe)
     .map(response => response.json()); 
   }
 
  deleteRecipe(rrecipeId: string){
   console.log(rrecipeId);
-  var result=  this.http.delete(  '/app/recipe/'+ rrecipeId)
+  var result=  this.http.delete(  'http://localhost:8080/app/recipe/'+ rrecipeId)
   .map(response => response.json());
   return result;
 }
@@ -71,7 +71,7 @@ export class RecipeServiceService {
 
   getRecipeForPost(recipe: IRecipeModel) {
     console.log("inside getrecipepost");
-    return this.http.post('/app/recipe/', recipe)
+    return this.http.post('http://localhost:8080/app/recipe/', recipe)
     .map(response => response.json());
   }
 

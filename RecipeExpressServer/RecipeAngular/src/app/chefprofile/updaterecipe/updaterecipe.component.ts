@@ -79,7 +79,7 @@ export class UpdaterecipeComponent implements OnInit {
     console.log(this.updateRecipe.rname);
     console.log(this.updateRecipe);
 
-    this.RecipeService$.updateRecipe(this.updateRecipe.rrecipeId)
+    this.RecipeService$.updateRecipe(this.updateRecipe.rrecipeId,this.updateRecipe)
     .subscribe(
       result => {
         this.updateRecipe = result;
