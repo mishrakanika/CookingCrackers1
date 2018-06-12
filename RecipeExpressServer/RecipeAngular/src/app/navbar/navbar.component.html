@@ -7,11 +7,11 @@
       <li><a href="#">Favorite Recipe</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cuisine Type<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Indian</a></li>
-          <li><a href="#">Thai</a></li>
-          <li><a href="#">Italian</a></li>
-          <li><a href="#">American</a></li>
-          <li><a href="#">Chinese</a></li>
+          <li><a [routerLink]="['/cuisinetype/', 'Indian']">Indian</a></li>
+          <li><a [routerLink]="['/cuisinetype/', 'Thai']">Thai</a></li>
+          <li><a [routerLink]="['/cuisinetype/', 'Italian']">Italian</a></li>
+          <li><a [routerLink]="['/cuisinetype/', 'American']">American</a></li>
+          <li><a [routerLink]="['/cuisinetype/', 'Chinese']">Chinese</a></li>
         </ul>
       </li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Meal Preference<span class="caret"></span></a>
@@ -20,6 +20,15 @@
           <li><a href="#">Vegetarian</a></li>
           <li><a href="#">GlutenFree</a></li>
           <li><a href="#">NonVegetarian</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Meal Type<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Breakfast</a></li>
+          <li><a href="#">Lunch</a></li>
+          <li><a href="#">Dinner</a></li>
+          <li><a href="#">MidnightSnacks</a></li>
+          <li><a href="#">Desserts</a></li>
         </ul>
       </li>
       <li><a  class="nav-link" routerLink="chef">CHome</a></li>
