@@ -24,11 +24,11 @@
       </li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Meal Type<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Breakfast</a></li>
-          <li><a href="#">Lunch</a></li>
-          <li><a href="#">Dinner</a></li>
-          <li><a href="#">MidnightSnacks</a></li>
-          <li><a href="#">Desserts</a></li>
+          <li><a [routerLink]="['/mealtype/', 'Breakfast']">Breakfast</a></li>
+          <li><a [routerLink]="['/mealtype/', 'Lunch']">Lunch</a></li>
+          <li><a [routerLink]="['/mealtype/', 'Dinner']">Dinner</a></li>
+          <li><a [routerLink]="['/mealtype/', 'MidnightSnacks']">MidnightSnacks</a></li>
+          <li><a [routerLink]="['/mealtype/', 'Desserts']">Desserts</a></li>
         </ul>
       </li>
       <li><a  class="nav-link" routerLink="chef">CHome</a></li>
