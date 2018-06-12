@@ -13,9 +13,9 @@ import { FormsModule } from '@angular/forms';
 export class UpdaterecipeComponent implements OnInit {
 
   updateRecipe: IRecipeModel;
-  inputrecipe: IRecipeModel;
   rname: String;
  rrecipeId: string;
+ rrecipeIdagain : string;
   rmethod: String;
   rdescription: String;
   rcuisinetype: String;
@@ -35,10 +35,11 @@ export class UpdaterecipeComponent implements OnInit {
 		private location: Location,
     private recipeService$: RecipeServiceService) { 
     
-      this.inputrecipe = {rrecipeId:'', rname: '', rmethod: '', rdescription:'', rcuisinetype:'',rmealpreference:'', rmealtype:'', rduration:0,ringredients:'',rchefid:'',rimage:'',};
+      this.updateRecipe = {rrecipeId:'', rname: '', rmethod: '', rdescription:'', rcuisinetype:'',rmealpreference:'', rmealtype:'', rduration:0,ringredients:'',rchefid:'',rimage:'',};
     
 
     this.rrecipeId = route.snapshot.params['Id'];
+    this.rrecipeIdagain= route.snapshot.params['Id'];
        console.log("Recipe ID :"+ this.rrecipeId);
        recipeService$.retrieveRecipeDetailsByName(this.rrecipeId)
        .subscribe(
@@ -58,30 +59,30 @@ export class UpdaterecipeComponent implements OnInit {
     
   }
 
-  onSubmitupdate() {
-    console.log(this.inputrecipe);
-    this.inputrecipe.rrecipeId = this.rrecipeId;
-    this.inputrecipe.rname = this.rname;
-    this.inputrecipe.rmethod = this.rmethod;
-    this.inputrecipe.rdescription = this.rdescription;
-    this.inputrecipe.rcuisinetype = this.rcuisinetype;
-    this.inputrecipe.rmealpreference = this.rmealpreference;
-    this.inputrecipe.rmealtype = this.rmealtype;
-    this.inputrecipe.rduration = this.rduration;
-    this.inputrecipe.ringredients = this.ringredients;
-    this.inputrecipe.rchefid = this.rchefid;
-    this.inputrecipe.rimage = this.rimage;
+  onsubmitupdate() {
+    console.log(this.updateRecipe);
+    this.updateRecipe.rrecipeId = this.rrecipeId;
+    this.updateRecipe.rname = this.rname;
+    this.updateRecipe.rmethod = this.rmethod;
+    this.updateRecipe.rdescription = this.rdescription;
+    this.updateRecipe.rcuisinetype = this.rcuisinetype;
+    this.updateRecipe.rmealpreference = this.rmealpreference;
+    this.updateRecipe.rmealtype = this.rmealtype;
+    this.updateRecipe.rduration = 400;
+    this.updateRecipe.ringredients = this.ringredients;
+    this.updateRecipe.rchefid = this.rchefid;
+    this.updateRecipe.rimage = this.rimage;
     
     console.log(this.rname);
-    console.log(this.inputrecipe.rname);
-    console.log(this.inputrecipe);
+    console.log(this.updateRecipe.rname);
+    console.log(this.updateRecipe);
 
-    this.RecipeService$.updateRecipe(this.rrecipeId)
+    this.RecipeService$.updateRecipe(this.updateRecipe.rrecipeId)
     .subscribe(
       result => {
-        this.inputrecipe = result;
+        this.updateRecipe = result;
         this.name = "Post";
-        console.log('result'+this.inputrecipe.toString());
+        console.log('result'+this.updateRecipe.toString());
       },
       () => {},
       () => {}
