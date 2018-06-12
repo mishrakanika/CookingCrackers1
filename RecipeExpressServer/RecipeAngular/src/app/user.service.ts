@@ -26,7 +26,7 @@ export class UserService {
   }
 
   validateLUsernameInfo(username:string) {
-    return this.http.get( '/api/user/username/' + username)
+    return this.http.get( '/app/user/username/' + username)
     .map(response => response.json());
   }
 

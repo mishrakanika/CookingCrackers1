@@ -46,7 +46,7 @@ import { LoginComponent } from './login/login.component';
     HttpModule,
     FormsModule,
   ],
-  providers: [ RecipeServiceService ,UserService],
+  providers: [ {provide: APP_BASE_HREF, useValue: '/'}, RecipeServiceService ,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
