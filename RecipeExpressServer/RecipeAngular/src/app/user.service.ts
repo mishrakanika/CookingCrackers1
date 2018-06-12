@@ -26,39 +26,39 @@ export class UserService {
   }
 
   validateLUsernameInfo(username:string) {
-    return this.http.get( 'http://localhost:8080/app/user/username/' + username)
+    return this.http.get( '/app/user/username/' + username)
     .map(response => response.json());
   }
 
 
   retrieveRecipeDetailsByUser(rId: string) {
-    var result = this.http.get( 'http://localhost:8080/app/recipe/user/' + rId)
+    var result = this.http.get( '/app/recipe/user/' + rId)
     .map(response => response.json());
     return result;
   }
 
   getUserInfo() {
-    return this.http.get('http://localhost:8080/auth/userdata')
+    return this.http.get('/auth/userdata')
     .map(response => response.json());
   }
 
   createNewUSer(User:IUserModel){
     console.log("inside new user post");
-    return this.http.post('http://localhost:8080/app/user/', User)
+    return this.http.post('/app/user/', User)
     .map(response => response.json());
 
   }
 
   loginWithGoogle(){
     console.log("inside user service for google login");
-    return this.http.get('http://localhost:8080/auth/google')
+    return this.http.get('/auth/google')
     .map(response => response.json());
   }
 
 
   validatecallback(){
     console.log("inside user service for google callback");
-    return this.http.get('http://localhost:8080/auth/google/callback')
+    return this.http.get('/auth/google/callback')
     .map(response => response.json());
 
   }
