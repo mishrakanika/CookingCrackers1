@@ -62,8 +62,12 @@ var App = /** @class */ (function () {
         router.post('/app/recipe/:recipeID', function (req, res) {
             var id = req.params.recipeID;
             console.log('Query changed single list with id: ' + id);
-            console.log(res.header);
-            res.send("Received post for id:" + id);
+            _this.Recipes.model.update([id], function (err) {
+                if (err) {
+                    console.log('Recipe updation failed');
+                }
+            });
+            res.send({ message: 'Recipe updated!' });
         });
         router["delete"]('/app/recipe/:recipeID', function (req, res) {
             var id = req.params.recipeID;

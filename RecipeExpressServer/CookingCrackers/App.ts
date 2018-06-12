@@ -101,9 +101,12 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
                 
         var id = req.params.recipeID;
         console.log('Query changed single list with id: ' + id);
-
-        console.log(res.header);
-        res.send("Received post for id:"+ id);
+        this.Recipes.model.update([id], (err) => {
+            if (err) {
+                console.log('Recipe updation failed');
+            }
+        }); 
+        res.send({ message: 'Recipe updated!' });
     });
 
     router.delete('/app/recipe/:recipeID', (req, res) => {

@@ -29,12 +29,14 @@ export class UpdaterecipeComponent implements OnInit {
  name: string;
  RecipeService$: RecipeServiceService;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     private router: Router,
-
 		private location: Location,
-    private recipeService$: RecipeServiceService) { 
-    
+    private recipeService$: RecipeServiceService
+  ) { 
+      this.RecipeService$ = recipeService$;
+      this.router$ = router;
       this.updateRecipe = {rrecipeId:'', rname: '', rmethod: '', rdescription:'', rcuisinetype:'',rmealpreference:'', rmealtype:'', rduration:0,ringredients:'',rchefid:'',rimage:'',};
     
 
