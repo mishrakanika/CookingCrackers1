@@ -75,17 +75,18 @@ var App = /** @class */ (function () {
             _this.username = JSON.stringify(req.user);
             res.json(req.user);
         });
-        router.post('/app/recipe/:recipeID', function (req, res) {
-            var jsonObj = req.body;
-            var id = req.params.recipeID;
-            console.log('Query changed single recipe with id: ' + id);
-            _this.Recipes.model.update([jsonObj], function (err) {
-                if (err) {
-                    console.log('object updation failed');
-                }
-            });
-            res.send({ message: 'Recipe updated!' });
-        });
+        // router.post('/app/recipe/:recipeID', (req, res) => {
+        //     var jsonObj = req.body;      
+        //     var id = req.params.recipeID;
+        //     console.log('Query changed single recipe with id: ' + id);
+        //     this.Recipes.UpdateRecipe(res,jsonObj);
+        //     // this.Recipes.model.update([jsonObj], (err) => {
+        //     //     if (err) {
+        //     //         console.log('object updation failed');
+        //     //     }
+        //     // }); 
+        //     res.send({ message: 'Recipe updated!' });
+        // });
         router["delete"]('/app/recipe/:recipeID', function (req, res) {
             var id = req.params.recipeID;
             console.log('Query single recipe with id: ' + id);
@@ -161,6 +162,11 @@ var App = /** @class */ (function () {
         router.get('/app/all/users/', function (req, res) {
             console.log('Query All Users');
             _this.User.retrieveAllUsers(res);
+        });
+        router.get('/app/chef/recipe/:rchefid', function (req, res) {
+            var id = req.params.rchefid;
+            console.log('Query All recipe with chefid' + id);
+            _this.Recipes.retrieveRecipeDetailsByCatalogue(res, { rchefid: id });
         });
         this.expressApp.use('/', router);
         this.expressApp.use('/images', express.static(__dirname + '/img'));
