@@ -50,6 +50,7 @@ export class UserService {
   }
 
   loginWithGoogle(){
+    console.log("inside user service for google login");
     return this.http.get('http://localhost:8080/auth/google')
     .map(response => response.json());
   }

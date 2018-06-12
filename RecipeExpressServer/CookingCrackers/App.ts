@@ -87,7 +87,7 @@ private validateAuth(req, res, next):void {
 
 router.get('/auth/google/callback', 
     passport.authenticate('google', 
-        { failureRedirect: '/', successRedirect: '/#/allrecipes' }
+        { failureRedirect: '/', successRedirect: '/allrecipes' }
     )
 );
 

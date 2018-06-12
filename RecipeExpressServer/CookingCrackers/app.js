@@ -52,8 +52,8 @@ var App = /** @class */ (function () {
         router.use(cors());
         router.options('*', cors());
         //oauth
-        router.get('/auth/google', cors(), passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }));
-        router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/', successRedirect: '/#/allrecipes' }));
+        router.get('/auth/google', cors(), passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }, console.log('reached route in app ts')));
+        router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/', successRedirect: '/allrecipes' }));
         router.get('/auth/userdata', this.validateAuth, function (req, res) {
             console.log('user object:' + JSON.stringify(req.user));
             _this.username = JSON.stringify(req.user);

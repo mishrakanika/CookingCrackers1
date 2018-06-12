@@ -19,7 +19,7 @@ class GooglePassport {
         passport.use(new GoogleStrategy({
                 clientID: this.clientId,
                 clientSecret: this.secretId,
-                callbackURL: "http://cookingcracker.azurewebsites.net/auth/google/callback", 
+                callbackURL: "http://localhost:8080/auth/google/callback", 
                 profileFields: ['id', 'displayName', 'emails']
             }
             ,
