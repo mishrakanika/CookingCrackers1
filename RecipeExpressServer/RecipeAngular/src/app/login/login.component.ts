@@ -25,6 +25,22 @@ export class LoginComponent implements OnInit {
       this.logintype = route.snapshot.params['Id'];
       this.userservice$ = _userservice;
       this.route$ = _route;
+      if(this.logintype == '3')
+      {
+        this.userservice$.loginWithGoogle()
+        .subscribe(
+          result => {
+            this.username = result.emails[0].value;
+            this.password = "";
+          },
+          () => { this.username = "not logged in"},
+          () => console.log('REST call' + this.username)
+        );
+      }
+
+      else
+      {
+
     this.userservice$.getUserInfo()
       .subscribe(
         result => {
@@ -35,7 +51,7 @@ export class LoginComponent implements OnInit {
         () => console.log('REST call' + this.username)
       );
     }
-
+  }
   onClick() {
     this.route$.navigate(['/Home']);
   }

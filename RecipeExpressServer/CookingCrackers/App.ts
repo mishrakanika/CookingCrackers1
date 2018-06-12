@@ -11,7 +11,7 @@ import * as session from 'express-session';
 import {RecipeModel} from './model/RecipeModel';
 import {RecipeCatalogModel} from './model/RecipeCatalogModel';
 import {RecipeCatalogDetailsModel} from './model/RecipeCatalogDetailsModel';
-
+import {UserModel} from './model/UserModel';
 
 import GooglePassportObj from './GooglePassport';
 
@@ -30,6 +30,7 @@ class App {
   public username:string;
   public RecipesCatalog:RecipeCatalogModel;
   public RecipeCatalogDetails:RecipeCatalogDetailsModel;
+  public User:UserModel;
 
   public googlePassportObj:GooglePassportObj;
 
@@ -44,6 +45,7 @@ class App {
     this.Recipes = new RecipeModel();
     this.RecipesCatalog = new RecipeCatalogModel();
     this.RecipeCatalogDetails = new RecipeCatalogDetailsModel();
+    this.User = new UserModel();
   }
 
   // Configure Express middleware.
@@ -109,12 +111,6 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
         this.Recipes.DeleteRecipe(res, {rrecipeId: id});
     });
 
-    // router.get('/', (req, res) => {
-    //     console.log('Query All list');
-    //     this.Recipes.retrieveAllRecipes(res);
-       
-    // });
-
     
     
     router.post('/app/recipe/', (req, res) => {
@@ -158,6 +154,12 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
         this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, {rcId: id});
     });
 
+
+    router.get( '/app/user/username/:usernames', (req, res) => {
+        var id = req.params.usernames;
+        console.log('Query single user with username: ' + id);
+        this.User.retrieveUserDetails(res, {username: id});
+    });
 
 
     

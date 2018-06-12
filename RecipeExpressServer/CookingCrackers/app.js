@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 var RecipeModel_1 = require("./model/RecipeModel");
 var RecipeCatalogModel_1 = require("./model/RecipeCatalogModel");
 var RecipeCatalogDetailsModel_1 = require("./model/RecipeCatalogDetailsModel");
+var UserModel_1 = require("./model/UserModel");
 var GooglePassport_1 = require("./GooglePassport");
 var passport = require('passport');
 var fs = require('fs');
@@ -25,6 +26,7 @@ var App = /** @class */ (function () {
         this.Recipes = new RecipeModel_1.RecipeModel();
         this.RecipesCatalog = new RecipeCatalogModel_1.RecipeCatalogModel();
         this.RecipeCatalogDetails = new RecipeCatalogDetailsModel_1.RecipeCatalogDetailsModel();
+        this.User = new UserModel_1.UserModel();
     }
     // Configure Express middleware.
     App.prototype.middleware = function () {
@@ -68,10 +70,6 @@ var App = /** @class */ (function () {
             console.log('Query single recipe with id: ' + id);
             _this.Recipes.DeleteRecipe(res, { rrecipeId: id });
         });
-        // router.get('/', (req, res) => {
-        //     console.log('Query All list');
-        //     this.Recipes.retrieveAllRecipes(res);
-        // });
         router.post('/app/recipe/', function (req, res) {
             console.log("Inside Post");
             var jsonObj = req.body;
@@ -102,6 +100,11 @@ var App = /** @class */ (function () {
             var id = req.params.recipeCatalogDetails;
             console.log('Query single recipe with catalog: ' + id);
             _this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, { rcId: id });
+        });
+        router.get('/app/user/username/:usernames', function (req, res) {
+            var id = req.params.usernames;
+            console.log('Query single user with username: ' + id);
+            _this.User.retrieveUserDetails(res, { username: id });
         });
         this.expressApp.use('/', router);
         this.expressApp.use('/images', express.static(__dirname + '/img'));
