@@ -62,34 +62,34 @@ export class UpdaterecipeComponent implements OnInit {
   }
 
   onsubmitupdate() {
-    console.log(this.updateRecipe);
-    this.updateRecipe.rrecipeId = this.rrecipeId;
-    this.updateRecipe.rname = this.rname;
-    this.updateRecipe.rmethod = this.rmethod;
-    this.updateRecipe.rdescription = this.rdescription;
-    this.updateRecipe.rcuisinetype = this.rcuisinetype;
-    this.updateRecipe.rmealpreference = this.rmealpreference;
-    this.updateRecipe.rmealtype = this.rmealtype;
-    this.updateRecipe.rduration = 400;
-    this.updateRecipe.ringredients = this.ringredients;
-    this.updateRecipe.rchefid = this.rchefid;
-    this.updateRecipe.rimage = this.rimage;
+    // console.log(this.updateRecipe);
+    // this.updateRecipe.rrecipeId = this.rrecipeId;
+    // this.updateRecipe.rname = this.rname;
+    // this.updateRecipe.rmethod = this.rmethod;
+    // this.updateRecipe.rdescription = this.rdescription;
+    // this.updateRecipe.rcuisinetype = this.rcuisinetype;
+    // this.updateRecipe.rmealpreference = this.rmealpreference;
+    // this.updateRecipe.rmealtype = this.rmealtype;
+    // this.updateRecipe.rduration = 400;
+    // this.updateRecipe.ringredients = this.ringredients;
+    // this.updateRecipe.rchefid = this.rchefid;
+    // this.updateRecipe.rimage = this.rimage;
     
-    console.log(this.rname);
-    console.log(this.updateRecipe.rname);
-    console.log(this.updateRecipe);
+    // console.log(this.rname);
+    // console.log(this.updateRecipe.rname);
+    // console.log(this.updateRecipe);
 
-    this.RecipeService$.updateRecipe(this.updateRecipe.rrecipeId,this.updateRecipe)
-    .subscribe(
-      result => {
-        this.updateRecipe = result;
-        this.name = "Post";
-        console.log('result'+this.updateRecipe.toString());
-      },
-      () => {},
-      () => {}
-    );
-    this.router$.navigate(['/']);
+    // this.RecipeService$.updateRecipe(this.updateRecipe.rrecipeId,this.updateRecipe)
+    // .subscribe(
+    //   result => {
+    //     this.updateRecipe = result;
+    //     this.name = "Post";
+    //     console.log('result'+this.updateRecipe.toString());
+    //   },
+    //   () => {},
+    //   () => {}
+    // );
+    // this.router$.navigate(['/']);
   }
 
 
