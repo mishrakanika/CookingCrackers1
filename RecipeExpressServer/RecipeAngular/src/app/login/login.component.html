@@ -8,7 +8,7 @@
       <br/><br/>
         <div class="container" >
               <br/>
-              <div *ngIf="logintype == 1">
+              <div *ngIf="logintype == '1'">
                   <h3 align="center" >Sign In</h3>
                   <br/>
                   <form (ngSubmit)="onSubmitsignin()">
@@ -31,7 +31,7 @@
                       </form>
                 </div>
 
-                <div *ngIf="logintype == 2">
+                <div *ngIf="logintype == '2'">
                     <h3 align="center" >Sign Up</h3>          
                     <br/>
                     <form (ngSubmit)="onSubmitsigniup()">
@@ -72,7 +72,7 @@
 
 
                 </div>
-                <div *ngIf="logintype == 3">
+                <div *ngIf="logintype == '3'">
                   <h3 align="center">Login with google</h3>          
                   <br/>
                   <!-- <form (ngSubmit)="onGoogleLogin()">

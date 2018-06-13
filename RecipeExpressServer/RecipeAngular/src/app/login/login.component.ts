@@ -33,50 +33,13 @@ export class LoginComponent implements OnInit {
       this.userservice$ = _userservice;
       this.route$ = _route;
       this.inputuser= {firstName:'', lastName: '', username:'', password:'',isChef: false, userId: 0,};
-    //   if(this.logintype == '3')
-    //   {
-    //     this.userservice$.loginWithGoogle()
-    //     .subscribe(
-    //       result => {
-    //         this.username = result.emails[0].value;
-    //         this.password = "";
-    //       },
-    //       () => { this.username = "not logged in"},
-    //       () => console.log('REST call' + this.username)
-    //     );
-    //   }
 
-    //   else
-    //   {
-
-    // this.userservice$.getUserInfo()
-    //   .subscribe(
-    //     result => {
-    //       this.username = result.emails[0].value;
-    //       this.password = "";
-    //     },
-    //     () => { this.username = "not logged in"},
-    //     () => console.log('REST call' + this.username)
-    //   );
-    // }
   }
   onClick() {
     this.route$.navigate(['/Home']);
   }
   
-  // onFBLogin() {
-  //    this.userservice$.validateLUsernameInfo(this.username)
-  //    .subscribe(
-  //      result => {
-  //        this.userservice$.userId = result;
-  //        this.route$.navigate(['/Home']);
-  //      },
-  //      () => {},
-  //      () => console.log('REST call:' + this.username)
-  //    );
-  //    console.log("username:" + this.username);
-  //    console.log("password:" + this.password);
-  // }
+
 
   onGoogleLogin(){
     this.userservice$.loginWithGoogle().

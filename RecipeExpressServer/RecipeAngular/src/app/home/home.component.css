@@ -1,7 +1,8 @@
 .bg { 
     background-image: url("http://kochihermosabeach.com/images/img02.jpg");
     /* height: fit-content;  */
-    height: 800px;
+    /* height: 1050px; */
+    height: 100%;
     opacity: 0.8;
     background-position: center;
     background-repeat: no-repeat;
